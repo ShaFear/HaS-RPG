@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.29)  29 JUN 2015 17:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.29)  29 JUN 2015 19:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,7 +391,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-[3] (./koncept.aux) ) 
+[3] [4] [5] (./koncept.aux) ) 
 Here is how much of TeX's memory you used:
  2391 strings out of 494952
  30663 string characters out of 6179606
@@ -399,18 +399,18 @@ Here is how much of TeX's memory you used:
  5576 multiletter control sequences out of 15000+600000
  13458 words of font info for 34 fonts, out of 8000000 for 9000
  56 hyphenation exceptions out of 8191
- 38i,6n,23p,641b,206s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-bx1200.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.6
-00pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </
-home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/jer
-eczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/jereczem/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/jereczem/.texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on koncept.pdf (3 pages, 54979 bytes).
+ 38i,6n,23p,641b,210s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/jereczem/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecbx1200.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+rm1095.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.6
+00pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </
+home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/jer
+eczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/jereczem/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
+Output written on koncept.pdf (5 pages, 67985 bytes).
 PDF statistics:
- 207 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 243 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -62,8 +62,62 @@ Aplikacja na system operacyjny Android wynosząca zabawę w chowanego na nowy, o
 	
 \item
 	Zostaje pokazany \textbf{ranking} i graczom zostają przydzielone \textbf{punkty doświadczenia}.
-
 	
+\end{enumerate}
+
+\section{Łowca}
+\subsection{Krótki opis}
+Gra łowcą polega na namierzaniu ofiar i pokonywaniu ich w potyczkach. Głównym celem łowcy jest pokonanie wszystkich graczy w ciągu określonego czasu. Podstawowo łowca ma dostęp do informacji jak daleko znajduje się od każdej z ofiar, jeżeli znajdzie się w określonym zasięgu może dokonać potyczki z ofiarą.
+
+\subsection{Statystyki}
+\begin{enumerate}
+\item
+	\textbf{Poziom doświadczenia} - początkowo 1, ostatecznie 20, każdy kolejny poziom doświadczenia dodaje jeden punkt umiejętności, który można użyć do zwiększenia bądź odblokowania umiejętności. Na 5 poziomie można wybrać jedną z dwóch klas łowcy, na poziomie 15 jedną z dwóch subklas wcześniej wybranej klasy.
+
+\item
+	\textbf{Punkty doświadczenia} - liczba aktualne posiadanych punktów doświadczenia.
+	
+\item
+	\textbf{Punkty awansu} - liczba określająca ile trzeba mieć punktów doświadczenia aby uzyskać kolejny poziom doświadczenia (na każdym kolejnym poziomie doświadczenia liczba potrzebnych punktów jest dwukrotnie większa).	
+	
+\item
+	\textbf{Początkowy zasięg potyczki} - określa zasięg w jakim ofiara musi się znaleźć aby móc ją zaatakować, jest to zasięg, który stopniowo narasta wraz z każdą kolejną poległą ofiarą (w trakcie potyczki).
+	
+\item
+	\textbf{Końcowy zasięg potyczki} - określa końcowy zasięg, do którego może wzrosnąć początkowy zasięg potyczki.
+	
+\item
+	\textbf{Aktualny zasięg potyczki} - określa aktualny zasięg w danej rozgrywce.
+	
+\item 
+	\textbf{Punkty umiejętności} - określa ilość punktów, które można wykorzystać do wydania na możliwe dla danej klasy umiejętności.
+	
+\end{enumerate}
+
+\subsection{Umiejętności}
+\subsubsection{Klasa podstawowa}
+\begin{enumerate}
+\item \textbf{Szybki start} - pasywne, maksymalnie 5 punktów do rozdania. Z każdym kolejnym punktem doświadczenia różnica między początkowym, a końcowym zesięgiem potyczki jest zmniejszana o 5\%. (standardowo różnica jest równa 50\% w ten sposób można zmienjszyć do 25\%).
+
+\item \textbf{Nie uciekniesz!} - 5-minut przeładowania, maksymalnie 5 punktów do rozdania. Jeżeli ofiara znajduje się w końcowym zasięgu potyczki, można zablokować jej możliwośc specjalnej ucieczki. Przy pierwszym punkcie doświadczenia można używać tej umiejętności na ofiarach z poziomem doświadczenia co najmniej o 10 większym, z każdym kolejnym punktem liczba ta maleje o 2 (przy pięciu punktach umiejętność tą można stosować na graczach o conajmniej takim poziomie jak łowca.
+
+\item \textbf{Szybsza mobilizacja} - pasywne, maksymalnie 6 punktów do rozdania. Z każdym kolejnym punktem czas dostępny przy początkowej ucieczce (st. 15 minut) jest zmniejszany o 6\% (maksymalnie do 36\%).
+
+\subsubsection{Klasa 1}
+TODO
+\subsubsection{Klasa 1a}
+TODO
+\subsubsection{Klasa 1b}
+TODO
+
+\subsubsection{Klasa 2}
+TODO
+\subsubsection{Klasa 2a}
+TODO
+\subsubsection{Klasa 2b}
+TODO
+
+
 \end{enumerate}
 
 \end{document}
