@@ -22,4 +22,48 @@
 \subsection{Krótki opis}
 Aplikacja na system operacyjny Android wynosząca zabawę w chowanego na nowy, odświeżony poziom. Gracze (conajmniej trzech) spotykają się w jednym miejsu, wśród nich zostaje wybrany jeden łowca, reszta zostaje ofiarami. Ofiary mają określony czas na ucieczkę, po którym łowca korzystając z aplikacji namierza ich lokalizację GPS i następuje pościg. Ofiary nie mogą się ruszać z swojej kryjówki, jednak aplikacja będzie pozwalała na dodatkowe manewry, ucieczki, zmyłki itp. Gra kończy się gdy łowca znajdzie wszystkie ofiary lub po określonym czasie (po upływie tego czasu łowca przegrywa).
 
+\subsection{Podstawowy scenariusz rozgrywki}
+\begin{enumerate}
+\item
+	\textbf{Gracz} tworzy nowe \textbf{lobby} (staje się \textbf{administratorem}).
+	
+\item
+	\textbf{Gracze} dołączają do \textbf{lobby}.
+	
+\item
+	\textbf{Administrator} może wystartować \textbf{grę}, gdy będzie co najmniej trzech \textbf{graczy}.
+	
+\item
+	\textbf{Poprzez} losowanie jeden z \textbf{graczy} zostaje \textbf{łowcą}.
+	
+\item
+	Pozostali \textbf{gracze} zostają \textbf{ofiarami}.
+	
+\item
+	W ciągu minuty \textbf{ofiary} jak i \textbf{łowca} wybierają \textbf{postacie}, którymi będą grać.
+	
+\item
+	\textbf{Ofiary} mają 15 minut na \textbf{ucieczkę} do dowolnej \textbf{kryjówki}, w tym czasie \textbf{łowca} nie może się ruszać (i powinien zamnkąć oczy, dopóki \textbf{ofiary} się nie oddalą).
+	
+\item
+	\textbf{Łowca} wyrusza w poszukiwaniu \textbf{ofiar}, rozpoczyna się \textbf{rozgrywka}.
+	
+\item
+	\textbf{Ofiary} jak i \textbf{łowca} mogą stosować specjalne umiejętności w trakcie \textbf{rozgrywki} definiowane przez \textbf{postać}, którą grają.
+	
+\item
+	Gdy \textbf{łowca} znajdzie się w określonej odległości od \textbf{ofiary} następuje \textbf{potyczka}.
+	
+\item
+	Standardowo \textbf{potyczka} polega na predykcji zamierzeń \textbf{łowcy} przez \textbf{ofiarę}. \textbf{Łowca} wybiera część \textbf{ciała} (\textbf{góra} lub \textbf{dół}), którą atakuje. \textbf{Ofiara} wybiera przewidywaną część \textbf{ciała}, jeżeli dobrze przewidzi 3 razy pod rząd to ma prawo do 3 minutowej \textbf{ucieczki}. Jeżeli nie przewidzi chociaż raz, zostaje \textbf{pokonanym}.
+	
+\item
+	\textbf{Rozgrywka} toczy się dopóki wszystkie \textbf{ofiary} nie zostaną \textbf{pokonanymi} lub po upływie godziny od rozpoczęcia \textbf{rozgrywki}.
+	
+\item
+	Zostaje pokazany \textbf{ranking} i graczom zostają przydzielone \textbf{punkty doświadczenia}.
+
+	
+\end{enumerate}
+
 \end{document}
