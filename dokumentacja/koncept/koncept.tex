@@ -102,6 +102,7 @@ Gra łowcą polega na namierzaniu ofiar i pokonywaniu ich w potyczkach. Główny
 \item \textbf{Nie uciekniesz!} - 5-minut przeładowania, maksymalnie 5 punktów do rozdania. Jeżeli ofiara znajduje się w końcowym zasięgu potyczki, można zablokować jej możliwośc specjalnej ucieczki. Przy pierwszym punkcie doświadczenia można używać tej umiejętności na ofiarach z poziomem doświadczenia co najmniej o 10 większym, z każdym kolejnym punktem liczba ta maleje o 2 (przy pięciu punktach umiejętność tą można stosować na graczach o conajmniej takim poziomie jak łowca.
 
 \item \textbf{Szybsza mobilizacja} - pasywne, maksymalnie 6 punktów do rozdania. Z każdym kolejnym punktem czas dostępny przy początkowej ucieczce (st. 15 minut) jest zmniejszany o 6\% (maksymalnie do 36\%).
+\end{enumerate}
 
 \subsubsection{Klasa 1}
 TODO
@@ -117,7 +118,58 @@ TODO
 \subsubsection{Klasa 2b}
 TODO
 
+\section{Ofiara}
+\subsection{Krótki opis}
+Gra ofiarą polega na ukryciu się przed łowcą, głównym manewrem ofiary jest tak zwana \textbf{ucieczka}, która polega na tym, że przez określony czas ofiara może się przemieszczać, gdy czas się skończy jej lokalizacja GPS zostaje zapisana i ofiara nie może się z tamtąd ruszać do momentu kolejnej ucieczki. Ponadto standardowo ofiara może wyczuć, że łowca jest w pobliżu i jeżeli posiada specjalne umiejętności wykonać jakiś ruch.
+
+\subsection{Statystyki}
+\begin{enumerate}
+\item
+	\textbf{Poziom doświadczenia} - początkowo 1, ostatecznie 20, każdy kolejny poziom doświadczenia dodaje jeden punkt umiejętności, który można użyć do zwiększenia bądź odblokowania umiejętności. Na 5 poziomie można wybrać jedną z trzech klas ofiary, na poziomie 15 jedną z dwóch subklas wcześniej wybranej klasy.
+
+\item
+	\textbf{Punkty doświadczenia} - liczba aktualne posiadanych punktów doświadczenia.
+	
+\item
+	\textbf{Punkty awansu} - liczba określająca ile trzeba mieć punktów doświadczenia aby uzyskać kolejny poziom doświadczenia (na każdym kolejnym poziomie doświadczenia liczba potrzebnych punktów jest dwukrotnie większa).	
+	
+\item
+	\textbf{Zasięg wyczuwania łowcy} - określa odległość z jakiej ofiara wyczuwa łowcę (po osiągnięciu granicznej wielkości ofiara widzi dokładną odległość od łowcy w czasie rzeczywistym). 
+	
+\item 
+	\textbf{Punkty umiejętności} - określa ilość punktów, które można wykorzystać do wydania na możliwe dla danej klasy umiejętności.
+\end{enumerate}
+
+\subsection{Umiejętności}
+\subsubsection{Klasa podstawowa}
+\begin{enumerate}
+\item \textbf{Ucieczka} - standardowo ustawiona na 1, dwie na rozgrywkę, 5-minutowe przeładowanie, maksymalnie 5 punktów do rozdania ( w sumie 6). Można użyć w dowolnym momencie w rozgrywce, na pierwszym poziomie czas ucieczki trwa 2 minuty, każdy kolejny zwiększa o pół minuty.
+
+\item \textbf{Zwiększona ostrożność} - standardowo ustawiona na 1, 10-minutowe przeładowanie, czas trwania 1 minuta, 6 punktów do rozdania. Tymczasowo zwiększa zasięg wyczuwania łowcy dwukrotnie, każdy kolejny punkt tej umiejętności zmniejsza czas przeładowania o minutę (można skrócić maksymalnie do 5 minut).
+
+\item \textbf{Łatwiejsza potyczka} - standardowo ustawiona na 1, raz na rozgrywkę, 6 punktów do rozdania. Jeżeli w ciągu czasu trwania umiejętności zostanie się zaatakowanym przez łowcę, to potyczka zostaje zrównana do jednej tury (50\% szans na ucieczkę).  Każdy punkt zwiększa czas umiejętności o pół minuty (z pierwszym punktem jest to minuta).
 
 \end{enumerate}
+
+\subsubsection{Klasa 1}
+TODO
+\subsubsection{Klasa 1a}
+TODO
+\subsubsection{Klasa 1b}
+TODO
+
+\subsubsection{Klasa 2}
+TODO
+\subsubsection{Klasa 2a}
+TODO
+\subsubsection{Klasa 2b}
+TODO
+
+\subsubsection{Klasa 3}
+TODO
+\subsubsection{Klasa 3a}
+TODO
+\subsubsection{Klasa 3b}
+TODO
 
 \end{document}

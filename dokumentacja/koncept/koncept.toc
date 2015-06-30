@@ -1,15 +1,29 @@
 \select@language {polish}
-\contentsline {section}{\numberline {1}Og\IeC {\'o}lne}{2}
-\contentsline {subsection}{\numberline {1.1}Kr\IeC {\'o}tki opis}{2}
-\contentsline {subsection}{\numberline {1.2}Podstawowy scenariusz rozgrywki}{2}
-\contentsline {section}{\numberline {2}\IeC {\L }owca}{3}
-\contentsline {subsection}{\numberline {2.1}Kr\IeC {\'o}tki opis}{3}
-\contentsline {subsection}{\numberline {2.2}Statystyki}{3}
-\contentsline {subsection}{\numberline {2.3}Umiej\IeC {\k e}tno\IeC {\'s}ci}{4}
-\contentsline {subsubsection}{\numberline {2.3.1}Klasa podstawowa}{4}
-\contentsline {subsubsection}{\numberline {2.3.2}Klasa 1}{4}
-\contentsline {subsubsection}{\numberline {2.3.3}Klasa 1a}{5}
-\contentsline {subsubsection}{\numberline {2.3.4}Klasa 1b}{5}
-\contentsline {subsubsection}{\numberline {2.3.5}Klasa 2}{5}
-\contentsline {subsubsection}{\numberline {2.3.6}Klasa 2a}{5}
-\contentsline {subsubsection}{\numberline {2.3.7}Klasa 2b}{5}
+\contentsline {section}{\numberline {1}Og\IeC {\'o}lne}{3}
+\contentsline {subsection}{\numberline {1.1}Kr\IeC {\'o}tki opis}{3}
+\contentsline {subsection}{\numberline {1.2}Podstawowy scenariusz rozgrywki}{3}
+\contentsline {section}{\numberline {2}\IeC {\L }owca}{4}
+\contentsline {subsection}{\numberline {2.1}Kr\IeC {\'o}tki opis}{4}
+\contentsline {subsection}{\numberline {2.2}Statystyki}{4}
+\contentsline {subsection}{\numberline {2.3}Umiej\IeC {\k e}tno\IeC {\'s}ci}{5}
+\contentsline {subsubsection}{\numberline {2.3.1}Klasa podstawowa}{5}
+\contentsline {subsubsection}{\numberline {2.3.2}Klasa 1}{5}
+\contentsline {subsubsection}{\numberline {2.3.3}Klasa 1a}{6}
+\contentsline {subsubsection}{\numberline {2.3.4}Klasa 1b}{6}
+\contentsline {subsubsection}{\numberline {2.3.5}Klasa 2}{6}
+\contentsline {subsubsection}{\numberline {2.3.6}Klasa 2a}{6}
+\contentsline {subsubsection}{\numberline {2.3.7}Klasa 2b}{6}
+\contentsline {section}{\numberline {3}Ofiara}{6}
+\contentsline {subsection}{\numberline {3.1}Kr\IeC {\'o}tki opis}{6}
+\contentsline {subsection}{\numberline {3.2}Statystyki}{6}
+\contentsline {subsection}{\numberline {3.3}Umiej\IeC {\k e}tno\IeC {\'s}ci}{7}
+\contentsline {subsubsection}{\numberline {3.3.1}Klasa podstawowa}{7}
+\contentsline {subsubsection}{\numberline {3.3.2}Klasa 1}{7}
+\contentsline {subsubsection}{\numberline {3.3.3}Klasa 1a}{8}
+\contentsline {subsubsection}{\numberline {3.3.4}Klasa 1b}{8}
+\contentsline {subsubsection}{\numberline {3.3.5}Klasa 2}{8}
+\contentsline {subsubsection}{\numberline {3.3.6}Klasa 2a}{8}
+\contentsline {subsubsection}{\numberline {3.3.7}Klasa 2b}{8}
+\contentsline {subsubsection}{\numberline {3.3.8}Klasa 3}{8}
+\contentsline {subsubsection}{\numberline {3.3.9}Klasa 3a}{8}
+\contentsline {subsubsection}{\numberline {3.3.10}Klasa 3b}{8}
