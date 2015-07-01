@@ -1,8 +1,13 @@
-<!-- LoginActivity -->
+<!-- LoginActivity and SignUpActivity-->
 <resources>
     <string name="app_name">Hide and Seek RPG</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="sign_in_button">Sign in</string>
     <string name="sign_un_button">Sign up</string>
+    <string name="in_game_name">In game name</string>
+    <string name="repassword">Reply password</string>
+    <string name="title_activity_sign_up">Hide and Seek RPG - Sign Up</string>
+    <string name="wrong_login_or_password_title">Wrong login or pasword</string>
+    <string name="wrong_login_or_password_message">Your login and password are incorrect, please try again or create an account.</string>
 </resources>
