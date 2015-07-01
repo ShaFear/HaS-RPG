@@ -1,0 +1,8 @@
+<!-- LoginActivity -->
+<resources>
+    <string name="app_name">Hide and Seek RPG</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_un_button">Sign up</string>
+</resources>
