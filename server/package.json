@@ -1,0 +1,11 @@
+{
+  "name": "node-mysql",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.x.x",
+    "mysql": "2.7.x",
+    "body-parser": "x.x.x",
+    "multer": "x.x.x",
+    "crypto": "x.x.x"
+  }
+}
