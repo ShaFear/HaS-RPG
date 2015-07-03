@@ -17,17 +17,17 @@ import java.nio.charset.StandardCharsets;
  */
 public class HttpUtils {
     private static int len = 500;
-    private static int readTimeOut = 20000;
-    private static int connectTimeOut = 30000;
+    private static int readTimeOut = 10000; //milisec
+    private static int connectTimeOut = 15000;
     // Given a URL, establishes an HttpUrlConnection and retrieves
     // the web page content as a InputStream, which it returns as
     // a string.
-    public static Response GET(String myurl) throws IOException {
+    public static Response GET(String myUrl) throws IOException {
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
         try {
-            URL url = new URL(myurl);
+            URL url = new URL(myUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(readTimeOut /* milliseconds */);
             conn.setConnectTimeout(connectTimeOut /* milliseconds */);
@@ -51,14 +51,14 @@ public class HttpUtils {
         }
     }
 
-    public static Response POST(String myurl, String urlParameters) throws IOException {
+    public static Response POST(String myUrl, String urlParameters) throws IOException {
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
         byte[] postData = urlParameters.getBytes("UTF-8");
 
         try {
-            URL url = new URL(myurl);
+            URL url = new URL(myUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(readTimeOut /* milliseconds */);
             conn.setConnectTimeout(connectTimeOut /* milliseconds */);

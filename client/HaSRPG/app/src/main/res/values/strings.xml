@@ -10,4 +10,13 @@
     <string name="title_activity_sign_up">Hide and Seek RPG - Sign Up</string>
     <string name="wrong_login_or_password_title">Wrong login or pasword</string>
     <string name="wrong_login_or_password_message">Your login and password are incorrect, please try again or create an account.</string>
+    <string name="wrong_repassword_input_title">Passwords don\'t match.</string>
+    <string name="wrong_repassword_input_message">Reply password is not the same as origin one.</string>
+    <string name="wrong_login_lenght_title">wrong_login_lenght_title</string>
+    <string name="wrong_login_lenght_message">wrong_login_lenght_title</string>
+    <string name="wrong_password_lenght_title">wrong_password_lenght_title</string>
+    <string name="wrong_password_lenght_message">wrong_password_lenght_message</string>
+    <string name="empty_input_title">empty_input_title</string>
+    <string name="empty_input_message">empty_input_message</string>
+    <string name="error_alert_title">ERROR</string>
 </resources>
