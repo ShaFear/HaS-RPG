@@ -5,14 +5,14 @@ require("../security/security");
 function check(login, passwd, res){
   if(login && passwd){
     if((3 > login.length) || (32 < login.length)){
-      res.status(201).send('Wrong login (min 3, max 32 letters)');
+      res.status(256).send('Wrong login (min 3, max 32 letters)');
       return false;}
     if((7 > passwd.length)|| (32 < passwd.length)){
-      res.status(202).send('Wrong password (min 8, max 32 letters)');
+      res.status(257).send('Wrong password (min 8, max 32 letters)');
       return false;}
     return true;
   }
-  res.status(203).send('Some fields are empty!');
+  res.status(258).send('Some fields are empty!');
   return false;
 }
 

@@ -7,8 +7,8 @@ addUser = function(login, passwd, res){
     if(!err)
       res.status(200).send('User added');
     else if (err.code == 'ER_DUP_ENTRY')
-      res.status(204).send('User arleady exists');
+      res.status(259).send('User arleady exists');
     else {
-      res.status(205).send('Database error');
+      res.status(260).send('Database error');
       console.log(err);}});
 }

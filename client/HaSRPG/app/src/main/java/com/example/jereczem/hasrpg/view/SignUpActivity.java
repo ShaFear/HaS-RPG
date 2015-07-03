@@ -32,7 +32,7 @@ public class SignUpActivity extends ActionBarActivity {
         String password = passwordEditText.getText().toString();
         String repassword = repasswordEditText.getText().toString();
 
-        if(login.isEmpty()|| password.isEmpty()|| repassword.isEmpty()){
+        /*if(login.isEmpty()|| password.isEmpty()|| repassword.isEmpty()){
             Alerts.emptyInput(this);
             return;
         }
@@ -47,7 +47,7 @@ public class SignUpActivity extends ActionBarActivity {
         if ((password.length() > 32) || (password.length()  < 8)) {
             Alerts.wrongPasswordLenght(this);
             return;
-        }
+        }*/
 
         String url = "http://192.168.1.128/users";
         StringBuilder params = new StringBuilder()
