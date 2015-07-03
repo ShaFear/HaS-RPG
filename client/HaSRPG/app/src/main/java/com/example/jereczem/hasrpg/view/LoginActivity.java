@@ -1,15 +1,12 @@
-package com.example.jereczem.hasrpg;
+package com.example.jereczem.hasrpg.view;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.dialog.SimpleAlert;
 
 
