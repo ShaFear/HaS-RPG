@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
-import com.example.jereczem.hasrpg.dialog.SimpleAlert;
+import com.example.jereczem.hasrpg.dialog.MyAlerts;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -28,9 +28,9 @@ public class LoginActivity extends ActionBarActivity {
                 //TODO otworz YourPlayActivity
             }
         }else{
-            new SimpleAlert(this,
+            MyAlerts.OK(this,
                     getString(R.string.wrong_login_or_password_title),
-                    getString(R.string.wrong_login_or_password_message));
+                    getString(R.string.wrong_login_or_password_message)).show();
         }
     }
 

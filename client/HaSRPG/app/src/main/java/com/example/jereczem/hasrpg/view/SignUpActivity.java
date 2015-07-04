@@ -1,6 +1,8 @@
 package com.example.jereczem.hasrpg.view;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,7 +11,7 @@ import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.dialog.Alerts;
-import com.example.jereczem.hasrpg.dialog.SimpleAlert;
+import com.example.jereczem.hasrpg.dialog.MyAlerts;
 import com.example.jereczem.hasrpg.http.HttpUtils;
 import com.example.jereczem.hasrpg.http.Response;
 
@@ -32,7 +34,7 @@ public class SignUpActivity extends ActionBarActivity {
         String password = passwordEditText.getText().toString();
         String repassword = repasswordEditText.getText().toString();
 
-        /*if(login.isEmpty()|| password.isEmpty()|| repassword.isEmpty()){
+        if(login.isEmpty()|| password.isEmpty()|| repassword.isEmpty()){
             Alerts.emptyInput(this);
             return;
         }
@@ -47,9 +49,9 @@ public class SignUpActivity extends ActionBarActivity {
         if ((password.length() > 32) || (password.length()  < 8)) {
             Alerts.wrongPasswordLenght(this);
             return;
-        }*/
+        }
 
-        String url = "http://192.168.1.128/users";
+        String url = "http://192.168.43.128/users";
         StringBuilder params = new StringBuilder()
                 .append("login=").append(login)
                 .append("&password=").append(password);
@@ -73,8 +75,18 @@ public class SignUpActivity extends ActionBarActivity {
             }
         }
 
-        protected void onPostExecute(Response result) {
-                new SimpleAlert(activity, result.getCode().toString(), result.getMessage());
+        protected void onPostExecute(final Response result) {
+            AlertDialog alertDialog =
+                    MyAlerts.OK
+                            (activity, result.getCode().toString(), result.getMessage());
+            alertDialog.show();
+            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    if(result.getCode().equals(200))
+                        activity.finish();
+                }
+            });
         }
     }
 }
