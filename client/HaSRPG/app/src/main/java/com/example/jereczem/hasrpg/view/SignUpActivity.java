@@ -14,6 +14,7 @@ import com.example.jereczem.hasrpg.dialog.Alerts;
 import com.example.jereczem.hasrpg.dialog.MyAlerts;
 import com.example.jereczem.hasrpg.http.HttpUtils;
 import com.example.jereczem.hasrpg.http.Response;
+import com.example.jereczem.hasrpg.settings.G;
 
 import java.io.IOException;
 
@@ -33,30 +34,39 @@ public class SignUpActivity extends ActionBarActivity {
         String login = loginEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String repassword = repasswordEditText.getText().toString();
+        login = login.replace(" ", ""); //TODO zrobic porzadnego regexa
 
-        if(login.isEmpty()|| password.isEmpty()|| repassword.isEmpty()){
-            Alerts.emptyInput(this);
-            return;
-        }
-        if (!password.equals(repassword)) {
-            Alerts.wrongRepassword(this);
-            return;
-        }
-        if ((login.length() > 32) || (login.length()  < 3)){
-            Alerts.wrongLoginLenght(this);
-            return;
-        }
-        if ((password.length() > 32) || (password.length()  < 8)) {
-            Alerts.wrongPasswordLenght(this);
-            return;
-        }
+        if(isInputDataOnClientSideValid(login, password, repassword))
+            signUpNewUser(login, password);
+    }
 
-        String url = "http://192.168.43.128/users";
+    private void signUpNewUser(String login, String password) {
+        String url = G.SERVER_URL +"users";
         StringBuilder params = new StringBuilder()
                 .append("login=").append(login)
                 .append("&password=").append(password);
 
         new SignUpTask().execute(url, params.toString(), this);
+    }
+
+    private boolean isInputDataOnClientSideValid(String login, String password, String repassword) {
+        if(login.isEmpty()|| password.isEmpty()|| repassword.isEmpty()){
+            Alerts.emptyInput(this).show();
+            return false;
+        }
+        if (!password.equals(repassword)) {
+            Alerts.wrongRepassword(this).show();
+            return false;
+        }
+        if ((login.length() > 32) || (login.length()  < 3)){
+            Alerts.wrongLoginLenght(this).show();
+            return false;
+        }
+        if ((password.length() > 32) || (password.length()  < 8)) {
+            Alerts.wrongPasswordLenght(this).show();
+            return false;
+        }
+        return true;
     }
 
     private class SignUpTask extends AsyncTask<Object, Void, Response>{
@@ -76,17 +86,39 @@ public class SignUpActivity extends ActionBarActivity {
         }
 
         protected void onPostExecute(final Response result) {
-            AlertDialog alertDialog =
-                    MyAlerts.OK
-                            (activity, result.getCode().toString(), result.getMessage());
-            alertDialog.show();
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    if(result.getCode().equals(200))
-                        activity.finish();
-                }
-            });
+                    switch (result.getCode()){
+                        case 200:{
+                            AlertDialog alertDialog = Alerts.userAdded(activity);
+                            alertDialog.show();
+                            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialog) {
+                                    activity.finish();
+                                }
+                            });
+                            break;
+                        }
+                        case 256:{
+                            Alerts.wrongLoginLenght(activity).show(); break;
+                        }
+                        case 257:{
+                            Alerts.wrongPasswordLenght(activity).show(); break;
+                        }
+                        case 258:{
+                            Alerts.emptyInput(activity).show(); break;
+                        }
+                        case 259:{
+                            Alerts.userAlreadyExists(activity).show(); break;
+                        }
+                        case 260:{
+                            Alerts.databaseError(activity); break;
+                        }
+                        default:{
+                            Alerts.errorAlert(activity, result.getMessage()).show();
+                            //TODO uzytkownik nie powinien widziec tak dokladnej wiadomosci
+                            //bo sie przestraszy ;___;
+                        }
+                    }
         }
     }
 }

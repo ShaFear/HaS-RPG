@@ -44,6 +44,7 @@ public class LoginActivity extends ActionBarActivity {
         EditText passwordEditText = (EditText)findViewById(R.id.password_input);
         String login = loginEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        login = login.replace(" ", ""); //TODO zrobic porzadnego regexa
         //TODO [POST] domain.com/signin
         if(login.equals("admin"))
             return true;

@@ -7,10 +7,10 @@ import android.content.DialogInterface;
 /**
  * Created by jereczem on 01.07.15.
  */
-public class MyAlerts {
+public class  MyAlerts {
     public static AlertDialog OK(Activity activity, String title, String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-// Add the buttons
+        // Add the buttons
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked OK button
