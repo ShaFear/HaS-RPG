@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.29)  30 JUN 2015 10:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.29)  6 JUL 2015 21:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -413,9 +413,9 @@ c/ecbx1200.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm10
 /jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/jerecze
 m/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/jereczem/.texmf
 -var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on koncept.pdf (8 pages, 74297 bytes).
+Output written on koncept.pdf (8 pages, 74481 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
+ 264 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)

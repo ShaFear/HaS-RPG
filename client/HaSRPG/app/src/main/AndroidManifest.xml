@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jereczem.hasrpg" >
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,6 +26,18 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".view.LobbiesActivity"
+            android:label="@string/title_activity_lobbies"
+            android:parentActivityName=".view.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.jereczem.hasrpg.view.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".view.CharacterSelectActivity"
+            android:label="@string/title_activity_character_select" >
         </activity>
     </application>
 

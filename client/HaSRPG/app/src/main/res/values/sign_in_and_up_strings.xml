@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Hide and Seek RPG</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_un_button">Sign up</string>
+    <string name="in_game_name">In game name</string>
+    <string name="repassword">Reply password</string>
+    <string name="title_activity_sign_up">Hide and Seek RPG - Sign Up</string>
+    <string name="wrong_login_or_password_title">Wrong login or pasword</string>
+    <string name="wrong_login_or_password_message">Your login and password are incorrect, please try again or create an account.</string>
+    <string name="wrong_repassword_input_title">Passwords don\'t match.</string>
+    <string name="wrong_repassword_input_message">Reply password is not the same as origin one.</string>
+    <string name="wrong_login_lenght_title">wrong_login_lenght_title</string>
+    <string name="wrong_login_lenght_message">wrong_login_lenght_title</string>
+    <string name="wrong_password_lenght_title">wrong_password_lenght_title</string>
+    <string name="wrong_password_lenght_message">wrong_password_lenght_message</string>
+    <string name="empty_input_title">empty_input_title</string>
+    <string name="empty_input_message">empty_input_message</string>
+    <string name="error_alert_title">ERROR</string>
+    <string name="user_added_title">user_added_title</string>
+    <string name="user_added_message">user_added_message</string>
+    <string name="user_already_exists_title">user_already_exists_title</string>
+    <string name="user_already_exists_message">user_already_exists_message</string>
+    <string name="db_error_title">db_error_title</string>
+    <string name="db_error_message">db_error_message</string>
+    <string name="user_logged_title">user_logged_title</string>
+    <string name="user_logged_message">user_logged_message</string>
+    <string name="wrong_login_and_password_title">wrong_login_and_password_title</string>
+    <string name="wrong_login_and_password_message">wrong_login_and_password_message</string>
+</resources>

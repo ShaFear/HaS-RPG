@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -20,7 +21,7 @@ import com.example.jereczem.hasrpg.settings.G;
 import java.io.IOException;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,9 @@ public class LoginActivity extends ActionBarActivity {
     }
 
     public void signIn(View view){
+        Intent intent = new Intent(this, LobbiesActivity.class);
+        startActivity(intent);
+        /*
         EditText loginEditText = (EditText)findViewById(R.id.login_input);
         EditText passwordEditText = (EditText)findViewById(R.id.password_input);
         String login = loginEditText.getText().toString();
@@ -41,6 +45,7 @@ public class LoginActivity extends ActionBarActivity {
                 .append("&password=").append(password);
 
         new SignInTask().execute(url, params.toString(), this);
+        */
     }
 
     public void signUp(View view){

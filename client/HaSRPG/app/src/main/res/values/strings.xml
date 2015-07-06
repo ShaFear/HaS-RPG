@@ -1,32 +1,48 @@
-<!-- LoginActivity and SignUpActivity-->
 <resources>
-    <string name="app_name">Hide and Seek RPG</string>
-    <string name="login">Login</string>
-    <string name="password">Password</string>
-    <string name="sign_in_button">Sign in</string>
-    <string name="sign_un_button">Sign up</string>
-    <string name="in_game_name">In game name</string>
-    <string name="repassword">Reply password</string>
-    <string name="title_activity_sign_up">Hide and Seek RPG - Sign Up</string>
-    <string name="wrong_login_or_password_title">Wrong login or pasword</string>
-    <string name="wrong_login_or_password_message">Your login and password are incorrect, please try again or create an account.</string>
-    <string name="wrong_repassword_input_title">Passwords don\'t match.</string>
-    <string name="wrong_repassword_input_message">Reply password is not the same as origin one.</string>
-    <string name="wrong_login_lenght_title">wrong_login_lenght_title</string>
-    <string name="wrong_login_lenght_message">wrong_login_lenght_title</string>
-    <string name="wrong_password_lenght_title">wrong_password_lenght_title</string>
-    <string name="wrong_password_lenght_message">wrong_password_lenght_message</string>
-    <string name="empty_input_title">empty_input_title</string>
-    <string name="empty_input_message">empty_input_message</string>
-    <string name="error_alert_title">ERROR</string>
-    <string name="user_added_title">user_added_title</string>
-    <string name="user_added_message">user_added_message</string>
-    <string name="user_already_exists_title">user_already_exists_title</string>
-    <string name="user_already_exists_message">user_already_exists_message</string>
-    <string name="db_error_title">db_error_title</string>
-    <string name="db_error_message">db_error_message</string>
-    <string name="user_logged_title">user_logged_title</string>
-    <string name="user_logged_message">user_logged_message</string>
-    <string name="wrong_login_and_password_title">wrong_login_and_password_title</string>
-    <string name="wrong_login_and_password_message">wrong_login_and_password_message</string>
+    <string name="title_activity_character_select">Hide and Seek RPG - Characters</string>
+
+    <string name="chase_level">1</string>
+    <string name="chase_skill_points">0</string>
+    <string name="chase_experience">0/100</string>
+    <string name="chase_feel_range">10m</string>
+    <string name="chase_class_basic">basic</string>
+    <string name="chase_class_2a">2a</string>
+    <string name="chase_class_2b">2b</string>
+    <string name="chase_class_2c">2c</string>
+    <string name="chase_class_3a1">3a1</string>
+    <string name="chase_class_3a2">3a2</string>
+    <string name="chase_class_3b1">3b1</string>
+    <string name="chase_class_3b2">3b2</string>
+    <string name="chase_class_3c1">3c1</string>
+    <string name="chase_class_3c2">3a2</string>
+
+    <string name="hunter_level">1</string>
+    <string name="hunter_skill_points">0</string>
+    <string name="hunter_experience">0/100</string>
+    <string name="hunter_start_attack_range">5m</string>
+    <string name="hunter_final_attack_range">10m</string>
+    <string name="hunter_class_basic">basic</string>
+    <string name="hunter_class_2a">2a</string>
+    <string name="hunter_class_2b">2b</string>
+    <string name="hunter_class_3a1">3a1</string>
+    <string name="hunter_class_3a2">3a2</string>
+    <string name="hunter_class_3b1">3b1</string>
+    <string name="hunter_class_3b2">3b2</string>
+
+
+    <string name="chase_title">Chase</string>
+    <string name="chase_level_title">Level</string>
+    <string name="chase_class_title">Class</string>
+    <string name="chase_experience_title">Experience</string>
+    <string name="chase_feel_range_title">Feel range</string>
+    <string name="chase_skill_points_title">Skill points</string>
+
+    <string name="hunter_title">Hunter</string>
+    <string name="hunter_experience_title">Experience</string>
+    <string name="hunter_attack_range_title">Start attack</string>
+    <string name="hunter_final_attack_range_title">Final attack</string>
+    <string name="hunter_skill_points_title">Skill points</string>
+    <string name="skills_title">SKILLS</string>
+
+
 </resources>
