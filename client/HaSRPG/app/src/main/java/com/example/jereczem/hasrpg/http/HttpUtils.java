@@ -36,6 +36,8 @@ public class HttpUtils {
             conn.setConnectTimeout(connectTimeOut /* milliseconds */);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
+
+
             // Starts the query
             conn.connect();
             int response = conn.getResponseCode();
@@ -67,6 +69,7 @@ public class HttpUtils {
             conn.setConnectTimeout(connectTimeOut /* milliseconds */);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
+
             // Starts the query
             conn.connect();
             // Sending data
