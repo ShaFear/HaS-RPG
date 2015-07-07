@@ -30,9 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signIn(View view){
-        Intent intent = new Intent(this, LobbiesActivity.class);
-        startActivity(intent);
-        /*
         EditText loginEditText = (EditText)findViewById(R.id.login_input);
         EditText passwordEditText = (EditText)findViewById(R.id.password_input);
         String login = loginEditText.getText().toString();
@@ -45,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 .append("&password=").append(password);
 
         new SignInTask().execute(url, params.toString(), this);
-        */
+
     }
 
     public void signUp(View view){
@@ -77,7 +74,8 @@ public class LoginActivity extends AppCompatActivity {
                     alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
-                            activity.finish();
+                            Intent intent = new Intent(activity, LobbiesActivity.class);
+                            startActivity(intent);
                         }
                     });
                     break;
