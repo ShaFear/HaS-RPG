@@ -7,8 +7,8 @@ app.post('/signin', function(req, res){
   sleep.sleep(1);
   var login = req.body.login;
   var passwd = req.body.password;
-  if(req.cookies.user_id){
-    res.status(257).send('user arleady logged');
+  if(req.signedCookies.user_id){
+    res.status(257).send('user ' + req.signedCookies.user_id + ' arleady logged');
     return;
   }
   else{

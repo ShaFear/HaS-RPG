@@ -19,6 +19,9 @@ import com.example.jereczem.hasrpg.http.Response;
 import com.example.jereczem.hasrpg.settings.G;
 
 import java.io.IOException;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 
 
 public class LoginActivity extends AppCompatActivity {

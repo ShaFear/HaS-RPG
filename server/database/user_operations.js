@@ -1,14 +1,17 @@
 require('./connection.js');
+sleep = require('sleep');
 
-getUserId = function(login){
-  query = 'SELECT id FROM users WHERE login=?';
+saveUserIdInSessionAndReturn200 = function(login, res){
+  query = "SELECT id FROM users WHERE login=?";
   values = [login];
-  connection.query(query, values, function(err, rows, fields){
-    if(!err)
-      return rows[0]["id"];
-    else
-      return -1;
+  return connection.query(query, values, function(err, rows, fields){
+    if(!err){
+      res.cookie('user_id' , rows[0]['id'], { signed: true });
+      res.status(200).send('Login and password are correct');
+    }
+    else{
       console.log(err);
+    }
   });
 }
 
@@ -19,8 +22,7 @@ signIn = function(login, passwd, res){
     if(!err){
       try{
         if(passwd == rows[0]['passwd']){
-            res.cookie('user_id' , getUserId(login));
-            res.status(200).send('Login and password are correct');
+            saveUserIdInSessionAndReturn200(login, res);
             return;
         }
         else{
