@@ -12,8 +12,6 @@ app.post('/signin', function(req, res){
     res.status(200).send('user ' + req.signedCookies.user_id + ' arleady logged');
     return;
   }*/
-  else{
-    passwd = hash(passwd);
-    signIn(login, passwd, res);
-  }
+  passwd = hash(passwd);
+  signIn(login, passwd, res);
 });

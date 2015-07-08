@@ -21,9 +21,14 @@ app.post('/users', function(req, res){
   var passwd = req.body.password;
   if(check(login, passwd, res)){
     passwd = hash(passwd);
-  addUser(login, passwd, res);}
+    addUser(login, passwd, res);
+  }
 });
 
 app.get('/', function(req, res){
-  res.send("testx");
+  if(req.signedCookies.user_id){
+    res.status(200).send('user ' + req.signedCookies.user_id + ' arleady logged');
+    return;
+  }else
+    res.status(256).send('not logged');
 });
