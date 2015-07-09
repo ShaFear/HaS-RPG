@@ -92,8 +92,13 @@ public class LoginActivity extends AppCompatActivity {
                     break;
                 }
                 default:{
-                    Alerts.errorAlert(activity, result.getMessage()).show();
-                    // TODO zmien bo strach
+                    //TODO alert when not logged
+                    if(result.getCode() != 200) {
+                        Alerts.errorAlert(activity, result.getMessage()).show();
+                    }else{
+                        //TODO pobranie i przetworzenie informacji
+                        MyAlerts.OK(activity, "poszlo", result.getMessage()).show();
+                    }
                 }
             }
         }

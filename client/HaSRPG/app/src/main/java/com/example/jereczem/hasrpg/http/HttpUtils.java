@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets;
  * Created by jereczem on 03.07.15.
  */
 public class HttpUtils {
-    private static int len = 500;
+    private static int len = 10000;
     private static int readTimeOut = 10000; //milisec
     private static int connectTimeOut = 15000;
     // Given a URL, establishes an HttpUrlConnection and retrieves
