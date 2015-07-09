@@ -21,6 +21,7 @@ app.use(require('cookie-parser')(credentials.cookieSecret));
 require("./routes/test.js");
 require("./routes/users.js");
 require("./routes/signin.js");
+require("./routes/mycharacters.js");
 
 //server start
 app.listen(80); //zmien na 8080 w przyszlosci

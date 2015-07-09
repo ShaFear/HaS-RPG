@@ -1,12 +1,12 @@
 require('./connection.js');
 
 signIn = function(login, passwd, res){
-  query = 'SELECT id FROM users WHERE login=? and passwd=?';
+  query = 'SELECT UserID FROM users WHERE login=? and passwd=?';
   values = [login, passwd];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
       try{
-          res.cookie('user_id' , rows[0]['id'], { signed: true });
+          res.cookie('UserID' , rows[0]['UserID'], { signed: true });
           res.status(200).send('Login and password are correct');
           return;
       }
@@ -24,14 +24,27 @@ signIn = function(login, passwd, res){
 }
 
 addUser = function(login, passwd, res){
-  query = 'INSERT INTO users (login, passwd) VALUES(?)';
+  query = "SELECT add_user(?)"
   values = [[login, passwd]];
   connection.query(query, values, function(err, rows, fields) {
-    if(!err)
+    if(!err){
       res.status(200).send('User added');
-    else if (err.code == 'ER_DUP_ENTRY')
+    }else if (err.code == 'ER_DUP_ENTRY')
       res.status(259).send('User arleady exists');
     else {
+      res.status(260).send('Database error');
+      console.log(err);}});
+}
+
+getCharacters = function(user_id, res){
+  query = "SELECT * FROM characters_of_users "
+  query +="INNER JOIN characters ON characters_of_users.CharacterID"
+  query +="= characters.CharacterID WHERE UserID = ?;"
+  values = [user_id];
+  connection.query(query, values, function(err, rows, fields) {
+    if(!err){
+      res.status(200).send(JSON.stringify(rows));
+    }else {
       res.status(260).send('Database error');
       console.log(err);}});
 }
