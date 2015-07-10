@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.data.PlayerData;
+import com.example.jereczem.hasrpg.data.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.dialog.Alerts;
 import com.example.jereczem.hasrpg.http.HttpUtils;
 import com.example.jereczem.hasrpg.http.Response;
@@ -59,7 +61,9 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
         }
 
         protected void onPostExecute(final Response result) {
-            Alerts.errorAlert(activity, result.getMessage()).show();
+            //TODO pobralismy dane, wiec mozna zaczac zabawe ^^
+            PlayerData playerData = PlayerDataReceiver.fromString(result.getMessage());
+            Alerts.errorAlert(activity, playerData.toString()).show();
         }
     }
 

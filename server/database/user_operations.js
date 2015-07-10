@@ -37,12 +37,16 @@ addUser = function(login, passwd, res){
 }
 
 getCharacters = function(user_id, res){
-  query = "SELECT * FROM characters_of_users "
-  query +="INNER JOIN characters ON characters_of_users.CharacterID"
-  query +="= characters.CharacterID WHERE UserID = ?;"
+  query = "SELECT * FROM characters_of_users a "
+  query +="JOIN characters b ON a.CharacterID = b.CharacterID "
+  query +="JOIN users c ON a.UserID = c.UserID "
+  query +="WHERE a.UserID=?"
   values = [user_id];
   connection.query(query, values, function(err, rows, fields) {
     if(!err){
+      for(j=0; j<rows.length; j++)
+        rows[j]['passwd'] = null
+      console.log(JSON.stringify(rows));
       res.status(200).send(JSON.stringify(rows));
     }else {
       res.status(260).send('Database error');

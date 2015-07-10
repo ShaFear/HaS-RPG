@@ -95,9 +95,6 @@ public class LoginActivity extends AppCompatActivity {
                     //TODO alert when not logged
                     if(result.getCode() != 200) {
                         Alerts.errorAlert(activity, result.getMessage()).show();
-                    }else{
-                        //TODO pobranie i przetworzenie informacji
-                        MyAlerts.OK(activity, "poszlo", result.getMessage()).show();
                     }
                 }
             }
