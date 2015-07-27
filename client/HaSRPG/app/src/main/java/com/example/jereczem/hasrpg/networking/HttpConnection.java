@@ -1,31 +1,24 @@
-package com.example.jereczem.hasrpg.http;
+package com.example.jereczem.hasrpg.networking;
 
-import android.util.Log;
-
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.net.CookieHandler;
-import java.net.CookieManager;
-import java.net.CookiePolicy;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Created by jereczem on 03.07.15.
  */
-public class HttpUtils {
+public class HttpConnection {
     private static int len = 10000;
     private static int readTimeOut = 10000; //milisec
     private static int connectTimeOut = 15000;
     // Given a URL, establishes an HttpUrlConnection and retrieves
     // the web page content as a InputStream, which it returns as
     // a string.
-    public static Response GET(String myUrl) throws IOException {
+    public static HttpResponse get(String myUrl) throws IOException {
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
@@ -45,7 +38,7 @@ public class HttpUtils {
 
             // Convert the InputStream into a string
             String contentAsString = readIt(is, len);
-            return new Response(response, contentAsString);
+            return new HttpResponse(response, contentAsString);
 
             // Makes sure that the InputStream is closed after the app is
             // finished using it.
@@ -56,7 +49,7 @@ public class HttpUtils {
         }
     }
 
-    public static Response POST(String myUrl, String urlParameters) throws IOException {
+    public static HttpResponse post(String myUrl, String urlParameters) throws IOException {
         InputStream is = null;
         // Only display the first 500 characters of the retrieved
         // web page content.
@@ -81,7 +74,7 @@ public class HttpUtils {
 
             // Convert the InputStream into a string
             String contentAsString = readIt(is, len);
-            return new Response(response, contentAsString);
+            return new HttpResponse(response, contentAsString);
 
             // Makes sure that the InputStream is closed after the app is
             // finished using it.

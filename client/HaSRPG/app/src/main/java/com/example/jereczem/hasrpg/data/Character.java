@@ -1,5 +1,7 @@
 package com.example.jereczem.hasrpg.data;
 
+import com.example.jereczem.hasrpg.settings.GameSettings;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +17,7 @@ public class Character {
     private Integer experience;
     private Integer skillPoints;
     //TODO globalna zmienna
-    private Integer skills[] = new Integer[5];
+    private Integer skills[] = new Integer[GameSettings.SKILLS_NUMBER];
 
     public Character(Integer characterID, Integer lvl, String role, String profession, Integer experience, Integer skillPoints, Integer[] skills) {
         this.CharacterID = characterID;

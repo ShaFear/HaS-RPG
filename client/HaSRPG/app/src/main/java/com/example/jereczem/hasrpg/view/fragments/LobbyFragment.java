@@ -1,4 +1,4 @@
-package com.example.jereczem.hasrpg.view;
+package com.example.jereczem.hasrpg.view.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;

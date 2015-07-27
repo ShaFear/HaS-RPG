@@ -11,15 +11,6 @@ public class PlayerData {
     private String login;
     private ArrayList<Character> characters = new ArrayList<Character>();
 
-    @Override
-    public String toString() {
-        return "PlayerData{" +
-                "UserID=" + UserID +
-                ", login='" + login + '\'' +
-                ", characters=" + characters +
-                '}';
-    }
-
     public PlayerData(Integer userID, String login) {
         UserID = userID;
         this.login = login;
@@ -35,5 +26,14 @@ public class PlayerData {
 
     public ArrayList<Character> getCharacters() {
         return characters;
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerData{" +
+                "UserID=" + UserID +
+                ", login='" + login + '\'' +
+                ", characters=" + characters.toString() +
+                '}';
     }
 }
