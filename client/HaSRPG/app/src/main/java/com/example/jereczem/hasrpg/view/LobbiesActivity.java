@@ -63,7 +63,6 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
         protected void onPostExecute(final Response result) {
             //TODO pobralismy dane, wiec mozna zaczac zabawe ^^
             PlayerData playerData = PlayerDataReceiver.fromString(result.getMessage());
-            Alerts.errorAlert(activity, playerData.toString()).show();
         }
     }
 

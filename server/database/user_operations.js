@@ -46,7 +46,6 @@ getCharacters = function(user_id, res){
     if(!err){
       for(j=0; j<rows.length; j++)
         rows[j]['passwd'] = null
-      console.log(JSON.stringify(rows));
       res.status(200).send(JSON.stringify(rows));
     }else {
       res.status(260).send('Database error');

@@ -14,6 +14,7 @@ public class Character {
     private String profession;
     private Integer experience;
     private Integer skillPoints;
+    //TODO globalna zmienna
     private Integer skills[] = new Integer[5];
 
     public Character(Integer characterID, Integer lvl, String role, String profession, Integer experience, Integer skillPoints, Integer[] skills) {

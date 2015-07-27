@@ -20,6 +20,7 @@ public class PlayerDataReceiver {
             for(int j=0; j<dataJSON.length(); j++){
                 JSONObject jsonObject = dataJSON.getJSONObject(j);
                 Integer skills[] = new Integer[5];
+                //TODO globalna zmienna
                 skills[0] = jsonObject.getInt("skill_1_lvl");
                 skills[1] = jsonObject.getInt("skill_2_lvl");
                 skills[2] = jsonObject.getInt("skill_3_lvl");
