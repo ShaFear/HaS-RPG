@@ -1,7 +1,5 @@
 package com.example.jereczem.hasrpg.data;
 
-import android.util.Log;
-
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 import org.json.JSONArray;
@@ -27,7 +25,7 @@ public class PlayerDataReceiver {
                 for(int i = 0; i < GameSettings.SKILLS_NUMBER; i++){
                     skills[i] = jsonObject.getInt("skill_" + (i + 1) + "_lvl");
                 }
-                Character character = new Character(
+                CharacterData character = new CharacterData(
                         jsonObject.getInt("CharacterID"),
                         jsonObject.getInt("lvl"),
                         jsonObject.getString("role"),

@@ -1,15 +1,17 @@
 package com.example.jereczem.hasrpg.data;
 
+import com.example.jereczem.hasrpg.game.Chase;
+import com.example.jereczem.hasrpg.game.GameCharacter;
+import com.example.jereczem.hasrpg.game.Hunter;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by jereczem on 09.07.15.
  */
-public class Character {
+public class CharacterData {
+    private GameCharacter character;
     private Integer CharacterID;
     private Integer lvl;
     private String role;
@@ -19,7 +21,7 @@ public class Character {
     //TODO globalna zmienna
     private Integer skills[] = new Integer[GameSettings.SKILLS_NUMBER];
 
-    public Character(Integer characterID, Integer lvl, String role, String profession, Integer experience, Integer skillPoints, Integer[] skills) {
+    public CharacterData(Integer characterID, Integer lvl, String role, String profession, Integer experience, Integer skillPoints, Integer[] skills) {
         this.CharacterID = characterID;
         this.lvl = lvl;
         this.role = role;
@@ -27,6 +29,10 @@ public class Character {
         this.experience = experience;
         this.skillPoints = skillPoints;
         this.skills = skills;
+        if(role.equals("hunter"))
+            character = new Hunter(this);
+        else
+            character = new Chase(this);
     }
 
     public Integer getCharacterID() {
@@ -60,7 +66,7 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{" + "\n" +
+        return "CharacterData{" + "\n" +
                 "CharacterID=" + CharacterID + "\n" +
                 ", lvl=" + lvl + "\n" +
                 ", role='" + role + '\'' + "\n" +
