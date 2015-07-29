@@ -3,10 +3,12 @@ package com.example.jereczem.hasrpg.game;
 import com.example.jereczem.hasrpg.data.CharacterData;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
+import java.io.Serializable;
+
 /**
  * Created by jereczem on 29.07.15.
  */
-public abstract class GameCharacter {
+public abstract class GameCharacter implements Serializable {
     protected CharacterData characterData;
     protected Integer level;
     protected Integer skillPoints;
@@ -20,6 +22,7 @@ public abstract class GameCharacter {
         this.skillPoints = characterData.getSkillPoints();
         this.characterClass = characterData.getProfession();
         this.experiencePoints = characterData.getExperience();
+        buildCharacter();
     }
 
     protected void buildExperienceLimit(){
@@ -50,5 +53,16 @@ public abstract class GameCharacter {
 
     public String getCharacterClass() {
         return characterClass;
+    }
+
+    @Override
+    public String toString() {
+        return "GameCharacter{" +
+                ", level=" + level +
+                ", skillPoints=" + skillPoints +
+                ", experiencePoints=" + experiencePoints +
+                ", experienceLimit=" + experienceLimit +
+                ", characterClass='" + characterClass + '\'' +
+                '}';
     }
 }

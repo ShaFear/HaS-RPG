@@ -42,6 +42,20 @@ BEGIN
        WHERE users.login=log
        AND characters.CharacterID ORDER BY CharacterID DESC
        LIMIT 1;
+ INSERT INTO characters(role) VALUES('hunter');
+ INSERT INTO characters_of_users (UserID, CharacterID)
+      SELECT users.UserID, characters.CharacterID
+      FROM users, characters
+      WHERE users.login=log
+      AND characters.CharacterID ORDER BY CharacterID DESC
+      LIMIT 1;
+  INSERT INTO characters(role) VALUES('chase');
+  INSERT INTO characters_of_users (UserID, CharacterID)
+      SELECT users.UserID, characters.CharacterID
+      FROM users, characters
+      WHERE users.login=log
+      AND characters.CharacterID ORDER BY CharacterID DESC
+      LIMIT 1;
   INSERT INTO characters(role) VALUES('chase');
   INSERT INTO characters_of_users (UserID, CharacterID)
       SELECT users.UserID, characters.CharacterID

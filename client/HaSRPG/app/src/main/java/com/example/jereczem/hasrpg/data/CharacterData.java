@@ -5,12 +5,13 @@ import com.example.jereczem.hasrpg.game.GameCharacter;
 import com.example.jereczem.hasrpg.game.Hunter;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  * Created by jereczem on 09.07.15.
  */
-public class CharacterData {
+public class CharacterData implements Serializable {
     private GameCharacter character;
     private Integer CharacterID;
     private Integer lvl;
@@ -18,7 +19,6 @@ public class CharacterData {
     private String profession;
     private Integer experience;
     private Integer skillPoints;
-    //TODO globalna zmienna
     private Integer skills[] = new Integer[GameSettings.SKILLS_NUMBER];
 
     public CharacterData(Integer characterID, Integer lvl, String role, String profession, Integer experience, Integer skillPoints, Integer[] skills) {
@@ -66,14 +66,15 @@ public class CharacterData {
 
     @Override
     public String toString() {
-        return "CharacterData{" + "\n" +
-                "CharacterID=" + CharacterID + "\n" +
-                ", lvl=" + lvl + "\n" +
-                ", role='" + role + '\'' + "\n" +
-                ", profession='" + profession + '\'' + "\n" +
-                ", experience=" + experience + "\n" +
-                ", skillPoints=" + skillPoints + "\n" +
-                ", skills=" + Arrays.toString(skills) + "\n" +
+        return "\nCharacterData{" + "\n" +
+                "character=" + character +
+                "\n, CharacterID=" + CharacterID +
+                ", lvl=" + lvl +
+                ", role='" + role + '\'' +
+                ", profession='" + profession + '\'' +
+                ", experience=" + experience +
+                ", skillPoints=" + skillPoints +
+                ", skills=" + Arrays.toString(skills) +
                 '}';
     }
 }

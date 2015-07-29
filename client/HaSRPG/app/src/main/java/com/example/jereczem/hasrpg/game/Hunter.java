@@ -11,7 +11,7 @@ public class Hunter extends GameCharacter{
     private Integer finalAttackRange;
 
     private void buildAttackRange(){
-        attackRange = GameSettings.ATTACK_RANGE_START + level * GameSettings.ATTACK_RANGE_PER_LEVEL;
+        attackRange = GameSettings.ATTACK_RANGE_START + (level - 1)  * GameSettings.ATTACK_RANGE_PER_LEVEL;
     }
 
     private void buildFinalAttackRange(){
@@ -39,5 +39,13 @@ public class Hunter extends GameCharacter{
 
     public Integer getFinalAttackRange() {
         return finalAttackRange;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Hunter{" +
+                "attackRange=" + attackRange +
+                ", finalAttackRange=" + finalAttackRange +
+                '}';
     }
 }

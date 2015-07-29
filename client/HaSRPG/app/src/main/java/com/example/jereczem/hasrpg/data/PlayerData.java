@@ -1,11 +1,12 @@
 package com.example.jereczem.hasrpg.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jereczem on 09.07.15.
  */
-public class PlayerData {
+public class PlayerData implements Serializable{
     private Integer UserID;
     private String login;
     private ArrayList<CharacterData> characters = new ArrayList<CharacterData>();
@@ -31,8 +32,8 @@ public class PlayerData {
     public String toString() {
         return "PlayerData{" +
                 "UserID=" + UserID +
-                ", login='" + login + '\'' +
+                ", login='" + login + '\'' + "\n" +
                 ", characters=" + characters.toString() +
-                '}';
+                "}\n";
     }
 }

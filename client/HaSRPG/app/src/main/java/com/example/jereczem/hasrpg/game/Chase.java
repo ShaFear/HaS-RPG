@@ -14,7 +14,7 @@ public class Chase extends GameCharacter{
     }
 
     private void buildFeelRange(){
-        feelRange = GameSettings.FEEL_RANGE_START + level * GameSettings.FEEL_RANGE_PER_LEVEL;
+        feelRange = GameSettings.FEEL_RANGE_START + (level - 1) * GameSettings.FEEL_RANGE_PER_LEVEL;
     }
 
     @Override
@@ -25,5 +25,12 @@ public class Chase extends GameCharacter{
 
     public Integer getFeelRange() {
         return feelRange;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Chase{" +
+                "feelRange=" + feelRange +
+                '}';
     }
 }

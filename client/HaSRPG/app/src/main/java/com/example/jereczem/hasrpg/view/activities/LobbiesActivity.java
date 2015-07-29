@@ -17,9 +17,13 @@ import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.concurrent.ExecutionException;
 
 
 public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.OnFragmentInteractionListener {
+
+    private PlayerData playerData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,16 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
         setContentView(R.layout.activity_lobbies);
         String url = ServerSettings.SERVER_URL + "mycharacters";
 
-        new GetCharactersDataTask().execute(url, this);
+        try {
+            HttpResponse httpResponse = new GetCharactersDataTask().execute(url, this).get();
+            playerData = PlayerDataReceiver.fromString(httpResponse.getMessage());
+            Log.d("HASLOG", playerData.toString());
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -42,6 +55,7 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
 
     public void selectCharacters(View view) {
         Intent intent = new Intent(this, CharacterSelectActivity.class);
+        intent.putExtra("playerData", playerData);
         startActivity(intent);
     }
 
@@ -62,12 +76,6 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
             } catch (IOException e) {
                 return new HttpResponse(500, e.getMessage());
             }
-        }
-
-        protected void onPostExecute(final HttpResponse result) {
-            //TODO pobralismy dane, wiec mozna zaczac zabawe ^^
-            PlayerData playerData = PlayerDataReceiver.fromString(result.getMessage());
-            Log.d("HASLOG", playerData.toString());
         }
     }
 
