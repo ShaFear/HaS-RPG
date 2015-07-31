@@ -64,6 +64,10 @@ public class CharacterData implements Serializable {
         return skills;
     }
 
+    public GameCharacter getCharacter() {
+        return character;
+    }
+
     @Override
     public String toString() {
         return "\nCharacterData{" + "\n" +

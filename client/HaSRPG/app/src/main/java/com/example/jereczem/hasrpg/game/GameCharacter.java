@@ -4,6 +4,7 @@ import com.example.jereczem.hasrpg.data.CharacterData;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 import java.io.Serializable;
+import java.util.Observable;
 
 /**
  * Created by jereczem on 29.07.15.
@@ -15,6 +16,7 @@ public abstract class GameCharacter implements Serializable {
     protected Integer experiencePoints;
     protected Integer experienceLimit;
     protected String characterClass;
+    protected Integer characterID;
 
     public GameCharacter(CharacterData characterData) {
         this.characterData = characterData;
@@ -22,6 +24,7 @@ public abstract class GameCharacter implements Serializable {
         this.skillPoints = characterData.getSkillPoints();
         this.characterClass = characterData.getProfession();
         this.experiencePoints = characterData.getExperience();
+        this.characterID = characterData.getCharacterID();
         buildCharacter();
     }
 
@@ -55,6 +58,10 @@ public abstract class GameCharacter implements Serializable {
         return characterClass;
     }
 
+    public Integer getCharacterID() {
+        return characterID;
+    }
+
     @Override
     public String toString() {
         return "GameCharacter{" +
@@ -63,6 +70,7 @@ public abstract class GameCharacter implements Serializable {
                 ", experiencePoints=" + experiencePoints +
                 ", experienceLimit=" + experienceLimit +
                 ", characterClass='" + characterClass + '\'' +
+                ", characterID='" + characterID + '\'' +
                 '}';
     }
 }

@@ -183,7 +183,8 @@
                         android:layout_height="wrap_content"
                         android:text="&lt;"
                         android:id="@+id/chaseLeftButton"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="leftChase"/>
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
@@ -191,7 +192,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/skills_title"
                         android:id="@+id/chaseSkillsButton"
-                        android:layout_weight="4" />
+                        android:layout_weight="4"
+                        android:onClick="rightChase"/>
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
@@ -399,7 +401,8 @@
                         android:layout_height="wrap_content"
                         android:text="&lt;"
                         android:id="@+id/hinterLeftButton"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="leftHunter"/>
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
@@ -415,7 +418,8 @@
                         android:layout_height="wrap_content"
                         android:text=">"
                         android:id="@+id/hunterRightButton"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="rightHunter"/>
                 </LinearLayout>
 
             </LinearLayout>

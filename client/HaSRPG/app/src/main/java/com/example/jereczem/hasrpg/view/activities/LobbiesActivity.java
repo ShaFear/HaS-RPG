@@ -34,8 +34,6 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
         try {
             HttpResponse httpResponse = new GetCharactersDataTask().execute(url, this).get();
             playerData = PlayerDataReceiver.fromString(httpResponse.getMessage());
-            Log.d("HASLOG", playerData.toString());
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

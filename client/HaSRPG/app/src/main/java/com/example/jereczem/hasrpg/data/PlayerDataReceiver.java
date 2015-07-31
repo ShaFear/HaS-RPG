@@ -11,14 +11,14 @@ import org.json.JSONObject;
  */
 public class PlayerDataReceiver {
     public static PlayerData fromString(String dataFromServer){
-        Integer userID = 1;
-        String login = "Shafear";
-        PlayerData playerData = new PlayerData(userID, login);
+        PlayerData playerData = new PlayerData(-1, "error", -1, -1);
         try {
             JSONArray dataJSON = new JSONArray(dataFromServer);
-            userID = dataJSON.getJSONObject(0).getInt("UserID");
-            login = dataJSON.getJSONObject(0).getString("login");
-            playerData = new PlayerData(userID, login);
+            Integer userID = dataJSON.getJSONObject(0).getInt("UserID");
+            String login = dataJSON.getJSONObject(0).getString("login");
+            Integer hunterID = dataJSON.getJSONObject(0).getInt("HunterID");
+            Integer chaseID = dataJSON.getJSONObject(0).getInt("ChaseID");
+            playerData = new PlayerData(userID, login, hunterID, chaseID);
             for(int j=0; j<dataJSON.length(); j++){
                 JSONObject jsonObject = dataJSON.getJSONObject(j);
                 Integer skills[] = new Integer[GameSettings.SKILLS_NUMBER];
@@ -39,6 +39,7 @@ public class PlayerDataReceiver {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        playerData.set();
         return playerData;
     }
 }
