@@ -192,8 +192,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/skills_title"
                         android:id="@+id/chaseSkillsButton"
-                        android:layout_weight="4"
-                        android:onClick="rightChase"/>
+                        android:layout_weight="4" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
@@ -201,7 +200,8 @@
                         android:layout_height="wrap_content"
                         android:text=">"
                         android:id="@+id/chaseRightButton"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="rightChase"/>
                 </LinearLayout>
 
             </LinearLayout>
