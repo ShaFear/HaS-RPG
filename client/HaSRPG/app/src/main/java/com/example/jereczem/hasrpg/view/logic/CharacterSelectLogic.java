@@ -1,4 +1,4 @@
-package com.example.jereczem.hasrpg.view;
+package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.Activity;
 import android.widget.TextView;
@@ -14,7 +14,7 @@ import java.util.Observer;
 /**
  * Created by jereczem on 01.08.15.
  */
-public class PlayerDataView implements Observer {
+public class CharacterSelectLogic implements Observer {
     private PlayerData playerData;
     private Activity a;
     //chase
@@ -33,7 +33,7 @@ public class PlayerDataView implements Observer {
     private TextView hunterFinalAttackRangeTextView;
     private TextView hunterSkillPointsTextView;
 
-    public PlayerDataView(Activity activity, PlayerData playerData){
+    public CharacterSelectLogic(Activity activity, PlayerData playerData){
         this.a = activity;
         this.playerData = playerData;
         //chase
@@ -80,7 +80,6 @@ public class PlayerDataView implements Observer {
         chaseTitleTextView.setText(a.getResources().getString(R.string.chase_title) + " "
                 + playerData.getChaseNumber().toString());
     }
-
 
     @Override
     public void update(Observable observable, Object data) {
