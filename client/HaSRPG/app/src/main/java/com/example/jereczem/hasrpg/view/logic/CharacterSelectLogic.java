@@ -36,6 +36,7 @@ public class CharacterSelectLogic implements Observer {
     public CharacterSelectLogic(Activity activity, PlayerData playerData){
         this.a = activity;
         this.playerData = playerData;
+        playerData.addObserver(this);
         //chase
         chaseLevelTextView = (TextView)a.findViewById(R.id.chaseLevelTextView);
         chaseClassTextView = (TextView)a.findViewById(R.id.chaseClassTextView);
@@ -79,6 +80,22 @@ public class CharacterSelectLogic implements Observer {
         chaseFeelRangeTextView.setText(chase.getFeelRange().toString());
         chaseTitleTextView.setText(a.getResources().getString(R.string.chase_title) + " "
                 + playerData.getChaseNumber().toString());
+    }
+
+    public void rightChaseClick(){
+        playerData.rightChase();
+    }
+
+    public void leftChaseClick(){
+        playerData.leftChase();
+    }
+
+    public void rightHunterClick(){
+        playerData.rightHunter();
+    }
+
+    public void leftHunterClick(){
+        playerData.leftHunter();
     }
 
     @Override

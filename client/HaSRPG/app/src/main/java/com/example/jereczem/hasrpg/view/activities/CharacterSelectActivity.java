@@ -21,26 +21,23 @@ public class CharacterSelectActivity extends AppCompatActivity{
         setContentView(R.layout.activity_character_select);
         Intent intent = getIntent();
         playerData = (PlayerData)intent.getSerializableExtra("playerData");
-        Log.d("HASLOG", playerData.toString());
         characterSelectLogic = new CharacterSelectLogic(this, playerData);
-        playerData.addObserver(characterSelectLogic);
     }
 
     public void rightChase(View view) {
-        playerData.rightChase();
+        characterSelectLogic.rightChaseClick();
     }
 
     public void leftChase(View view) {
-        playerData.leftChase();
-
+        characterSelectLogic.leftChaseClick();
     }
 
     public void rightHunter(View view) {
-        playerData.rightHunter();
+        characterSelectLogic.rightHunterClick();
     }
 
     public void leftHunter(View view) {
-        playerData.leftHunter();
+        characterSelectLogic.leftHunterClick();
     }
 
     public void saveSelectedCharacters(View view) {
