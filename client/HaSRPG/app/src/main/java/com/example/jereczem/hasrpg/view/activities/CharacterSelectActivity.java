@@ -2,6 +2,7 @@ package com.example.jereczem.hasrpg.view.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,8 +14,11 @@ import com.example.jereczem.hasrpg.data.CharacterData;
 import com.example.jereczem.hasrpg.data.PlayerData;
 import com.example.jereczem.hasrpg.game.Chase;
 import com.example.jereczem.hasrpg.game.Hunter;
+import com.example.jereczem.hasrpg.networking.HttpConnection;
+import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -117,5 +121,22 @@ public class CharacterSelectActivity extends AppCompatActivity implements Observ
 
     public void rightHunter(View view) {
         playerData.rightHunter();
+    }
+
+    public void saveSelectedCharacters(View view) {
+    }
+
+    private class saveSelectedCharactersTask extends AsyncTask<Object, Void, HttpResponse>{
+
+        @Override
+        protected HttpResponse doInBackground(Object... params) {
+            String url = (String) params[0];
+            String urlParameters = (String) params[1];
+            try {
+                return HttpConnection.post(url, urlParameters);
+            } catch (IOException e) {
+                return new HttpResponse(500, e.toString());
+            }
+        }
     }
 }

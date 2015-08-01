@@ -1,6 +1,8 @@
 package com.example.jereczem.hasrpg.view.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.PlayerData;
 import com.example.jereczem.hasrpg.data.PlayerDataReceiver;
+import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.fragments.LobbyFragment;
 import com.example.jereczem.hasrpg.networking.HttpConnection;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
@@ -29,14 +32,33 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobbies);
-        String url = ServerSettings.SERVER_URL + "mycharacters";
+        downloadPlayerData();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        downloadPlayerData();
+        Log.d("HASLOG", playerData.toString());
+    }
+
+    private void downloadPlayerData(){
         try {
+            String url = ServerSettings.SERVER_URL + "mycharacters";
             HttpResponse httpResponse = new GetCharactersDataTask().execute(url, this).get();
-            playerData = PlayerDataReceiver.fromString(httpResponse.getMessage());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+            if(httpResponse.getCode() == 200) {
+                playerData = PlayerDataReceiver.fromString(httpResponse.getMessage());
+            }else{
+                AlertDialog alertDialog = Alerts.otherError(this, httpResponse.getMessage());
+                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        downloadPlayerData();
+                    }
+                });
+                alertDialog.show();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -62,17 +84,13 @@ public class LobbiesActivity extends AppCompatActivity implements LobbyFragment.
     }
 
     private class GetCharactersDataTask extends AsyncTask<Object, Void, HttpResponse> {
-        private Activity activity;
-
         @Override
         protected HttpResponse doInBackground(Object... params) {
             String url = (String) params[0];
-            activity = (Activity) params[1];
-
             try {
                 return HttpConnection.get(url);
             } catch (IOException e) {
-                return new HttpResponse(500, e.getMessage());
+                return new HttpResponse(500, e.toString());
             }
         }
     }

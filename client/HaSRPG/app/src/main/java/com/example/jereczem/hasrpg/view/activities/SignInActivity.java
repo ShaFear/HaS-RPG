@@ -61,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
             try {
                 return HttpConnection.post(url, urlParameters);
             } catch (IOException e) {
-                return new HttpResponse(500, e.getMessage());
+                return new HttpResponse(500, e.toString());
             }
         }
     }
