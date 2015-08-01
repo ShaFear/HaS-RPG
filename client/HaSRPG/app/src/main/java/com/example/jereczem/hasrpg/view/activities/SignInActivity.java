@@ -1,19 +1,16 @@
 package com.example.jereczem.hasrpg.view.activities;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
-import com.example.jereczem.hasrpg.networking.HttpConnection;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
-import com.example.jereczem.hasrpg.settings.ServerSettings;
+import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.dialogs.SignInAlerts;
 
-import java.io.IOException;
 import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
@@ -39,31 +36,16 @@ public class SignInActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         login = login.replace(" ", ""); //TODO zrobic porzadnego regexa
 
-        String url = ServerSettings.SERVER_URL + "signin";
-        StringBuilder params = new StringBuilder()
-                .append("login=").append(login)
-                .append("&password=").append(password);
-
-        HttpResponse result = new SignInTask().execute(url, params.toString()).get();
-        handleSignInResponse(result);
+        HttpResponseReceiver httpResponseReceiver = new HttpResponseReceiver("signin");
+        httpResponseReceiver.addParameter("login", login);
+        httpResponseReceiver.addParameter("password", password);
+        HttpResponse response = httpResponseReceiver.receive();
+        handleSignInResponse(response);
     }
 
     public void signUp(View view) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
-    }
-
-    private class SignInTask extends AsyncTask<Object, Void, HttpResponse> {
-        @Override
-        protected HttpResponse doInBackground(Object... params) {
-            String url = (String) params[0];
-            String urlParameters = (String) params[1];
-            try {
-                return HttpConnection.post(url, urlParameters);
-            } catch (IOException e) {
-                return new HttpResponse(500, e.toString());
-            }
-        }
     }
 
     private void handleSignInResponse(HttpResponse response) {
@@ -82,7 +64,7 @@ public class SignInActivity extends AppCompatActivity {
                 break;
             }
             default: {
-                SignInAlerts.otherError(this, response.getMessage()).show();
+                SignInAlerts.connectionError(this, response.getMessage()).show();
                 break;
             }
         }

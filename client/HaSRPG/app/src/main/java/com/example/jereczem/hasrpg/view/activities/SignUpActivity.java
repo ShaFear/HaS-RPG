@@ -2,20 +2,17 @@ package com.example.jereczem.hasrpg.view.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
-import com.example.jereczem.hasrpg.networking.HttpConnection;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
-import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.view.dialogs.SignUpAlerts;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 
@@ -41,12 +38,10 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUpNewUser(String login, String password) throws ExecutionException, InterruptedException {
-        String url = ServerSettings.SERVER_URL +"users";
-        StringBuilder params = new StringBuilder()
-                .append("login=").append(login)
-                .append("&password=").append(password);
-
-        HttpResponse response = new SignUpTask().execute(url, params.toString()).get();
+        HttpResponseReceiver httpResponseReceiver = new HttpResponseReceiver("users");
+        httpResponseReceiver.addParameter("login", login);
+        httpResponseReceiver.addParameter("password", password);
+        HttpResponse response = httpResponseReceiver.receive();
         handleSignUpResponse(response);
     }
 
@@ -68,19 +63,6 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         }
         return true;
-    }
-
-    private class SignUpTask extends AsyncTask<Object, Void, HttpResponse>{
-        @Override
-        protected HttpResponse doInBackground(Object... params) {
-            String url = (String)params[0];
-            String urlParameters = (String)params[1];
-            try {
-                return HttpConnection.post(url, urlParameters);
-            } catch (IOException e) {
-                return new HttpResponse(500, e.getMessage());
-            }
-        }
     }
 
     private void handleSignUpResponse(final HttpResponse response) {
@@ -112,9 +94,8 @@ public class SignUpActivity extends AppCompatActivity {
                 Alerts.databaseError(this); break;
             }
             default:{
-                Alerts.otherError(this, response.getMessage()).show();
+                Alerts.connectionError(this, response.getMessage()).show();
                 //TODO uzytkownik nie powinien widziec tak dokladnej wiadomosci
-                //bo sie przestraszy ;___;
             }
         }
     }

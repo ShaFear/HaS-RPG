@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="db_error_title">db_error_title</string>
+    <string name="db_error_message">db_error_message</string>
+    <string name="error_alert_title">ERROR</string>
+    <string name="error_alert_message">error_alert_message</string>
+</resources>

@@ -10,10 +10,13 @@ import com.example.jereczem.hasrpg.R;
  * Created by jereczem on 03.07.15.
  */
 public class Alerts {
-    public static AlertDialog otherError(Activity activity, String error_alert_message) {
-        String error_alert_title =
+    public static AlertDialog connectionError(Activity activity, String error_alert_message) {
+        String connection_error_alert_title =
                 activity.getResources().getString(R.string.error_alert_title);
-        return DialogGenerator.generateSimpleOKAlert(activity, error_alert_title, error_alert_message);
+        String connection_error_alert_message =
+                activity.getResources().getString(R.string.error_alert_message);
+        return DialogGenerator.generateSimpleOKAlert(activity, connection_error_alert_title,
+                connection_error_alert_message);
     }
 
     public static AlertDialog databaseError(Activity activity) {
@@ -25,7 +28,8 @@ public class Alerts {
     }
 
     protected static class DialogGenerator {
-        public static AlertDialog generateSimpleOKAlert(Activity activity, String title, String message){
+        public static AlertDialog generateSimpleOKAlert(Activity activity,
+                                                        String title, String message){
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             // Add the buttons
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

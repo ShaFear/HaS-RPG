@@ -17,13 +17,10 @@
     <string name="wrong_password_lenght_message">wrong_password_lenght_message</string>
     <string name="empty_input_title">empty_input_title</string>
     <string name="empty_input_message">empty_input_message</string>
-    <string name="error_alert_title">ERROR</string>
     <string name="user_added_title">user_added_title</string>
     <string name="user_added_message">user_added_message</string>
     <string name="user_already_exists_title">user_already_exists_title</string>
     <string name="user_already_exists_message">user_already_exists_message</string>
-    <string name="db_error_title">db_error_title</string>
-    <string name="db_error_message">db_error_message</string>
     <string name="user_logged_title">user_logged_title</string>
     <string name="user_logged_message">user_logged_message</string>
     <string name="wrong_login_and_password_title">wrong_login_and_password_title</string>
