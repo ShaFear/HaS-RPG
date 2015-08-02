@@ -1,9 +1,11 @@
 package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.settings.SerializableTags;
 import com.example.jereczem.hasrpg.data.PlayerData;
 import com.example.jereczem.hasrpg.game.Chase;
 import com.example.jereczem.hasrpg.game.Hunter;
@@ -33,10 +35,12 @@ public class CharacterSelectLogic implements Observer {
     private TextView hunterFinalAttackRangeTextView;
     private TextView hunterSkillPointsTextView;
 
-    public CharacterSelectLogic(Activity activity, PlayerData playerData){
+    public CharacterSelectLogic(Activity activity){
         this.a = activity;
-        this.playerData = playerData;
+        Intent intent = a.getIntent();
+        playerData = (PlayerData)intent.getSerializableExtra(SerializableTags.PLAYER_DATA);
         playerData.addObserver(this);
+
         //chase
         chaseLevelTextView = (TextView)a.findViewById(R.id.chaseLevelTextView);
         chaseClassTextView = (TextView)a.findViewById(R.id.chaseClassTextView);
