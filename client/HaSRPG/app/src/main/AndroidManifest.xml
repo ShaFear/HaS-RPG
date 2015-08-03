@@ -31,12 +31,7 @@
         </activity>
         <activity
             android:name=".view.activities.MenuActivity"
-            android:label="@string/title_activity_lobbies"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".view.activities.CharacterSelectFragment"
-            android:label="@string/title_activity_character_select"
+            android:label="@string/title_activity_menu"
             android:screenOrientation="portrait">
         </activity>
     </application>

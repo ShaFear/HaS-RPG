@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.view.drawer.DrawerLogic;
@@ -34,24 +35,14 @@ public class MenuActivity extends AppCompatActivity{
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
                 drawerLogic.openDrawerClick();
                 return true;
             }
-            case R.id.action_create_new_lobby:  {
-                return true;
-            }
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

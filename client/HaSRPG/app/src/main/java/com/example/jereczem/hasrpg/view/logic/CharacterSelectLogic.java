@@ -3,6 +3,8 @@ package com.example.jereczem.hasrpg.view.logic;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
@@ -20,7 +22,7 @@ import java.util.Observer;
  */
 public class CharacterSelectLogic implements Observer {
     private PlayerData playerData;
-    private AppCompatActivity a;
+    private View a;
     //chase
     private TextView chaseTitleTextView;
     private TextView chaseLevelTextView;
@@ -37,12 +39,10 @@ public class CharacterSelectLogic implements Observer {
     private TextView hunterFinalAttackRangeTextView;
     private TextView hunterSkillPointsTextView;
 
-    public CharacterSelectLogic(AppCompatActivity activity){
-        this.a = activity;
-        new ToolbarSetter(a, R.drawable.menu_icon);
-        Intent intent = a.getIntent();
-        playerData = (PlayerData)intent.getSerializableExtra(SerializableTags.PLAYER_DATA);
+    public CharacterSelectLogic(View view, PlayerData playerData){
         playerData.addObserver(this);
+        this.playerData = playerData;
+        this.a = view;
         setTextBoxes();
     }
 
