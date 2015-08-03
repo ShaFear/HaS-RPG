@@ -1,5 +1,5 @@
 <resources>
-    <string name="title_activity_character_select">Hide and Seek RPG - Characters</string>
+    <string name="title_activity_character_select">Your characters</string>
 
     <string name="chase_level">1</string>
     <string name="chase_skill_points">0</string>

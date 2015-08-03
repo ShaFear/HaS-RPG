@@ -1,50 +1,36 @@
 package com.example.jereczem.hasrpg.view.activities;
 
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
-import com.example.jereczem.hasrpg.view.drawer.CustomAdapter;
 import com.example.jereczem.hasrpg.view.drawer.DrawerLogic;
-import com.example.jereczem.hasrpg.view.drawer.ItemData;
-import com.example.jereczem.hasrpg.view.logic.LobbiesActivityLogic;
+import com.example.jereczem.hasrpg.view.logic.MenuActivityLogic;
 
 
-public class LobbiesActivity extends AppCompatActivity{
+public class MenuActivity extends AppCompatActivity{
 
-    private LobbiesActivityLogic lobbiesActivityLogic;
+    private MenuActivityLogic menuActivityLogic;
     private DrawerLogic drawerLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lobbies);
+        setContentView(R.layout.activity_menu);
         drawerLogic = new DrawerLogic(this);
-        lobbiesActivityLogic = new LobbiesActivityLogic(this);
+        menuActivityLogic = new MenuActivityLogic(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        lobbiesActivityLogic.downloadPlayerData();
     }
 
     @Override
     public void onBackPressed() {
-        lobbiesActivityLogic.moveTaskToBack();
+        menuActivityLogic.moveTaskToBack();
     }
 
     @Override

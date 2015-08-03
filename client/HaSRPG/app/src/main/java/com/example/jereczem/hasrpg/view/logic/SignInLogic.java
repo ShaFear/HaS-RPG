@@ -1,6 +1,5 @@
 package com.example.jereczem.hasrpg.view.logic;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -8,7 +7,7 @@ import android.widget.EditText;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.view.activities.LobbiesActivity;
+import com.example.jereczem.hasrpg.view.activities.MenuActivity;
 import com.example.jereczem.hasrpg.view.activities.SignUpActivity;
 import com.example.jereczem.hasrpg.view.dialogs.SignInAlerts;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
@@ -53,7 +52,7 @@ public class SignInLogic{
     private void handleSignInResponse(HttpResponse response) {
         switch (response.getCode()) {
             case 200: {
-                Intent intent = new Intent(a, LobbiesActivity.class);
+                Intent intent = new Intent(a, MenuActivity.class);
                 a.startActivity(intent);
                 break;
             }

@@ -9,7 +9,7 @@ import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.view.logic.CharacterSelectLogic;
 
 
-public class CharacterSelectActivity extends AppCompatActivity{
+public class CharacterSelectFragment extends AppCompatActivity{
     private CharacterSelectLogic characterSelectLogic;
     private Toolbar toolbar;
 
