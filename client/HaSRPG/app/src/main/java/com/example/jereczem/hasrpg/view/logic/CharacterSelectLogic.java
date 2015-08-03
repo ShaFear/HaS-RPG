@@ -2,6 +2,7 @@ package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
@@ -9,6 +10,7 @@ import com.example.jereczem.hasrpg.settings.SerializableTags;
 import com.example.jereczem.hasrpg.data.PlayerData;
 import com.example.jereczem.hasrpg.game.Chase;
 import com.example.jereczem.hasrpg.game.Hunter;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -18,7 +20,7 @@ import java.util.Observer;
  */
 public class CharacterSelectLogic implements Observer {
     private PlayerData playerData;
-    private Activity a;
+    private AppCompatActivity a;
     //chase
     private TextView chaseTitleTextView;
     private TextView chaseLevelTextView;
@@ -35,8 +37,10 @@ public class CharacterSelectLogic implements Observer {
     private TextView hunterFinalAttackRangeTextView;
     private TextView hunterSkillPointsTextView;
 
-    public CharacterSelectLogic(Activity activity){
+    public CharacterSelectLogic(AppCompatActivity activity){
         this.a = activity;
+        new ToolbarSetter(a, R.drawable.menu_icon);
+
         Intent intent = a.getIntent();
         playerData = (PlayerData)intent.getSerializableExtra(SerializableTags.PLAYER_DATA);
         playerData.addObserver(this);

@@ -19,10 +19,6 @@ public class CharacterSelectActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_select);
         characterSelectLogic = new CharacterSelectLogic(this);
-
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setNavigationIcon(R.drawable.list);
-        setSupportActionBar(toolbar);
     }
 
     public void rightChase(View view) {

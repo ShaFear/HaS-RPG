@@ -14,6 +14,7 @@ import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.view.dialogs.SignUpAlerts;
 import com.example.jereczem.hasrpg.view.logic.SignUpLogic;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.util.concurrent.ExecutionException;
 
@@ -21,16 +22,12 @@ import java.util.concurrent.ExecutionException;
 public class SignUpActivity extends AppCompatActivity {
 
     private SignUpLogic signUpLogic;
-    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         signUpLogic = new SignUpLogic(this);
-
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
     }
 
     public void signUp(View view) {

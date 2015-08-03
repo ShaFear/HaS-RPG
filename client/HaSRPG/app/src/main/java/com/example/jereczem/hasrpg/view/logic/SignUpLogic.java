@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.view.logic;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
@@ -10,6 +11,7 @@ import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.SignUpAlerts;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.util.concurrent.ExecutionException;
 
@@ -17,10 +19,11 @@ import java.util.concurrent.ExecutionException;
  * Created by jereczem on 02.08.15.
  */
 public class SignUpLogic {
-    private Activity a;
+    private AppCompatActivity a;
 
-    public SignUpLogic(Activity activity){
+    public SignUpLogic(AppCompatActivity activity){
         this.a = activity;
+        new ToolbarSetter(a, R.drawable.previous);
     }
     public void signUpClick(){
         EditText loginEditText = (EditText)a.findViewById(R.id.login_input);

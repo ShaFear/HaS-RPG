@@ -7,7 +7,7 @@
         android:id="@+id/action_create_new_lobby"
         android:orderInCategory="0"
         android:title="Search"
-        android:icon="@drawable/add"
+        android:icon="@drawable/menu_add"
         app:showAsAction="ifRoom"
         ></item>
 </menu>

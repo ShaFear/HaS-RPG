@@ -1,4 +1,4 @@
-package com.example.jereczem.hasrpg.view.activities;
+package com.example.jereczem.hasrpg.view.drawer;
 
 /**
  * Created by jereczem on 02.08.15.

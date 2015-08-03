@@ -2,6 +2,7 @@ package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
@@ -10,6 +11,7 @@ import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.activities.LobbiesActivity;
 import com.example.jereczem.hasrpg.view.activities.SignUpActivity;
 import com.example.jereczem.hasrpg.view.dialogs.SignInAlerts;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -19,13 +21,14 @@ import java.net.CookiePolicy;
  * Created by jereczem on 01.08.15.
  */
 public class SignInLogic{
-    Activity a;
+    AppCompatActivity a;
 
-    public SignInLogic(Activity activity) {
+    public SignInLogic(AppCompatActivity activity) {
         CookieManager cookieManager = new CookieManager();
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
         CookieHandler.setDefault(cookieManager);
         this.a = activity;
+        new ToolbarSetter(a);
     }
 
     public void signInClick(){
