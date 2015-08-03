@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.view.drawer.CustomAdapter;
+import com.example.jereczem.hasrpg.view.drawer.DrawerLogic;
 import com.example.jereczem.hasrpg.view.drawer.ItemData;
 import com.example.jereczem.hasrpg.view.logic.LobbiesActivityLogic;
 
@@ -25,26 +26,13 @@ import com.example.jereczem.hasrpg.view.logic.LobbiesActivityLogic;
 public class LobbiesActivity extends AppCompatActivity{
 
     private LobbiesActivityLogic lobbiesActivityLogic;
-    private RecyclerView recyclerView;
-    private DrawerLayout drawerLayout;
+    private DrawerLogic drawerLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobbies);
-
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        recyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        ItemData itemsData[] = { new ItemData("Help", R.drawable.menu_add),
-                new ItemData("Help", R.drawable.menu_add),
-        } ;
-
-        recyclerView.setAdapter(new CustomAdapter(itemsData));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        drawerLogic = new DrawerLogic(this);
         lobbiesActivityLogic = new LobbiesActivityLogic(this);
     }
 
@@ -69,7 +57,7 @@ public class LobbiesActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home: {
-                drawerLayout.openDrawer(Gravity.LEFT);
+                drawerLogic.openDrawerClick();
                 return true;
             }
             case R.id.action_create_new_lobby:  {

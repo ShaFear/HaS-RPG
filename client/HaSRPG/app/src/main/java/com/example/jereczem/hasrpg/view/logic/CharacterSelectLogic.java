@@ -40,11 +40,13 @@ public class CharacterSelectLogic implements Observer {
     public CharacterSelectLogic(AppCompatActivity activity){
         this.a = activity;
         new ToolbarSetter(a, R.drawable.menu_icon);
-
         Intent intent = a.getIntent();
         playerData = (PlayerData)intent.getSerializableExtra(SerializableTags.PLAYER_DATA);
         playerData.addObserver(this);
+        setTextBoxes();
+    }
 
+    private void setTextBoxes(){
         //chase
         chaseLevelTextView = (TextView)a.findViewById(R.id.chaseLevelTextView);
         chaseClassTextView = (TextView)a.findViewById(R.id.chaseClassTextView);

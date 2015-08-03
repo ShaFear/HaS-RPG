@@ -11,6 +11,7 @@ import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.SignUpAlerts;
+import com.example.jereczem.hasrpg.view.drawer.DrawerLogic;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.util.concurrent.ExecutionException;
@@ -25,6 +26,7 @@ public class SignUpLogic {
         this.a = activity;
         new ToolbarSetter(a, R.drawable.previous);
     }
+
     public void signUpClick(){
         EditText loginEditText = (EditText)a.findViewById(R.id.login_input);
         EditText passwordEditText = (EditText)a.findViewById(R.id.password_input);
