@@ -51,3 +51,27 @@ getCharacters = function(user_id, res){
       res.status(260).send('Database error');
       console.log(err);}});
 }
+
+setChaseID = function(user_id, chase_id, res){
+  query = "UPDATE users SET ChaseID=? WHERE UserID=?;"
+  values=[chase_id, user_id];
+  connection.query(query, values, function(err, rows, fields) {
+    if(!err){
+      res.status(200).send('Changed chaseID for user');
+    }
+    else {
+      res.status(260).send('Database error');
+      console.log(err);}});
+}
+
+setHunterID = function(user_id, hunter_id, res){
+  query = "UPDATE users SET HunterID=? WHERE UserID=?;"
+  values=[hunter_id, user_id];
+  connection.query(query, values, function(err, rows, fields) {
+    if(!err){
+      res.status(200).send('Changed HunterID for user');
+    }
+    else {
+      res.status(260).send('Database error');
+      console.log(err);}});
+}

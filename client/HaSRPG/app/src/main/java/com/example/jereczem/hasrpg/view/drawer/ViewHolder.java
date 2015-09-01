@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -46,6 +47,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     public void downloadPlayerData() {
         HttpResponse response = new HttpResponseReceiver("mycharacters").receive();
         if (response.getCode().equals(200)) {
+            Log.d("HASLOG", response.getMessage());
             playerData = PlayerDataReceiver.fromString(response.getMessage());
         } else {
             AlertDialog alertDialog = Alerts.connectionError(a, response.getMessage());

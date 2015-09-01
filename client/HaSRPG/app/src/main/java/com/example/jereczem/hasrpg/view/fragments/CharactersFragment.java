@@ -30,7 +30,7 @@ public class CharactersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         activityView = inflater.inflate(R.layout.fragment_characters, container, false);
-        characterSelectLogic = new CharacterSelectLogic(activityView, playerData);
+        characterSelectLogic = new CharacterSelectLogic(activityView, playerData, this.getActivity());
         setButtonListeners();
         return activityView;
     }
@@ -62,6 +62,13 @@ public class CharactersFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 characterSelectLogic.rightHunterClick();
+            }
+        });
+        final Button saveButton = (Button) activityView.findViewById(R.id.saveCharacterButton);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                characterSelectLogic.saveClick();
             }
         });
     }
