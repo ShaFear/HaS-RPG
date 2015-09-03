@@ -1,5 +1,37 @@
 require('./connection.js');
 
+setLobbyStatus =function(lobby_id, status, res){
+  query = 'UPDATE lobbies SET Status=? WHERE LobbyID=?';
+  values = [status, lobby_id];
+  connection.query(query, values, function(err, rows, fields){
+    if(!err){
+      res.status(200).send("succesfuly updated lobby status");
+      return;
+    }
+    if(err){
+      res.status(260).send('Database error');
+      console.log(err);
+      return;
+    }
+  });
+}
+
+getLobbyStatus = function(lobby_id, res){
+  query = 'SELECT Status FROM lobbies WHERE LobbyID=?';
+  values = [lobby_id];
+  connection.query(query, values, function(err, rows, fields){
+    if(!err){
+      res.status(200).send(JSON.stringify(rows));
+      return;
+    }
+    if(err){
+      res.status(260).send('Database error');
+      console.log(err);
+      return;
+    }
+  });
+}
+
 setUserStatus = function(user_id, lobby_id, status, res){
   query = 'UPDATE lobbies_users SET Status=? WHERE UserID=? AND LobbyID=?';
   values = [status, user_id, lobby_id];

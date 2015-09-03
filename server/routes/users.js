@@ -16,6 +16,15 @@ function check(login, passwd, res){
   return false;
 }
 
+app.get('/users/:user_id', function(req, res){
+  if(req.signedCookies.UserID){
+    var user_id=req.params['user_id'];
+    getCharacters(user_id, res);
+    return;
+  }else
+    res.status(256).send('not logged');
+});
+
 app.post('/users', function(req, res){
   var login = req.body.login;
   var passwd = req.body.password;
