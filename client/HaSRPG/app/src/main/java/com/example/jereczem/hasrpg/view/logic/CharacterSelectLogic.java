@@ -127,7 +127,7 @@ public class CharacterSelectLogic implements Observer {
         httpResponseReceiver.addParameter("chase_id",
                 playerData.getSelectedChase().getCharacterID().toString());
         HttpResponse response = httpResponseReceiver.receive();
-        
+
         if (!response.getCode().equals(200))
             handleSetIDResponse(response);
 
