@@ -18,7 +18,6 @@ app.use(multer());
 app.use(require('cookie-parser')(credentials.cookieSecret));
 
 //routes
-require("./routes/test.js");
 require("./routes/users.js");
 require("./routes/signin.js");
 require("./routes/mycharacters.js");
