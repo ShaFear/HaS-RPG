@@ -3,10 +3,11 @@
   /lobbies POST (dodanie nowego lobby) - ZROBIONE
   /lobbies/{LobbyID}/login GET (zalogowanie do lobby) - ZROBIONE
   /lobbies/{LobbyID}/logout GET (wylogowanie z lobby) - ZROBIONE
-  /lobbies/{LobbyID/} GET {lista graczy}
-  /lobbies/{LobbyID}/mystatus POST (status="STATUS", zmiana statusu
-    jendoczesnie uruchamia sprawdzanie statusu dla calego lobby
-    dopiero gdy conajmniej 3 graczy jest READY, to mozna zaczynac)
+  /lobbies/{LobbyID/} GET {lista graczy - lista id} - ZROBIONE
+  /lobbies/{LobbyID}/mystatus POST -ZROBIONE (status="STATUS", pierwsza osoba z listy
+    osob w lobby jest jej administratorem, i moze wywolac:
+  /lobbies/{LobbyID}/start
+    w momencie gdy wszyscy ( co najmniej 3, klikna ready)
   /lobbies/{LobbyID}/status GET (sprawdzenie statusu lobby)
 */
 
@@ -28,6 +29,27 @@ function check_data(title, player_no, game_limit, run_time, status){
       return false;
   }
 }
+
+app.post('/lobbies/:lobby_id/my_status', function(req, res){
+  if(req.signedCookies.UserID){
+    var lobby_id=req.params['lobby_id'];
+    var status = req.body.status;
+    if(status == "WAIT" || status == "READY")
+      setUserStatus(req.signedCookies.UserID, lobby_id, status, res);
+    else
+      res.status(260).send('status should be READY or WAIT');
+    return;
+  }else
+      res.status(256).send('not logged');
+});
+
+app.get('/lobbies/:lobby_id/', function(req, res){
+  if(req.signedCookies.UserID){
+    var lobby_id=req.params['lobby_id'];
+    getLobbyUsers(lobby_id, res);
+  }else
+      res.status(256).send('not logged');
+});
 
 app.get('/lobbies/:lobby_id/login', function(req, res){
   if(req.signedCookies.UserID){
