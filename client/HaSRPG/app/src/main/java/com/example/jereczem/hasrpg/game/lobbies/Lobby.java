@@ -35,8 +35,13 @@ public class Lobby implements Serializable{
         lobbyPlayers = new ArrayList<>();
     }
 
-    public void setLobbyPlayers(ArrayList<PlayerData> playerDatas) {
-        playersNO = playerDatas.size();
+    private void setLobbyPlayersNO() {
+        playersNO = lobbyPlayers.size();
+    }
+
+    public void setLobbyPlayer(ArrayList<PlayerData> playerDatas){
+        this.lobbyPlayers = playerDatas;
+        setLobbyPlayersNO();
     }
 
     public LobbySettings.Status getStatus() {

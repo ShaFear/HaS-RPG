@@ -2,9 +2,6 @@ package com.example.jereczem.hasrpg.networking.rest;
 
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.jereczem.hasrpg.data.lobby.LobbyBaseData;
-import com.example.jereczem.hasrpg.data.lobby.LobbyDataReceiver;
-import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;

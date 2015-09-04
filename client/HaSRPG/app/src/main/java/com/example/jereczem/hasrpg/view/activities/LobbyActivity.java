@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.view.activities;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
@@ -28,5 +29,4 @@ public class LobbyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lobby);
         lobbyActivityLogic = new LobbyActivityLogic(this);
     }
-
 }

@@ -7,21 +7,19 @@ import android.content.DialogInterface;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.networking.rest.PlayerDataGetter;
-import com.example.jereczem.hasrpg.view.dialogs.Alerts;
-import com.example.jereczem.hasrpg.view.fragments.CharactersFragment;
-import com.example.jereczem.hasrpg.view.fragments.LobbiesFragment;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
+import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.view.dialogs.Alerts;
+import com.example.jereczem.hasrpg.view.fragments.CharactersFragment;
+import com.example.jereczem.hasrpg.view.fragments.LobbiesFragment;
 
 /**
  * Created by jereczem on 03.08.15.
@@ -48,7 +46,6 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     public void downloadPlayerData() {
         HttpResponse response = new HttpResponseReceiver("mycharacters").receive();
         if (response.getCode().equals(200)) {
-            Log.d("HASLOG", response.getMessage());
             playerData = PlayerDataReceiver.fromString(response.getMessage());
         } else {
             AlertDialog alertDialog;
