@@ -16,7 +16,7 @@ public class Alerts {
         String connection_error_alert_message =
                 activity.getResources().getString(R.string.error_alert_message);
         return DialogGenerator.generateSimpleOKAlert(activity, connection_error_alert_title,
-                connection_error_alert_message);
+                error_alert_message);
     }
 
     public static AlertDialog databaseError(Activity activity) {

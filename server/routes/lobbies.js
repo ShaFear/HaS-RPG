@@ -63,7 +63,15 @@ app.post('/lobbies/:lobby_id/my_status', function(req, res){
       res.status(256).send('not logged');
 });
 
-app.get('/lobbies/:lobby_id/', function(req, res){
+app.get('/lobbies/:lobby_id', function(req, res){
+  if(req.signedCookies.UserID){
+    var lobby_id=req.params['lobby_id'];
+    getLobbyInformation(lobby_id, res);
+  }else
+      res.status(256).send('not logged');
+});
+
+app.get('/lobbies/:lobby_id/users', function(req, res){
   if(req.signedCookies.UserID){
     var lobby_id=req.params['lobby_id'];
     getLobbyUsers(lobby_id, res);

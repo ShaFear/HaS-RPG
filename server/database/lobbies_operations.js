@@ -48,6 +48,22 @@ setUserStatus = function(user_id, lobby_id, status, res){
   });
 }
 
+getLobbyInformation =function(lobby_id, res){
+  query = 'SELECT * FROM lobbies WHERE LobbyID=?'
+  values = [lobby_id];
+  connection.query(query, values, function(err, rows, fields){
+    if(!err){
+      res.status(200).send(JSON.stringify(rows));
+      return;
+    }
+    if(err){
+      res.status(260).send('Database error');
+      console.log(err);
+      return;
+    }
+  });
+}
+
 getLobbyUsers = function(lobby_id, res){
   query = 'SELECT UserID, Status FROM lobbies_users WHERE LobbyID=?'
   values = [lobby_id];
@@ -70,7 +86,7 @@ createLobby = function(title, player_no, game_limit, run_time, res){
   values = [title, player_no, game_limit, run_time];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
-      res.status(200).send('Lobby added');
+      res.status(200).send(JSON.stringify(rows));
       return;
     }
     if(err){

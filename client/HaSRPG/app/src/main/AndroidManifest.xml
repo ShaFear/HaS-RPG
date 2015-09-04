@@ -42,6 +42,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
         </activity>
+        <activity
+            android:name=".view.activities.LobbyActivity"
+            android:label="@string/title_activity_lobby"
+            android:parentActivityName=".view.activities.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>
