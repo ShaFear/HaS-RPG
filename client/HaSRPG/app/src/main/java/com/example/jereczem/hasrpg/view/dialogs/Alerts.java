@@ -27,6 +27,15 @@ public class Alerts {
         return DialogGenerator.generateSimpleOKAlert(activity, db_error_title, db_error_message);
     }
 
+    public static AlertDialog notLoggedError(Activity activity) {
+        String not_logged_error_title =
+                activity.getResources().getString(R.string.not_logged_error_title);
+        String not_logged_error_message=
+                activity.getResources().getString(R.string.not_logged_error_message);
+        return DialogGenerator.generateSimpleOKAlert(activity, not_logged_error_title,
+                not_logged_error_message);
+    }
+
     protected static class DialogGenerator {
         public static AlertDialog generateSimpleOKAlert(Activity activity,
                                                         String title, String message){

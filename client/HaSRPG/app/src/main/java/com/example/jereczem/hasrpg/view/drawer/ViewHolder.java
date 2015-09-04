@@ -16,8 +16,8 @@ import android.widget.TextView;
 import com.example.jereczem.hasrpg.view.fragments.CharactersFragment;
 import com.example.jereczem.hasrpg.view.fragments.LobbiesFragment;
 import com.example.jereczem.hasrpg.R;
-import com.example.jereczem.hasrpg.data.PlayerData;
-import com.example.jereczem.hasrpg.data.PlayerDataReceiver;
+import com.example.jereczem.hasrpg.data.player.PlayerData;
+import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
@@ -50,7 +50,21 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
             Log.d("HASLOG", response.getMessage());
             playerData = PlayerDataReceiver.fromString(response.getMessage());
         } else {
-            AlertDialog alertDialog = Alerts.connectionError(a, response.getMessage());
+            AlertDialog alertDialog;
+            switch (response.getCode()){
+                case 256:{
+                    alertDialog = Alerts.notLoggedError(a);
+                    break;
+                }
+                case 600:{
+                    alertDialog = Alerts.databaseError(a);
+                    break;
+                }
+                default:{
+                    alertDialog = Alerts.connectionError(a, response.getMessage());
+                    break;
+                }
+            }
             alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {

@@ -1,22 +1,17 @@
 package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.settings.SerializableTags;
-import com.example.jereczem.hasrpg.data.PlayerData;
+import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.Chase;
 import com.example.jereczem.hasrpg.game.Hunter;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.CharacterSelectAlerts;
-import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -145,8 +140,12 @@ public class CharacterSelectLogic implements Observer {
                 CharacterSelectAlerts.charactersSaved(activity).show();
                 break;
             }
-            case 256:{
+            case 260:{
                 Alerts.databaseError(activity).show();
+                break;
+            }
+            case 256:{
+                Alerts.notLoggedError(activity).show();
                 break;
             }
             default:{

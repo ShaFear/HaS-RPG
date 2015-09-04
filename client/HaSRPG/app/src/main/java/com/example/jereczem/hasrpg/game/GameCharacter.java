@@ -1,10 +1,9 @@
 package com.example.jereczem.hasrpg.game;
 
-import com.example.jereczem.hasrpg.data.CharacterData;
+import com.example.jereczem.hasrpg.data.player.CharacterData;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 import java.io.Serializable;
-import java.util.Observable;
 
 /**
  * Created by jereczem on 29.07.15.

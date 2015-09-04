@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_new_lobby_button">Create new lobby</string>
+    <string name="title_activity_create_lobby">Create new lobby</string>
+    <string name="create_lobby_title">Lobby title</string>
+    <string name="create_lobby_title_edit_text">Come here and play!</string>
+    <string name="create_lobbyPlayersNumberTitle">Maximum number of players</string>
+    <string name="create_lobby_game_time_title">Game time (in minutes)</string>
+    <string name="create_lobby_runtime_title">Run time (in minutes)</string>
+    <string name="created_new_lobby_button">Create!</string>
+    <string name="wrong_data_title">wrong_data_title</string>
+    <string name="wrong_data_message">wrong_data_message</string>
+
+</resources>

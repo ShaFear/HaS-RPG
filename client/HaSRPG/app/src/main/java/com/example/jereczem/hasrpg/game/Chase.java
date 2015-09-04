@@ -1,6 +1,6 @@
 package com.example.jereczem.hasrpg.game;
 
-import com.example.jereczem.hasrpg.data.CharacterData;
+import com.example.jereczem.hasrpg.data.player.CharacterData;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 /**

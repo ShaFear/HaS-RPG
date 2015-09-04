@@ -70,7 +70,7 @@ createLobby = function(title, player_no, game_limit, run_time, res){
   values = [title, player_no, game_limit, run_time];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
-      res.status(260).send('Lobby added');
+      res.status(200).send('Lobby added');
       return;
     }
     if(err){

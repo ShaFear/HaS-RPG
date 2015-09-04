@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.jereczem.hasrpg.R;
-import com.example.jereczem.hasrpg.data.PlayerData;
+import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.view.logic.CharacterSelectLogic;
 
 

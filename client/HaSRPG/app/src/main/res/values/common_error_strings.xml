@@ -4,4 +4,6 @@
     <string name="db_error_message">db_error_message</string>
     <string name="error_alert_title">ERROR</string>
     <string name="error_alert_message">error_alert_message</string>
+    <string name="not_logged_error_title">not_logged_error_title</string>
+    <string name="not_logged_error_message">not_logged_error_message</string>
 </resources>
