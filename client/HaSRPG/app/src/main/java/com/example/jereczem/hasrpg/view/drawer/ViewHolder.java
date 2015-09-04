@@ -13,14 +13,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.PlayerDataGetter;
+import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.fragments.CharactersFragment;
 import com.example.jereczem.hasrpg.view.fragments.LobbiesFragment;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
-import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 
 /**
  * Created by jereczem on 03.08.15.

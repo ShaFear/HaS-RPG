@@ -7,6 +7,7 @@ import android.widget.EditText;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.SignInPoster;
 import com.example.jereczem.hasrpg.view.activities.MenuActivity;
 import com.example.jereczem.hasrpg.view.activities.SignUpActivity;
 import com.example.jereczem.hasrpg.view.dialogs.SignInAlerts;
@@ -37,11 +38,11 @@ public class SignInLogic{
         String password = passwordEditText.getText().toString();
         login = login.replace(" ", ""); //TODO zrobic porzadnego regexa
 
-        HttpResponseReceiver httpResponseReceiver = new HttpResponseReceiver("signin");
-        httpResponseReceiver.addParameter("login", login);
-        httpResponseReceiver.addParameter("password", password);
-        HttpResponse response = httpResponseReceiver.receive();
-        handleSignInResponse(response);
+        HttpResponse response = SignInPoster.getResponse(a, login, password);
+        if(response.getCode().equals(200)){
+            Intent intent = new Intent(a, MenuActivity.class);
+            a.startActivity(intent);
+        }
     }
 
     public void signUpClick(){
@@ -49,25 +50,5 @@ public class SignInLogic{
         a.startActivity(intent);
     }
 
-    private void handleSignInResponse(HttpResponse response) {
-        switch (response.getCode()) {
-            case 200: {
-                Intent intent = new Intent(a, MenuActivity.class);
-                a.startActivity(intent);
-                break;
-            }
-            case 256: {
-                SignInAlerts.wrongLoginAndPassword(a).show();
-                break;
-            }
-            case 260: {
-                SignInAlerts.databaseError(a).show();
-                break;
-            }
-            default: {
-                SignInAlerts.connectionError(a, response.getMessage()).show();
-                break;
-            }
-        }
-    }
+
 }

@@ -7,9 +7,13 @@ import android.widget.TextView;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.lobby.LobbyBaseData;
 import com.example.jereczem.hasrpg.data.lobby.LobbyDataReceiver;
+import com.example.jereczem.hasrpg.data.player.PlayerData;
+import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.LobbyGetter;
+import com.example.jereczem.hasrpg.networking.rest.PlayerDataGetter;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
@@ -34,33 +38,21 @@ public class LobbyActivityLogic {
         }
     }
 
-    private void downloadLobbyData() throws JSONException {
-        HttpResponseReceiver rReceiver = new HttpResponseReceiver("lobbies/" + lobbyId);
-        HttpResponse response = rReceiver.receive();
-        handleDownloadLobbyDataResponse(response);
+    public PlayerData downloadPlayerData() {
+        HttpResponse response = PlayerDataGetter.getResponse(a);
+        return PlayerDataReceiver.fromString(response.getMessage());
     }
 
-    private void handleDownloadLobbyDataResponse(HttpResponse response) throws JSONException {
-        switch (response.getCode()){
-            case 200:{
-                LobbyBaseData baseData = LobbyDataReceiver.receiveBaseData(response.getMessage());
-                lobby = new Lobby(baseData);
-                setViewFromLobbyData();
-                break;
-            }
-            case 256:{
-                Alerts.notLoggedError(a).show();
-                break;
-            }
-            case 260:{
-                Alerts.databaseError(a).show();
-                break;
-            }
-            default:{
-                Alerts.connectionError(a, response.getMessage());
-            }
+    private void downloadLobbyData() throws JSONException {
+        HttpResponse response = LobbyGetter.getResponse(lobbyId, a);
+        if (response.getCode().equals(200)){
+            LobbyBaseData baseData = LobbyDataReceiver.receiveBaseData(response.getMessage());
+            lobby = new Lobby(baseData);
+            setViewFromLobbyData();
         }
     }
+
+
 
     private void setViewFromLobbyData(){
         TextView lobbyTitle = (TextView) a.findViewById(R.id.lobbyTitle);

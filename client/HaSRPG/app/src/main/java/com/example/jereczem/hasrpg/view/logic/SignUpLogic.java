@@ -8,6 +8,7 @@ import android.widget.EditText;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.SignUpPoster;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.SignUpAlerts;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
@@ -37,11 +38,17 @@ public class SignUpLogic {
     }
 
     private void signUpNewUser(String login, String password){
-        HttpResponseReceiver httpResponseReceiver = new HttpResponseReceiver("users");
-        httpResponseReceiver.addParameter("login", login);
-        httpResponseReceiver.addParameter("password", password);
-        HttpResponse response = httpResponseReceiver.receive();
-        handleSignUpResponse(response);
+        HttpResponse response = SignUpPoster.getResponse(a, login, password);
+        if(response.getCode().equals(200)){
+            AlertDialog alertDialog = SignUpAlerts.userAdded(a);
+            alertDialog.show();
+            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    a.finish();
+                }
+            });
+        }
     }
 
     private boolean isInputDataOnClientSideValid(String login, String password, String repassword) {
@@ -62,40 +69,5 @@ public class SignUpLogic {
             return false;
         }
         return true;
-    }
-
-    private void handleSignUpResponse(final HttpResponse response) {
-        switch (response.getCode()){
-            case 200:{
-                AlertDialog alertDialog = SignUpAlerts.userAdded(a);
-                alertDialog.show();
-                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        a.finish();
-                    }
-                });
-                break;
-            }
-            case 256:{
-                SignUpAlerts.wrongLoginLenght(a).show(); break;
-            }
-            case 257:{
-                SignUpAlerts.wrongPasswordLenght(a).show(); break;
-            }
-            case 258:{
-                SignUpAlerts.emptyInput(a).show(); break;
-            }
-            case 259:{
-                SignUpAlerts.userAlreadyExists(a).show(); break;
-            }
-            case 260:{
-                Alerts.databaseError(a); break;
-            }
-            default:{
-                Alerts.connectionError(a, response.getMessage()).show();
-                //TODO uzytkownik nie powinien widziec tak dokladnej wiadomosci
-            }
-        }
     }
 }

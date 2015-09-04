@@ -1,6 +1,7 @@
 package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +11,7 @@ import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.users.Chase;
 import com.example.jereczem.hasrpg.game.users.Hunter;
+import com.example.jereczem.hasrpg.networking.rest.ChangeCharacterStatusPoster;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.CharacterSelectAlerts;
 
@@ -117,41 +119,10 @@ public class CharacterSelectLogic implements Observer {
     }
 
     public void saveClick(){
-        HttpResponseReceiver httpResponseReceiver =
-                new HttpResponseReceiver("mycharacters/ChaseID");
-        httpResponseReceiver.addParameter("chase_id",
-                playerData.getSelectedChase().getCharacterID().toString());
-        HttpResponse response = httpResponseReceiver.receive();
-
-        if (!response.getCode().equals(200))
-            handleSetIDResponse(response);
-
-        httpResponseReceiver =
-                new HttpResponseReceiver("mycharacters/HunterID");
-        httpResponseReceiver.addParameter("hunter_id",
-                playerData.getSelectedHunter().getCharacterID().toString());
-        response = httpResponseReceiver.receive();
-        handleSetIDResponse(response);
-    }
-
-    private void handleSetIDResponse(HttpResponse response) {
-        switch (response.getCode()){
-            case 200:{
-                CharacterSelectAlerts.charactersSaved(activity).show();
-                break;
-            }
-            case 260:{
-                Alerts.databaseError(activity).show();
-                break;
-            }
-            case 256:{
-                Alerts.notLoggedError(activity).show();
-                break;
-            }
-            default:{
-                Alerts.connectionError(activity, response.getMessage()).show();
-            }
-        }
+        HttpResponse response =
+                ChangeCharacterStatusPoster.getResponse(playerData, (AppCompatActivity) activity);
+        if(response.getCode().equals(200))
+            CharacterSelectAlerts.charactersSaved(activity).show();
     }
 }
 
