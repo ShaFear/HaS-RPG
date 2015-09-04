@@ -39,6 +39,34 @@ public class Lobby implements Serializable{
         playersNO = playerDatas.size();
     }
 
+    public LobbySettings.Status getStatus() {
+        return status;
+    }
+
+    public Integer getRunTime() {
+        return runTime;
+    }
+
+    public Integer getGameTime() {
+        return gameTime;
+    }
+
+    public Integer getPlayersNO() {
+        return playersNO;
+    }
+
+    public Integer getPlayersMax() {
+        return playersMax;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Integer getLobbyID() {
+        return lobbyID;
+    }
+
     @Override
     public String toString() {
         return "Lobby{" +

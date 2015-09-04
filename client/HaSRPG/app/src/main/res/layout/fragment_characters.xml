@@ -1,15 +1,18 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jereczem.hasrpg.view.fragments.CharactersFragment">
+    tools:context="com.example.jereczem.hasrpg.view.fragments.CharactersFragment"
+    android:background="#ffffffff">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/saveCharacterButton">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/saveCharacterButton">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -422,16 +425,17 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SAVE"
-                android:id="@+id/saveCharacterButton"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
-
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:id="@+id/saveCharacterButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal|bottom" />
 
-</FrameLayout>
+
+</RelativeLayout>

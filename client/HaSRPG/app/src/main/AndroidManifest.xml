@@ -9,8 +9,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        >
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.SignInActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -21,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.SignUpActivity"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".view.activities.SignInActivity"
@@ -30,11 +33,13 @@
                 android:value=".view.activities.SignInActivity" />
         </activity>
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.MenuActivity"
             android:label="@string/title_activity_menu"
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.CreateLobbyActivity"
             android:label="@string/title_activity_create_lobby"
             android:parentActivityName=".view.activities.MenuActivity" >
@@ -43,6 +48,7 @@
                 android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
         </activity>
         <activity
+            android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.LobbyActivity"
             android:label="@string/title_activity_lobby"
             android:parentActivityName=".view.activities.MenuActivity" >

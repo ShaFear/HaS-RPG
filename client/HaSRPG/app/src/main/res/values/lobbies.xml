@@ -14,10 +14,10 @@
     <string name="wrong_data_message">wrong_data_message</string>
 
     <string name="lobby_title">Lobby title</string>
-    <string name="lobby_game_time">Game time: 30 minutes</string>
+    <string name="lobby_game_time">Game time: [magic] minutes</string>
 
     <string name="title_activity_lobby">Lobby</string>
-    <string name="lobby_players_number">Players 1 / 10</string>
-    <string name="lobby_runtime">Run time: 5 minutes</string>
+    <string name="lobby_players_number">Players [magic]</string>
+    <string name="lobby_runtime">Run time: [magic] minutes</string>
 
 </resources>
