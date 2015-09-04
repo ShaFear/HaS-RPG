@@ -1,7 +1,8 @@
 package com.example.jereczem.hasrpg.data.player;
 
-import com.example.jereczem.hasrpg.game.Chase;
-import com.example.jereczem.hasrpg.game.Hunter;
+import com.example.jereczem.hasrpg.game.users.Chase;
+import com.example.jereczem.hasrpg.game.users.Hunter;
+import com.example.jereczem.hasrpg.settings.LobbySettings;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +23,16 @@ public class PlayerData extends Observable implements Serializable{
     private Chase selectedChase;
     protected Integer chaseNumber;
     protected Integer hunterNumber;
+
+    public LobbySettings.Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(LobbySettings.Status status) {
+        this.status = status;
+    }
+
+    private LobbySettings.Status status;
 
     public PlayerData(Integer userID, String login, Integer hunterID, Integer chaseID) {
         this.userID = userID;
@@ -51,6 +62,7 @@ public class PlayerData extends Observable implements Serializable{
                 "userID=" + userID +
                 ", login='" + login + '\'' +
                 ", hunterID=" + hunterID +
+                    ", status=" + status.name() +
                 ", chaseID=" + chaseID +
                 ", characters=" + characters.toString() +
                 "\n, chases=" + chases.toString() +

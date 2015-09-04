@@ -1,4 +1,4 @@
-package com.example.jereczem.hasrpg.game;
+package com.example.jereczem.hasrpg.game.users;
 
 import com.example.jereczem.hasrpg.data.player.CharacterData;
 import com.example.jereczem.hasrpg.settings.GameSettings;

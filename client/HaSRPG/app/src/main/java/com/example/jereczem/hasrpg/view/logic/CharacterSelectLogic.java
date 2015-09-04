@@ -8,8 +8,8 @@ import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
-import com.example.jereczem.hasrpg.game.Chase;
-import com.example.jereczem.hasrpg.game.Hunter;
+import com.example.jereczem.hasrpg.game.users.Chase;
+import com.example.jereczem.hasrpg.game.users.Hunter;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.CharacterSelectAlerts;
 

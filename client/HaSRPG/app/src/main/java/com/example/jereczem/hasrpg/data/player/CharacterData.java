@@ -1,8 +1,8 @@
 package com.example.jereczem.hasrpg.data.player;
 
-import com.example.jereczem.hasrpg.game.Chase;
-import com.example.jereczem.hasrpg.game.GameCharacter;
-import com.example.jereczem.hasrpg.game.Hunter;
+import com.example.jereczem.hasrpg.game.users.Chase;
+import com.example.jereczem.hasrpg.game.users.GameCharacter;
+import com.example.jereczem.hasrpg.game.users.Hunter;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 import java.io.Serializable;

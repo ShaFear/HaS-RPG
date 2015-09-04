@@ -9,9 +9,9 @@ public class LobbyBaseData {
     private Integer playersNO;
     private Integer gameTime;
     private Integer runTime;
-    private Integer status;
+    private String status;
 
-    public LobbyBaseData(Integer lobbyID, String title, Integer playersNO, Integer gameTime, Integer runTime, Integer status) {
+    public LobbyBaseData(Integer lobbyID, String title, Integer playersNO, Integer gameTime, Integer runTime, String status) {
         this.lobbyID = lobbyID;
         this.title = title;
         this.playersNO = playersNO;
@@ -40,7 +40,19 @@ public class LobbyBaseData {
         return runTime;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
+    }
+
+    @Override
+    public String toString() {
+        return "LobbyBaseData{" +
+                "lobbyID=" + lobbyID +
+                ", title='" + title + '\'' +
+                ", playersNO=" + playersNO +
+                ", gameTime=" + gameTime +
+                ", runTime=" + runTime +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
