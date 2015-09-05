@@ -72,6 +72,10 @@ public class Lobby implements Serializable{
         return lobbyID;
     }
 
+    public ArrayList<PlayerData> getLobbyPlayers() {
+        return lobbyPlayers;
+    }
+
     @Override
     public String toString() {
         return "Lobby{" +

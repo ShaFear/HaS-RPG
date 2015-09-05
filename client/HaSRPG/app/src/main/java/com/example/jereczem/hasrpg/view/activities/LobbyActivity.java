@@ -29,4 +29,10 @@ public class LobbyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lobby);
         lobbyActivityLogic = new LobbyActivityLogic(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        lobbyActivityLogic.logoutFromLobby();
+    }
 }

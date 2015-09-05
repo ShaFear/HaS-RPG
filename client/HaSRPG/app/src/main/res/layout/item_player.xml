@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/user_group_2_50"
+        android:layout_margin="@dimen/activity_horizontal_margin" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/player_name"
+                android:id="@+id/playerNameTextView"
+                android:layout_alignTop="@+id/imageView"
+                android:layout_toRightOf="@+id/imageView"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_column="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/hunter_level_lobby"
+                android:id="@+id/hunterLevelTextView"
+                android:layout_alignTop="@+id/playerNameTextView"
+                android:layout_toRightOf="@+id/playerNameTextView"
+                android:layout_toEndOf="@+id/playerNameTextView"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_column="2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/player_status"
+                android:id="@+id/playerStatusTextView"
+                android:layout_below="@+id/playerNameTextView"
+                android:layout_toRightOf="@+id/imageView"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_column="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/chase_level_lobby"
+                android:id="@+id/chaseLevelTextView"
+                android:layout_below="@+id/hunterLevelTextView"
+                android:layout_alignLeft="@+id/hunterLevelTextView"
+                android:layout_alignStart="@+id/hunterLevelTextView"
+                android:layout_column="2"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

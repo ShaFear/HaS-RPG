@@ -18,7 +18,6 @@ import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
-import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.fragments.CharactersFragment;
 import com.example.jereczem.hasrpg.view.fragments.LobbiesFragment;
 

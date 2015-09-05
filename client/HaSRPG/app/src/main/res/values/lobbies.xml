@@ -19,5 +19,9 @@
     <string name="title_activity_lobby">Lobby</string>
     <string name="lobby_players_number">Players [magic]</string>
     <string name="lobby_runtime">Run time: [magic] minutes</string>
+    <string name="player_name">PlayerName</string>
+    <string name="player_status">Status: [magic]</string>
+    <string name="hunter_level_lobby">hunter lvl: []</string>
+    <string name="chase_level_lobby">chase lvl: []</string>
 
 </resources>

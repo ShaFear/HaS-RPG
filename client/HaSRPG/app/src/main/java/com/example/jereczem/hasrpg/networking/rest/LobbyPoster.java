@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /**
  * Created by jereczem on 04.09.15.
  */
-public class CreateLobbyPoster {
+public class LobbyPoster {
     public static HttpResponse getResponse(String title, String player_no, String game_limit, String run_time) throws RestException {
         HttpResponseReceiver httpResponseReceiver = new HttpResponseReceiver("lobbies");
         httpResponseReceiver.addParameter("title", title);

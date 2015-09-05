@@ -6,12 +6,9 @@ import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
-import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.networking.rest.CreateLobbyPoster;
+import com.example.jereczem.hasrpg.networking.rest.LobbyPoster;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.view.activities.LobbyActivity;
-import com.example.jereczem.hasrpg.view.dialogs.Alerts;
-import com.example.jereczem.hasrpg.view.dialogs.LobbyAlerts;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import org.json.JSONException;
@@ -41,7 +38,7 @@ public class CreateLobbyLogic {
                 ((EditText) a.findViewById(R.id.createLobbyRunTimeEdit)).getText().toString();
 
         try {
-            HttpResponse response = CreateLobbyPoster.getResponse(title, player_no, game_limit, run_time);
+            HttpResponse response = LobbyPoster.getResponse(title, player_no, game_limit, run_time);
             if(response.getCode().equals(200)){
                 try {
                     Integer lobbyID = new JSONObject(response.getMessage()).getInt("insertId");

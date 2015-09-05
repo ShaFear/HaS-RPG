@@ -42,7 +42,8 @@
             android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.CreateLobbyActivity"
             android:label="@string/title_activity_create_lobby"
-            android:parentActivityName=".view.activities.MenuActivity" >
+            android:parentActivityName=".view.activities.MenuActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
@@ -51,7 +52,8 @@
             android:windowSoftInputMode="stateHidden"
             android:name=".view.activities.LobbyActivity"
             android:label="@string/title_activity_lobby"
-            android:parentActivityName=".view.activities.MenuActivity" >
+            android:parentActivityName=".view.activities.MenuActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
