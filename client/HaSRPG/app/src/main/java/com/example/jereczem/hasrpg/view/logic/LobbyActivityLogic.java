@@ -33,9 +33,10 @@ public class LobbyActivityLogic {
         loginToLobby();
         downloadDataAndSetViews();
 
-        ListView playerListVies = (ListView) a.findViewById(R.id.playerListView);
-        lobby.getLobbyPlayers();
-        playerListVies.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
+        if(lobby.getLobbyPlayers() != null){
+            ListView playerListVies = (ListView) a.findViewById(R.id.playerListView);
+            playerListVies.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
+        }
     }
 
     public void logoutFromLobby(){

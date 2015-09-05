@@ -2,16 +2,15 @@ package com.example.jereczem.hasrpg.view.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.example.jereczem.hasrpg.LobbiesListFragment;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.view.drawer.DrawerLogic;
 import com.example.jereczem.hasrpg.view.logic.MenuActivityLogic;
 
 
-public class MenuActivity extends AppCompatActivity{
+public class MenuActivity extends AppCompatActivity implements LobbiesListFragment.OnFragmentInteractionListener{
 
     private MenuActivityLogic menuActivityLogic;
     private DrawerLogic drawerLogic;
@@ -23,6 +22,7 @@ public class MenuActivity extends AppCompatActivity{
         drawerLogic = new DrawerLogic(this);
         menuActivityLogic = new MenuActivityLogic(this);
     }
+
 
     @Override
     protected void onResume() {
@@ -44,5 +44,10 @@ public class MenuActivity extends AppCompatActivity{
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
     }
 }

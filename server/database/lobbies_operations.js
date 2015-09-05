@@ -131,6 +131,7 @@ lobbyLogout = function(user_id, lobby_id, res){
 
 getLobbies = function(res) {
   query = 'SELECT * FROM lobbies';
+  values = [];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
       res.status(200).send(JSON.stringify(rows));

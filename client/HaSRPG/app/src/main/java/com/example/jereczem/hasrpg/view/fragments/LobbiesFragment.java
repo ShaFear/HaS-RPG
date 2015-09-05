@@ -1,9 +1,10 @@
 package com.example.jereczem.hasrpg.view.fragments;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,14 @@ public class LobbiesFragment extends Fragment {
 
     private View activityView;
 
-    public LobbiesFragment( ) {
+    public LobbiesFragment() {
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +48,5 @@ public class LobbiesFragment extends Fragment {
             }
         });
     }
-
 
 }

@@ -1,8 +1,9 @@
 package com.example.jereczem.hasrpg.view.drawer;
 
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
@@ -64,7 +64,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
     private void selectLobbiesClick() {
         a.getSupportActionBar().setTitle(R.string.title_activity_menu);
-        FragmentManager fragmentManager = a.getFragmentManager();
+        FragmentManager fragmentManager = a.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         LobbiesFragment fragment = new LobbiesFragment();
         fragmentTransaction.replace(R.id.menu_fragment, fragment);
@@ -76,7 +76,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
         try {
             downloadPlayerData();
             a.getSupportActionBar().setTitle(R.string.title_activity_character_select);
-            FragmentManager fragmentManager = a.getFragmentManager();
+            FragmentManager fragmentManager = a.getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             CharactersFragment fragment = new CharactersFragment(playerData);
             fragmentTransaction.replace(R.id.menu_fragment, fragment);
