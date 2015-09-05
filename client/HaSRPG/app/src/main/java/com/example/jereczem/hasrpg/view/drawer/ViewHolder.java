@@ -17,6 +17,7 @@ import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.fragments.CharactersFragment;
 import com.example.jereczem.hasrpg.view.fragments.LobbiesFragment;
@@ -43,33 +44,12 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
         this.drawerLayout = drawerLayout;
     }
 
-    public void downloadPlayerData() {
+    public void downloadPlayerData() throws RestException {
         HttpResponse response = new HttpResponseReceiver("mycharacters").receive();
         if (response.getCode().equals(200)) {
             playerData = PlayerDataReceiver.fromString(response.getMessage());
         } else {
-            AlertDialog alertDialog;
-            switch (response.getCode()){
-                case 256:{
-                    alertDialog = Alerts.notLoggedError(a);
-                    break;
-                }
-                case 600:{
-                    alertDialog = Alerts.databaseError(a);
-                    break;
-                }
-                default:{
-                    alertDialog = Alerts.connectionError(a, response.getMessage());
-                    break;
-                }
-            }
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    downloadPlayerData();
-                }
-            });
-            alertDialog.show();
+            throw new RestException(response);
         }
     }
 
@@ -94,13 +74,25 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     }
 
     public void selectCharactersClick() {
-        downloadPlayerData();
-        a.getSupportActionBar().setTitle(R.string.title_activity_character_select);
-        FragmentManager fragmentManager = a.getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        CharactersFragment fragment = new CharactersFragment(playerData);
-        fragmentTransaction.replace(R.id.menu_fragment, fragment);
-        fragmentTransaction.commit();
-        drawerLayout.closeDrawer(Gravity.LEFT);
+        try {
+            downloadPlayerData();
+            a.getSupportActionBar().setTitle(R.string.title_activity_character_select);
+            FragmentManager fragmentManager = a.getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            CharactersFragment fragment = new CharactersFragment(playerData);
+            fragmentTransaction.replace(R.id.menu_fragment, fragment);
+            fragmentTransaction.commit();
+            drawerLayout.closeDrawer(Gravity.LEFT);
+        } catch (RestException e) {
+            e.printStackTrace();
+            AlertDialog alertDialog = e.getErrorAlert(a);
+            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    selectCharactersClick();
+                }
+            });
+            alertDialog.show();
+        }
     }
 }
