@@ -8,6 +8,7 @@ import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.networking.rest.CreateLobbyPoster;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.view.activities.LobbyActivity;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.LobbyAlerts;
@@ -39,17 +40,22 @@ public class CreateLobbyLogic {
         String run_time =
                 ((EditText) a.findViewById(R.id.createLobbyRunTimeEdit)).getText().toString();
 
-        HttpResponse response = CreateLobbyPoster.getResponse(title,player_no,game_limit,run_time,a);
-        if(response.getCode().equals(200)){
-            try {
-                Integer lobbyID = new JSONObject(response.getMessage()).getInt("insertId");
-                Intent intent = new Intent(a, LobbyActivity.class);
-                intent.putExtra("lobbyId", lobbyID);
-                a.startActivity(intent);
-                a.finish();
-            } catch (JSONException e) {
-                e.printStackTrace();
+        try {
+            HttpResponse response = CreateLobbyPoster.getResponse(title, player_no, game_limit, run_time);
+            if(response.getCode().equals(200)){
+                try {
+                    Integer lobbyID = new JSONObject(response.getMessage()).getInt("insertId");
+                    Intent intent = new Intent(a, LobbyActivity.class);
+                    intent.putExtra("lobbyId", lobbyID);
+                    a.startActivity(intent);
+                    a.finish();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
         }
     }
 }

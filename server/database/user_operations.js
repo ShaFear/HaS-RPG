@@ -11,7 +11,7 @@ signIn = function(login, passwd, res){
           return;
       }
       catch(e){
-          res.status(256).send('Wrong password or username');
+          res.status(258).send('Wrong password or username');
           return;
       }
     }

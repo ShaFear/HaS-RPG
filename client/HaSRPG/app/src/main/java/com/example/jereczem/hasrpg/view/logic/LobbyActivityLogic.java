@@ -15,6 +15,7 @@ import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.networking.rest.LobbyGetter;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.settings.LobbySettings;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
@@ -36,80 +37,42 @@ public class LobbyActivityLogic {
     public LobbyActivityLogic(AppCompatActivity a){
         this.a = a;
         lobbyId = 1;
-        //lobbyId = a.getIntent().getIntExtra("lobbyId", 0);
         new ToolbarSetter(a, R.drawable.previous);
         try {
             downloadLobbyData(lobbyId);
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (RestException e) {
+            e.printStackTrace();
+            handleRestException(e.getResponse());
         }
     }
 
-    private void downloadLobbyData(final Integer lobbyId) throws JSONException {
+    private void handleRestException(HttpResponse response) {
+
+    }
+
+    private void downloadLobbyData(final Integer lobbyId) throws JSONException, RestException {
         HttpResponse response = new HttpResponseReceiver("lobbies/" + lobbyId).receive();
         if (response.getCode().equals(200)) {
             lobby = new Lobby(LobbyDataReceiver.receiveBaseData(response.getMessage()));
             setViewFromLobbyData();
             downloadLobbyPlayersData(lobbyId);
         } else {
-            AlertDialog alertDialog;
-            switch (response.getCode()){
-                case 256:{
-                    alertDialog = Alerts.notLoggedError(a);
-                    break;
-                }
-                case 260:{
-                    alertDialog = Alerts.databaseError(a);
-                    break;
-                }
-                default:{
-                    alertDialog = Alerts.connectionError(a, response.getMessage());
-                }
-            }
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    try {
-                        downloadLobbyData(lobbyId);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            alertDialog.show();
+            throw new RestException(response);
         }
     }
 
-    private void downloadLobbyPlayersData(final Integer lobbyId){
+    private void downloadLobbyPlayersData(final Integer lobbyId) throws RestException {
         HttpResponse response = new HttpResponseReceiver("lobbies/" + lobbyId + "/users").receive();
         if (response.getCode().equals(200)) {
             downloadWholeLobbyPlayersData(response.getMessage());
         } else {
-            AlertDialog alertDialog;
-            switch (response.getCode()){
-                case 256:{
-                    alertDialog = Alerts.notLoggedError(a);
-                    break;
-                }
-                case 260:{
-                    alertDialog = Alerts.databaseError(a);
-                    break;
-                }
-                default:{
-                    alertDialog = Alerts.connectionError(a, response.getMessage());
-                }
-            }
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    downloadLobbyPlayersData(lobbyId);
-                }
-            });
-            alertDialog.show();
+            throw new RestException(response);
         }
     }
 
-    private void downloadWholeLobbyPlayersData(String message) {
+    private void downloadWholeLobbyPlayersData(String message) throws RestException {
         try {
             JSONArray jsonArray = new JSONArray(message);
             ArrayList<PlayerData> playerDatas = new ArrayList<>();
@@ -129,35 +92,13 @@ public class LobbyActivityLogic {
         }
     }
 
-    private PlayerData downloadPlayerData(final Integer userID){
+    private PlayerData downloadPlayerData(final Integer userID) throws RestException {
         HttpResponse response = new HttpResponseReceiver("users/" + userID).receive();
         if (response.getCode().equals(200)) {
             return PlayerDataReceiver.fromString(response.getMessage());
         } else {
-            AlertDialog alertDialog;
-            switch (response.getCode()){
-                case 256:{
-                    alertDialog = Alerts.notLoggedError(a);
-                    break;
-                }
-                case 600:{
-                    alertDialog = Alerts.databaseError(a);
-                    break;
-                }
-                default:{
-                    alertDialog = Alerts.connectionError(a, response.getMessage());
-                    break;
-                }
-            }
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                        downloadPlayerData(userID);
-                }
-            });
-            alertDialog.show();
+            throw new RestException(response);
         }
-        return null;
     }
 
 

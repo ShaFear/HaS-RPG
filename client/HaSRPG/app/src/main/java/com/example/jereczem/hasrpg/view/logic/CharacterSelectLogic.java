@@ -12,6 +12,7 @@ import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.users.Chase;
 import com.example.jereczem.hasrpg.game.users.Hunter;
 import com.example.jereczem.hasrpg.networking.rest.ChangeCharacterStatusPoster;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.CharacterSelectAlerts;
 
@@ -119,10 +120,14 @@ public class CharacterSelectLogic implements Observer {
     }
 
     public void saveClick(){
-        HttpResponse response =
-                ChangeCharacterStatusPoster.getResponse(playerData, (AppCompatActivity) activity);
-        if(response.getCode().equals(200))
-            CharacterSelectAlerts.charactersSaved(activity).show();
+        try {
+            HttpResponse response = ChangeCharacterStatusPoster.getResponse(playerData);
+            if(response.getCode().equals(200))
+                CharacterSelectAlerts.charactersSaved(activity).show();
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert((AppCompatActivity)activity).show();
+        }
     }
 }
 

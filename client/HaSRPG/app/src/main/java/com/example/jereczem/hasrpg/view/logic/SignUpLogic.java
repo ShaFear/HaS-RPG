@@ -8,6 +8,7 @@ import android.widget.EditText;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.networking.rest.SignUpPoster;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.dialogs.SignUpAlerts;
@@ -38,16 +39,21 @@ public class SignUpLogic {
     }
 
     private void signUpNewUser(String login, String password){
-        HttpResponse response = SignUpPoster.getResponse(a, login, password);
-        if(response.getCode().equals(200)){
-            AlertDialog alertDialog = SignUpAlerts.userAdded(a);
-            alertDialog.show();
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    a.finish();
-                }
-            });
+        try {
+            HttpResponse response = SignUpPoster.getResponse(a, login, password);
+            if(response.getCode().equals(200)){
+                AlertDialog alertDialog = SignUpAlerts.userAdded(a);
+                alertDialog.show();
+                alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        a.finish();
+                    }
+                });
+            }
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
         }
     }
 

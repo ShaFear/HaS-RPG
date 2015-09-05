@@ -7,6 +7,7 @@ import android.widget.EditText;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.networking.rest.SignInPoster;
 import com.example.jereczem.hasrpg.view.activities.MenuActivity;
 import com.example.jereczem.hasrpg.view.activities.SignUpActivity;
@@ -38,10 +39,16 @@ public class SignInLogic{
         String password = passwordEditText.getText().toString();
         login = login.replace(" ", ""); //TODO zrobic porzadnego regexa
 
-        HttpResponse response = SignInPoster.getResponse(a, login, password);
-        if(response.getCode().equals(200)){
-            Intent intent = new Intent(a, MenuActivity.class);
-            a.startActivity(intent);
+        HttpResponse response = null;
+        try {
+            response = SignInPoster.getResponse(login, password);
+            if(response.getCode().equals(200)){
+                Intent intent = new Intent(a, MenuActivity.class);
+                a.startActivity(intent);
+            }
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
         }
     }
 

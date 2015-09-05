@@ -16,37 +16,15 @@ import org.json.JSONObject;
  * Created by jereczem on 04.09.15.
  */
 public class CreateLobbyPoster {
-    public static HttpResponse getResponse(String title, String player_no, String game_limit, String run_time, AppCompatActivity a){
+    public static HttpResponse getResponse(String title, String player_no, String game_limit, String run_time) throws RestException {
         HttpResponseReceiver httpResponseReceiver = new HttpResponseReceiver("lobbies");
         httpResponseReceiver.addParameter("title", title);
         httpResponseReceiver.addParameter("player_no", player_no);
         httpResponseReceiver.addParameter("game_limit", game_limit);
         httpResponseReceiver.addParameter("run_time", run_time);
         HttpResponse response = httpResponseReceiver.receive();
-        handleHttpResponse(response, a);
+        if(!response.getCode().equals(200))
+            throw new RestException(response);
         return response;
-    }
-
-    private static void handleHttpResponse(HttpResponse response, AppCompatActivity a) {
-        switch(response.getCode()){
-            case 200:{
-                break;
-            }
-            case 260:{
-                Alerts.databaseError(a).show();
-                break;
-            }
-            case 256:{
-                Alerts.notLoggedError(a).show();
-                break;
-            }
-            case 257:{
-                LobbyAlerts.wrongDataError(a).show();
-                break;
-            }
-            default:{
-                Alerts.connectionError(a, response.getMessage());
-            }
-        }
     }
 }
