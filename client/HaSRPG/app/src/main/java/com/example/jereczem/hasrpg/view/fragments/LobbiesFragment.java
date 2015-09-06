@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.jereczem.hasrpg.LobbiesListFragment;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.view.activities.CreateLobbyActivity;
 
@@ -35,6 +36,8 @@ public class LobbiesFragment extends Fragment {
                              Bundle savedInstanceState) {
         activityView = inflater.inflate(R.layout.fragment_lobbies, container, false);
         setButtonListeners();
+        LobbiesListFragment lobbiesListFragment = new LobbiesListFragment();
+
         return activityView;
     }
 
