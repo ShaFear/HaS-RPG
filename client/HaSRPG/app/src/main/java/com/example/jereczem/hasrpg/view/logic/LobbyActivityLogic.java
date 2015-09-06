@@ -2,6 +2,7 @@ package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
@@ -13,10 +14,14 @@ import com.example.jereczem.hasrpg.networking.rest.LobbyDataDownloader;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLoginGetter;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLogoutGetter;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
+import com.example.jereczem.hasrpg.view.adapters.LobbiesListAdapter;
 import com.example.jereczem.hasrpg.view.adapters.PlayersListAdapter;
+import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import org.json.JSONException;
+
+import java.util.ArrayList;
 
 /**
  * Created by jereczem on 04.09.15.
@@ -25,21 +30,53 @@ public class LobbyActivityLogic {
     AppCompatActivity a;
     Integer lobbyId;
     Lobby lobby;
+    CountDownTimer countDownTimer;
 
-    public LobbyActivityLogic(AppCompatActivity a){
+    public LobbyActivityLogic(final AppCompatActivity a) {
+
         this.a = a;
         lobbyId = a.getIntent().getIntExtra("lobbyId", 0);
         new ToolbarSetter(a, R.drawable.previous);
         loginToLobby();
         downloadDataAndSetViews();
-
-        if(lobby.getLobbyPlayers() != null){
-            ListView playerListVies = (ListView) a.findViewById(R.id.playerListView);
-            playerListVies.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
+        try {
+            ListView playerListView = (ListView) a.findViewById(R.id.playerListView);
+            playerListView.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
+        } catch (NullPointerException e) {
+            AlertDialog alertDialog = Alerts.connectionError(a, e.getMessage());
+            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    a.finish();
+                }
+            });
+            alertDialog.show();
         }
+
+        countDownTimer = new CountDownTimer(30000, 2000) {
+            public void onTick(long millisUntilFinished) {
+                downloadDataAndSetViews();
+                try {
+                    ListView playerListView = (ListView) a.findViewById(R.id.playerListView);
+                    playerListView.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
+                } catch (NullPointerException e) {
+                    AlertDialog alertDialog = Alerts.connectionError(a, e.getMessage());
+                    alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            a.finish();
+                        }
+                    });
+                    alertDialog.show();
+                }
+            }
+            public void onFinish() {
+                this.start();
+            }
+        }.start();
     }
 
-    public void logoutFromLobby(){
+    public void logoutFromLobby() {
         try {
             LobbyLogoutGetter.getResponse(lobbyId);
         } catch (RestException e) {
@@ -55,7 +92,7 @@ public class LobbyActivityLogic {
         }
     }
 
-    private void loginToLobby(){
+    private void loginToLobby() {
         try {
             LobbyLoginGetter.getResponse(lobbyId);
         } catch (RestException e) {
@@ -71,7 +108,7 @@ public class LobbyActivityLogic {
         }
     }
 
-    private void downloadDataAndSetViews(){
+    private void downloadDataAndSetViews() {
         try {
             LobbyDataDownloader dataDownloader = new LobbyDataDownloader(a, lobbyId);
             lobby = dataDownloader.getLobby();
@@ -92,7 +129,7 @@ public class LobbyActivityLogic {
         }
     }
 
-    private void setViewFromLobbyData(Lobby lobby){
+    private void setViewFromLobbyData(Lobby lobby) {
         TextView lobbyTitle = (TextView) a.findViewById(R.id.lobbyTitle);
         TextView playersTitle = (TextView) a.findViewById(R.id.lobbyPlayersNumber);
         TextView gameTime = (TextView) a.findViewById(R.id.lobbyGameTime);
@@ -113,5 +150,10 @@ public class LobbyActivityLogic {
         runTime.setText(
                 runTime.getText().toString().replace("[magic]", lobby.getRunTime().toString())
         );
+    }
+
+    public void onPause() {
+        countDownTimer.cancel();
+        countDownTimer = null;
     }
 }

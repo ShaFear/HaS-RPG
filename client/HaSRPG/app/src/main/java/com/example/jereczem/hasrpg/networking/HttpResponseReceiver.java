@@ -4,8 +4,10 @@ import com.example.jereczem.hasrpg.networking.tasks.HttpGetAsyncTask;
 import com.example.jereczem.hasrpg.networking.tasks.HttpPostAsyncTask;
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 
+import org.apache.http.client.methods.HttpGet;
+
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
+import java.util.Objects;
 
 /**
  * Created by jereczem on 01.08.15.

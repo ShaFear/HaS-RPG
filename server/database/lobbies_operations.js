@@ -70,6 +70,8 @@ getLobbyUsers = function(lobby_id, res){
   connection.query(query, values, function(err, rows, fields){
     if(!err){
       res.status(200).send(JSON.stringify(rows));
+      if(rows.length == 0)
+        lobbyDelete(lobby_id);
       return;
     }
     if(err){
@@ -118,13 +120,24 @@ lobbyLogout = function(user_id, lobby_id, res){
   values = [user_id, lobby_id];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
-      res.status(200).send('User succesfuly logged out');
+      //res.status(200).send('User succesfuly logged out');
+      getLobbyUsers(lobby_id, res);
       return;
     }
     if(err){
-      res.status(260).send('Database error');
+      //res.status(260).send('Database error');
       console.log(err);
       return;
+    }
+  });
+}
+
+lobbyDelete = function(lobby_id){
+  query = "DELETE FROM lobbies WHERE LobbyID=?";
+  values = [lobby_id];
+  connection.query(query, values, function(err, rows, fields){
+    if(err){
+      console.log(err);
     }
   });
 }

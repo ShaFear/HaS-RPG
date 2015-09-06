@@ -4,7 +4,7 @@
     tools:context="com.example.jereczem.hasrpg.view.fragments.LobbiesFragment"
     android:orientation="vertical"
     android:id="@+id/lobbies_fragment"
-    >
+    android:background="@color/ColorDrawerBG">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="com.example.jereczem.hasrpg.LobbiesListFragment"
+        android:name="com.example.jereczem.hasrpg.view.fragments.LobbiesListFragment"
         android:id="@+id/lobbiesListFragment"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

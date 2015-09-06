@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Created by jereczem on 01.08.15.
  */
-public abstract class HttpConnectionAsyncTask extends AsyncTask<Object, Void, HttpResponse> {
+public abstract class HttpConnectionAsyncTask<O, V, H> extends AsyncTask<Object, Void, HttpResponse> {
     @Override
     protected HttpResponse doInBackground(Object... params) {
         return null;

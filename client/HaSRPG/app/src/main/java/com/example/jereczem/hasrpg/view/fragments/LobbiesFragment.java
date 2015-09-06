@@ -2,17 +2,20 @@ package com.example.jereczem.hasrpg.view.fragments;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.jereczem.hasrpg.LobbiesListFragment;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.view.activities.CreateLobbyActivity;
+import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 
 
 /**
@@ -36,7 +39,6 @@ public class LobbiesFragment extends Fragment {
                              Bundle savedInstanceState) {
         activityView = inflater.inflate(R.layout.fragment_lobbies, container, false);
         setButtonListeners();
-        LobbiesListFragment lobbiesListFragment = new LobbiesListFragment();
 
         return activityView;
     }
