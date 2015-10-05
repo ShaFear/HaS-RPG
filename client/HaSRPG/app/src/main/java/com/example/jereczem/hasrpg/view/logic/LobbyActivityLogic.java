@@ -76,6 +76,7 @@ public class LobbyActivityLogic {
         }.start();
     }
 
+
     public void logoutFromLobby() {
         try {
             LobbyLogoutGetter.getResponse(lobbyId);
@@ -153,7 +154,12 @@ public class LobbyActivityLogic {
     }
 
     public void onPause() {
-        countDownTimer.cancel();
-        countDownTimer = null;
+        try {
+            countDownTimer.cancel();
+            countDownTimer = null;
+        }
+        catch (NullPointerException e){
+
+        }
     }
 }

@@ -36,6 +36,7 @@ public class LobbyActivity extends AppCompatActivity {
         lobbyActivityLogic.logoutFromLobby();
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();

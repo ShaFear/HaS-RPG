@@ -34,8 +34,7 @@ import java.util.TimerTask;
 
 /**
  * A fragment representing a list of Items.
- * <p/>
- * <p/>
+ *
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
@@ -75,6 +74,12 @@ public class LobbiesListFragment extends ListFragment {
         }.start();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        downloadLobbies();
+    }
+
     private void downloadLobbies() {
         try {
             HttpResponse response = LobbiesGetter.getResponse();
@@ -105,8 +110,13 @@ public class LobbiesListFragment extends ListFragment {
 
     @Override
     public void onPause() {
-        countDownTimer.cancel();
-        countDownTimer = null;
+        try {
+            countDownTimer.cancel();
+            countDownTimer = null;
+        }
+        catch (NullPointerException e){
+
+        }
         super.onPause();
     }
 
@@ -145,7 +155,7 @@ public class LobbiesListFragment extends ListFragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     *
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
