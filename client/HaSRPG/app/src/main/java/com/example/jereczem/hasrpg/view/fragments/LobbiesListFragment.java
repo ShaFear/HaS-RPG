@@ -104,6 +104,8 @@ public class LobbiesListFragment extends ListFragment {
             alertDialog.show();
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (NullPointerException e){
+            e.printStackTrace();
         }
     }
 
