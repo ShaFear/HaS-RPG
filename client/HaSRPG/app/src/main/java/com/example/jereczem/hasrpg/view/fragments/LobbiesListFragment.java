@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.lobby.LobbyBaseData;
 import com.example.jereczem.hasrpg.data.lobby.LobbyDataReceiver;
-import com.example.jereczem.hasrpg.dummy.DummyContent;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.rest.LobbiesGetter;
@@ -23,14 +21,11 @@ import com.example.jereczem.hasrpg.networking.rest.LobbyDataDownloader;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.view.activities.LobbyActivity;
 import com.example.jereczem.hasrpg.view.adapters.LobbiesListAdapter;
-import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * A fragment representing a list of Items.
@@ -142,11 +137,6 @@ public class LobbiesListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        if (null != mListener) {
-            // Notify the active callbacks interface (the activity, if the
-            // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
-        }
         Intent intent = new Intent(getActivity(), LobbyActivity.class);
         intent.putExtra("lobbyId", lobbies.get(position).getLobbyID());
         startActivity(intent);
