@@ -57,7 +57,6 @@ public class LobbyDataDownloader {
             JSONArray jsonArray = new JSONArray(message);
             ArrayList<PlayerData> playerDatas = new ArrayList<>();
             for(int j=0; j<jsonArray.length(); j++){
-                Log.d("HASLOG", jsonArray.getJSONObject(j).toString());
                 playerDatas.add(downloadPlayerData(jsonArray.getJSONObject(j).getInt("UserID")));
                 String status = (jsonArray.getJSONObject(j).getString("Status"));
                 if(status == "READY"){
@@ -66,7 +65,6 @@ public class LobbyDataDownloader {
                     playerDatas.get(j).setStatus(LobbySettings.Status.WAIT);
             }
             lobby.setLobbyPlayer(playerDatas);
-            Log.d("HASLOG", lobby.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }

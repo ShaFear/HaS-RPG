@@ -114,7 +114,6 @@ public class LobbyActivityLogic {
             LobbyDataDownloader dataDownloader = new LobbyDataDownloader(a, lobbyId);
             lobby = dataDownloader.getLobby();
             setViewFromLobbyData(lobby);
-            Log.d("HASLOG", lobby.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (RestException e) {
