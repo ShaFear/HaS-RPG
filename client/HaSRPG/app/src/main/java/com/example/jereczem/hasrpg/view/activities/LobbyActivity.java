@@ -1,6 +1,7 @@
 package com.example.jereczem.hasrpg.view.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -36,10 +37,15 @@ public class LobbyActivity extends AppCompatActivity {
         lobbyActivityLogic.logoutFromLobby();
     }
 
-
     @Override
     protected void onPause() {
         super.onPause();
         lobbyActivityLogic.onPause();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        NavUtils.navigateUpFromSameTask(this);
     }
 }

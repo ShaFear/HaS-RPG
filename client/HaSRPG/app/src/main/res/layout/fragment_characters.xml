@@ -188,7 +188,7 @@
                             android:text="&lt;"
                             android:id="@+id/chaseLeftButton"
                             android:layout_weight="1"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
@@ -197,7 +197,7 @@
                             android:text="@string/skills_title"
                             android:id="@+id/chaseSkillsButton"
                             android:layout_weight="4"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
@@ -206,7 +206,7 @@
                             android:text=">"
                             android:id="@+id/chaseRightButton"
                             android:layout_weight="1"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -407,7 +407,7 @@
                             android:text="&lt;"
                             android:id="@+id/hunterLeftButton"
                             android:layout_weight="1"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
@@ -416,7 +416,7 @@
                             android:text="@string/skills_title"
                             android:id="@+id/hunterSkillsButton"
                             android:layout_weight="4"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
@@ -425,7 +425,7 @@
                             android:text=">"
                             android:id="@+id/hunterRightButton"
                             android:layout_weight="1"
-                            android:visibility="gone"/>
+                            android:visibility="visible"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -442,7 +442,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|bottom"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
 
 </RelativeLayout>
