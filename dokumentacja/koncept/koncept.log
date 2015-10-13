@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.29)  7 OCT 2015 12:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.29)  13 OCT 2015 08:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -383,7 +383,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 (./koncept.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 3.
+(Font)              <10.95> on input line 4.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
@@ -391,32 +391,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `koncept.toc'.
 
  [2]
-[3] [4] [5] [6]
-Overfull \hbox (7.33171pt too wide) in paragraph at lines 146--147
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 23.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
+ [3] [4] [5] [6]
+Overfull \hbox (7.33171pt too wide) in paragraph at lines 156--157
 []\T1/cmr/bx/n/10.95 Ucieczka \T1/cmr/m/n/10.95 - stan-dar-dowo usta-wiona na 1
 , dwie na roz-grywk¦, 5-minutowe
  []
 
-[7] [8] (./koncept.aux) ) 
+[7] [8] [9] (./koncept.aux) ) 
 Here is how much of TeX's memory you used:
- 2391 strings out of 494952
- 30663 string characters out of 6179606
+ 2409 strings out of 494952
+ 30970 string characters out of 6179606
  90154 words of memory out of 5000000
- 5576 multiletter control sequences out of 15000+600000
+ 5591 multiletter control sequences out of 15000+600000
  13458 words of font info for 34 fonts, out of 8000000 for 9000
  56 hyphenation exceptions out of 8191
  38i,6n,23p,641b,221s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecbx1200.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm10
-95.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk
-> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home
-/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/jerecze
-m/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/jereczem/.texmf
--var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>
-Output written on koncept.pdf (8 pages, 75130 bytes).
+ </home/jereczem/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecbx1200.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+rm1095.600pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.6
+00pk> </home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </
+home/jereczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/jer
+eczem/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/jereczem/.t
+exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on koncept.pdf (9 pages, 86929 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 283 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

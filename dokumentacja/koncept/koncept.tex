@@ -18,6 +18,19 @@
 \tableofcontents
 \pagebreak
 
+\section{Wymagania}
+\begin{itemize}
+\item Bezpieczeństwo danych użytkownika
+\item Obsługa błędów związanych z komunikacją
+\item Możliwość rejestracji, logowania
+\item Tworzenie i dołączanie do Lobby gry
+(lobby - pokój w którym gracze się \"{}organizują\"{} przed rozgrywką)
+\item Możliwość przeprowadzenia rozgrywki tak jak opisano w \"{}Podstawowym scenariuszu rozgrywki\"{}
+\item Wersja bazowa gry nie musi zawierać elementów RPG (ewoluowania postaci oraz dodatkowych umiejętności), jednak mogą zostać dodane w przyszłości jako dodatkowa funkcjonalość.
+\item Należy zauważyć, że w podstawowym scenariuszu rozgrywki wszystkie odniesienia do czasu są czysto teoretyczne, w praktyce będą wymagały skalibrowania tak aby gra nie nudziła.
+
+\end{itemize}
+
 \section{Ogólne}
 \subsection{Krótki opis}
 Aplikacja na system operacyjny Android wynosząca zabawę w chowanego na nowy, odświeżony poziom. Gracze (conajmniej trzech) spotykają się w jednym miejsu, wśród nich zostaje wybrany jeden łowca, reszta zostaje ofiarami. Ofiary mają określony czas na ucieczkę, po którym łowca korzystając z aplikacji namierza ich lokalizację GPS i następuje pościg. Ofiary nie mogą się ruszać z swojej kryjówki, jednak aplikacja będzie pozwalała na dodatkowe manewry, ucieczki, zmyłki itp. Gra kończy się gdy łowca znajdzie wszystkie ofiary lub po określonym czasie (po upływie tego czasu łowca przegrywa).
@@ -31,16 +44,13 @@ Aplikacja na system operacyjny Android wynosząca zabawę w chowanego na nowy, o
 	\textbf{Gracze} dołączają do \textbf{lobby}.
 	
 \item
-	\textbf{Administrator} może wystartować \textbf{grę}, gdy będzie co najmniej trzech \textbf{graczy}.
+	\textbf{Administrator} może wystartować \textbf{grę}, gdy będzie co najmniej trzech \textbf{graczy}. (jeżeli admin się wyloguje, to kolejny w kolejności gracz dostaje jego uprawnienia).
 	
 \item
 	\textbf{Poprzez} losowanie jeden z \textbf{graczy} zostaje \textbf{łowcą}.
 	
 \item
 	Pozostali \textbf{gracze} zostają \textbf{ofiarami}.
-	
-\item
-	W ciągu minuty \textbf{ofiary} jak i \textbf{łowca} wybierają \textbf{postacie}, którymi będą grać.
 	
 \item
 	\textbf{Ofiary} mają 15 minut na \textbf{ucieczkę} do dowolnej \textbf{kryjówki}, w tym czasie \textbf{łowca} nie może się ruszać (i powinien zamnkąć oczy, dopóki \textbf{ofiary} się nie oddalą).
@@ -97,7 +107,7 @@ Gra łowcą polega na namierzaniu ofiar i pokonywaniu ich w potyczkach. Główny
 \subsection{Umiejętności}
 \subsubsection{Klasa podstawowa}
 \begin{enumerate}
-\item \textbf{Szybki start} - pasywne, maksymalnie 5 punktów do rozdania. Z każdym kolejnym punktem doświadczenia różnica między początkowym, a końcowym zesięgiem potyczki jest zmniejszana o 5\%. (standardowo różnica jest równa 50\% w ten sposób można zmienjszyć do 25\%).
+\item \textbf{Szybki start} - pasywne, maksymalnie 5 punktów do rozdania. Z każdym kolejnym punktem doświadczenia różnica między początkowym, a końcowym zasięgiem potyczki jest zmniejszana o 5\%. (standardowo różnica jest równa 50\% w ten sposób można zmniejszyć do 25\%).
 
 \item \textbf{Nie uciekniesz!} - 5-minut przeładowania, maksymalnie 5 punktów do rozdania. Jeżeli ofiara znajduje się w końcowym zasięgu potyczki, można zablokować jej możliwośc specjalnej ucieczki. Przy pierwszym punkcie doświadczenia można używać tej umiejętności na ofiarach z poziomem doświadczenia co najmniej o 10 większym, z każdym kolejnym punktem liczba ta maleje o 2 (przy pięciu punktach umiejętność tą można stosować na graczach o conajmniej takim poziomie jak łowca.
 
