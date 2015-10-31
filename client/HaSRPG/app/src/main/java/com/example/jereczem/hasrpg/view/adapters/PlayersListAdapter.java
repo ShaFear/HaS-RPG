@@ -1,6 +1,7 @@
 package com.example.jereczem.hasrpg.view.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,11 +48,13 @@ public class PlayersListAdapter extends ArrayAdapter<PlayerData> {
                     playerData.getStatus().name()
                     ));
 
+            Log.d("HASLOG", playerData.toString());
+
             hunterLevel.setText(hunterLevel.getText().toString().replace("[]",
-                    playerData.getHunters().get(playerData.getHunterNumber()).getLevel().toString()));
+                    playerData.getSelectedHunter().getLevel().toString()));
 
             chaseLevel.setText(chaseLevel.getText().toString().replace("[]",
-                    playerData.getChases().get(playerData.getChaseNumber()).getLevel().toString()));
+                    playerData.getSelectedChase().getLevel().toString()));
         }
 
         return v;

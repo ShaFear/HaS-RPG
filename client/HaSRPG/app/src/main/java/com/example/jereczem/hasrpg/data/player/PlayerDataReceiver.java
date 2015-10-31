@@ -1,5 +1,7 @@
 package com.example.jereczem.hasrpg.data.player;
 
+import android.util.Log;
+
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 import org.json.JSONArray;
@@ -12,6 +14,7 @@ import org.json.JSONObject;
 public class PlayerDataReceiver {
     public static PlayerData fromString(String dataFromServer){
         PlayerData playerData = new PlayerData(-1, "error", -1, -1);
+        Log.d("HASLOG", dataFromServer);
         try {
             JSONArray dataJSON = new JSONArray(dataFromServer);
             Integer userID = dataJSON.getJSONObject(0).getInt("UserID");

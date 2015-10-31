@@ -33,7 +33,7 @@ getLobbyStatus = function(lobby_id, res){
 }
 
 setUserStatus = function(user_id, lobby_id, status, res){
-  query = 'UPDATE lobbies_users SET Status=? WHERE UserID=? AND LobbyID=?';
+  query = 'UPDATE lobbies_users SET Status=? WHERE users_login=(select login from users u where u.UserID=?) AND lobbies_LobbyID=?';
   values = [status, user_id, lobby_id];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
@@ -65,7 +65,7 @@ getLobbyInformation =function(lobby_id, res){
 }
 
 getLobbyUsers = function(lobby_id, res){
-  query = 'SELECT UserID, Status FROM lobbies_users WHERE LobbyID=?'
+  query = 'SELECT UserID, Status FROM lobbies_users JOIN users on users.login=lobbies_users.users_login WHERE lobbies_LobbyID=?'
   values = [lobby_id];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
@@ -100,7 +100,7 @@ createLobby = function(title, player_no, game_limit, run_time, res){
 }
 
 lobbyLogin = function(user_id, lobby_id, res){
-  query = 'INSERT INTO lobbies_users (UserID, LobbyID) values(?,?)';
+  query = 'INSERT INTO lobbies_users (users_login, lobbies_LobbyID) values((select login from users u where u.UserID=?) ,?)';
   values = [user_id, lobby_id];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
@@ -116,7 +116,7 @@ lobbyLogin = function(user_id, lobby_id, res){
 }
 
 lobbyLogout = function(user_id, lobby_id, res){
-  query = 'DELETE FROM lobbies_users WHERE UserID=? AND LobbyID=?';
+  query = 'DELETE FROM lobbies_users WHERE users_login=(select login from users u where u.UserID=?) AND lobbies_LobbyID=?';
   values = [user_id, lobby_id];
   connection.query(query, values, function(err, rows, fields){
     if(!err){
