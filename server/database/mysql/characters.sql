@@ -6,6 +6,7 @@ CharacterID	int	         NOT NULL
 );
 
 DROP TABLE IF EXISTS characters;
+
 CREATE TABLE characters
 (
 CharacterID	  int		       NOT NULL	 AUTO_INCREMENT	PRIMARY KEY,
