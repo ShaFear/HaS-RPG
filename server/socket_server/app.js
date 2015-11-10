@@ -18,16 +18,17 @@ io.on('connection', function (socket) {
     var userID = -1;
     var room = -1;
 
-    console.log(new Date().toUTCString() + ': user connected');
-
     socket.on('joinRoom', function (data) {
         try {
             var jsonData = JSON.parse(data);
             room = jsonData['room'];
             userID = jsonData['userID'];
             socket.join(room);
-            console.log(new Date().toUTCString() + ': user ' + userID + ' joined room ' + room);
-            socket.to(room).emit('user_connected', 'user ' + userID + ' joined room');
+            var event = {
+                name: 'connectionToRoom',
+                userID: userID
+            }
+            socket.to(room).emit('event', JSON.stringify(event));
         } catch (err) {
             console.log(new Date().toUTCString() + ": " + err);
         };
@@ -35,8 +36,11 @@ io.on('connection', function (socket) {
 
 
     socket.on('disconnect', function(){
-        console.log(new Date().toUTCString() + ': user ' + userID + ' disconnected from room ' + room);
-        socket.to(room).emit('user_disconnected','user ' + userID + ' disconnected from room ');
+        var event = {
+            name: 'disconnectionFromRoom',
+            userID: userID
+        }
+        socket.to(room).emit('event', JSON.stringify(event));
     })
 });
 
