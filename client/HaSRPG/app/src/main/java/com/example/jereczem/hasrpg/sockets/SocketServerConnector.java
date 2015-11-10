@@ -13,10 +13,6 @@ import java.net.URISyntaxException;
  * Created by jereczem on 10.11.15.
  */
 public class SocketServerConnector {
-    public Socket getSocket() {
-        return socket;
-    }
-
     private Socket socket;
     {
         try {
@@ -24,8 +20,11 @@ public class SocketServerConnector {
         } catch (URISyntaxException e) {}
     }
 
+    Integer roomID, userID;
 
     public SocketServerConnector(Integer roomID, Integer userID){
+        this.roomID = roomID;
+        this.userID = userID;
         final JSONObject jsonData = new JSONObject();
         try {
             jsonData.put("room", roomID);
@@ -47,5 +46,17 @@ public class SocketServerConnector {
                 }
             }
         }).start();
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public Integer getRoomID() {
+        return roomID;
+    }
+
+    public Integer getUserID() {
+        return userID;
     }
 }

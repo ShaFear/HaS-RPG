@@ -25,7 +25,7 @@ io.on('connection', function (socket) {
             userID = jsonData['userID'];
             socket.join(room);
             var event = {
-                name: 'connectionToRoom',
+                name: 'CONNECTION',
                 userID: userID
             }
             socket.to(room).emit('event', JSON.stringify(event));
@@ -37,7 +37,7 @@ io.on('connection', function (socket) {
 
     socket.on('disconnect', function(){
         var event = {
-            name: 'disconnectionFromRoom',
+            name: 'DISCONNECTION',
             userID: userID
         }
         socket.to(room).emit('event', JSON.stringify(event));
