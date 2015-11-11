@@ -57,12 +57,14 @@ public class LobbyDataDownloader {
             JSONArray jsonArray = new JSONArray(message);
             ArrayList<PlayerData> playerDatas = new ArrayList<>();
             for(int j=0; j<jsonArray.length(); j++){
-                playerDatas.add(downloadPlayerData(jsonArray.getJSONObject(j).getInt("UserID")));
+                PlayerData playerData = downloadPlayerData(jsonArray.getJSONObject(j).getInt("UserID"));
+                Log.d("JSONLOGLOBBY", jsonArray.getJSONObject(j).toString(5));
                 String status = (jsonArray.getJSONObject(j).getString("Status"));
-                if(status == "READY"){
-                    playerDatas.get(j).setStatus(LobbySettings.Status.READY);
+                if(status.equals("READY")){
+                    playerData.setStatus(LobbySettings.Status.READY);
                 }else
-                    playerDatas.get(j).setStatus(LobbySettings.Status.WAIT);
+                    playerData.setStatus(LobbySettings.Status.WAIT);
+                playerDatas.add(playerData);
             }
             lobby.setLobbyPlayer(playerDatas);
         } catch (JSONException e) {
