@@ -16,7 +16,8 @@ public class LobbyDataReceiver {
                 jData.getInt("PlayersNO"),
                 jData.getInt("GameTime"),
                 jData.getInt("RunTime"),
-                jData.getString("Status")
+                jData.getString("Status"),
+                jData.getString("Hunter_login")
         );
     }
 

@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app.js" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/lobbies_operations.js" afterPath="$PROJECT_DIR$/database/lobbies_operations.js" />
-    </list>
+    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="" />
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +57,7 @@
       <file leaf-file-name="lobbies_operations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/lobbies_operations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4747634">
+            <state vertical-scroll-proportion="2.9526813">
               <caret line="104" column="66" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
               <folding />
             </state>
@@ -396,14 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/user_operations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/lobbies.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -412,9 +402,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/user_operations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/lobbies_operations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4747634">
+        <state vertical-scroll-proportion="2.9526813">
           <caret line="104" column="66" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
           <folding />
         </state>

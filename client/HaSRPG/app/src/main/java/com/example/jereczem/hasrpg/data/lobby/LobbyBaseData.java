@@ -10,14 +10,16 @@ public class LobbyBaseData {
     private Integer gameTime;
     private Integer runTime;
     private String status;
+    private String hunterLogin;
 
-    public LobbyBaseData(Integer lobbyID, String title, Integer playersNO, Integer gameTime, Integer runTime, String status) {
+    public LobbyBaseData(Integer lobbyID, String title, Integer playersNO, Integer gameTime, Integer runTime, String status, String hunterLogin) {
         this.lobbyID = lobbyID;
         this.title = title;
         this.playersNO = playersNO;
         this.gameTime = gameTime;
         this.runTime = runTime;
         this.status = status;
+        this.hunterLogin = hunterLogin;
     }
 
     public Integer getLobbyID() {
@@ -54,5 +56,9 @@ public class LobbyBaseData {
                 ", runTime=" + runTime +
                 ", status='" + status + '\'' +
                 '}';
+    }
+
+    public String getHunterLogin() {
+        return hunterLogin;
     }
 }

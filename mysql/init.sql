@@ -9,3 +9,5 @@ SELECT add_user('Threexe', '74c61aafb526b93a9e75690d70c48404cb4c90d079d79b3f7063
 
 select * from lobbies_users;
 
+update lobbies set Hunter_login="Shafear";
+

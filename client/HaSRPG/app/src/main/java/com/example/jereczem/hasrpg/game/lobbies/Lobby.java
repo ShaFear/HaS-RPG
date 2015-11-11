@@ -1,5 +1,7 @@
 package com.example.jereczem.hasrpg.game.lobbies;
 
+import android.util.Log;
+
 import com.example.jereczem.hasrpg.data.lobby.LobbyBaseData;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.settings.LobbySettings;
@@ -20,6 +22,8 @@ public class Lobby implements Serializable{
     private Integer gameTime;
     private Integer runTime;
     private LobbySettings.Status status;
+    private String hunterLogin;
+    private Integer hunterID;
 
     public Lobby(LobbyBaseData baseData){
         lobbyID = baseData.getLobbyID();
@@ -33,6 +37,7 @@ public class Lobby implements Serializable{
         else
             status = LobbySettings.Status.READY;
         lobbyPlayers = new ArrayList<>();
+        hunterLogin = baseData.getHunterLogin();
     }
 
     private void setLobbyPlayersNO() {
@@ -42,6 +47,16 @@ public class Lobby implements Serializable{
     public void setLobbyPlayer(ArrayList<PlayerData> playerDatas){
         this.lobbyPlayers = playerDatas;
         setLobbyPlayersNO();
+        for(PlayerData playerData : playerDatas){
+            if(playerData.getLogin().equals(hunterLogin)){
+                hunterID = playerData.getUserID();
+                Log.d("HASHUNTER", getHunterID().toString());
+            }
+        }
+    }
+
+    public Integer getHunterID() {
+        return hunterID;
     }
 
     public LobbySettings.Status getStatus() {
