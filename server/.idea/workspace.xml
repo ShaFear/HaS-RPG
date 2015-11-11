@@ -4,7 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/app.js" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="" />
+    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mysql/init.sql" afterPath="$PROJECT_DIR$/../mysql/init.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/lobbies.js" afterPath="$PROJECT_DIR$/routes/lobbies.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/lobbies_operations.js" afterPath="$PROJECT_DIR$/database/lobbies_operations.js" />
+    </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/routes/lobbies.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="84" column="18" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="18" />
+              <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -57,8 +61,8 @@
       <file leaf-file-name="lobbies_operations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/lobbies_operations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.9526813">
-              <caret line="104" column="66" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.7097792">
+              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -78,11 +82,11 @@
         <option value="$PROJECT_DIR$/database/connection.js" />
         <option value="$PROJECT_DIR$/routes/signin.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
-        <option value="$PROJECT_DIR$/routes/lobbies.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/credentials.js" />
         <option value="$PROJECT_DIR$/socket_server/app.js" />
         <option value="$PROJECT_DIR$/database/user_operations.js" />
+        <option value="$PROJECT_DIR$/routes/lobbies.js" />
         <option value="$PROJECT_DIR$/database/lobbies_operations.js" />
       </list>
     </option>
@@ -271,7 +275,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28525296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28525296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -397,7 +401,7 @@
     <entry file="file://$PROJECT_DIR$/routes/lobbies.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="18" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="18" />
+          <caret line="44" column="12" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -412,8 +416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/lobbies_operations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.9526813">
-          <caret line="104" column="66" selection-start-line="104" selection-start-column="66" selection-end-line="104" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.7097792">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding />
         </state>
       </provider>

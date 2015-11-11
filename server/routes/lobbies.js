@@ -16,7 +16,7 @@ function check_data(title, player_no, game_limit, run_time, status) {
     try {
         if (
             ( 0 < title.length ) && (title.length < 256 ) &&
-            ( 2 < player_no ) && ( player_no < 128 ) &&
+            //( 2 < player_no ) && ( player_no < 128 ) &&
             ( 9 < game_limit ) && (game_limit < 10000) &&
             ( 2 < run_time ) && ( run_time < 5000)
         )
@@ -42,7 +42,7 @@ app.post('/lobbies/:lobby_id/status', function (req, res) {
 });
 
 app.get('/lobbies/:lobby_id/status', function (req, res) {
-    if (req.signedCookies.UserID) {
+    if (true/*req.signedCookies.UserID*/) {
         var lobby_id = req.params['lobby_id'];
         getLobbyStatus(lobby_id, res);
         return;

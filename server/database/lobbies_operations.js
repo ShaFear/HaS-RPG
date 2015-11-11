@@ -5,7 +5,7 @@ setLobbyStatus = function (lobby_id, status, res) {
     values = [status, lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
-            res.status(200).send("succesfuly updated lobby status");
+            //res.status(200).send("succesfuly updated lobby status");
             return;
         }
         if (err) {
@@ -17,11 +17,19 @@ setLobbyStatus = function (lobby_id, status, res) {
 }
 
 getLobbyStatus = function (lobby_id, res) {
-    query = 'SELECT Status FROM lobbies WHERE LobbyID=?';
-    values = [lobby_id];
+    query = 'select count(*) as READY from lobbies where \
+    (select count(lobbies_users.Status) from lobbies \
+    join lobbies_users on lobbies_users.lobbies_LobbyID = lobbies.LobbyID \
+    where lobbies_users.Status = "READY" and LobbyID=?) = lobbies.PlayersNO AND LobbyID=?;'
+    values = [lobby_id, lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
-            res.status(200).send(JSON.stringify(rows));
+            status = "WAIT";
+            console.log(rows[0]);
+            if(rows[0]["READY"] == 1) 
+                status = "READY";
+            setLobbyStatus(lobby_id, status, res);
+            res.status(200).send(status);
             return;
         }
         if (err) {
