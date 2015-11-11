@@ -42,7 +42,7 @@ app.post('/lobbies/:lobby_id/status', function (req, res) {
 });
 
 app.get('/lobbies/:lobby_id/status', function (req, res) {
-    if (true/*req.signedCookies.UserID*/) {
+    if (req.signedCookies.UserID) {
         var lobby_id = req.params['lobby_id'];
         getLobbyStatus(lobby_id, res);
         return;

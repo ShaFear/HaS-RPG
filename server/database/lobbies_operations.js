@@ -26,7 +26,7 @@ getLobbyStatus = function (lobby_id, res) {
         if (!err) {
             status = "WAIT";
             console.log(rows[0]);
-            if(rows[0]["READY"] == 1) 
+            if(rows[0]["READY"] == 1)
                 status = "READY";
             setLobbyStatus(lobby_id, status, res);
             res.status(200).send(status);
