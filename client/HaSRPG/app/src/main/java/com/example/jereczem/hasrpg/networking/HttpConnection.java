@@ -12,7 +12,7 @@ import java.net.URL;
  * Created by jereczem on 03.07.15.
  */
 public class HttpConnection {
-    private static int len = 10000;
+    private static int len = 200000;
     private static int readTimeOut = 10000; //milisec
     private static int connectTimeOut = 15000;
     // Given a URL, establishes an HttpUrlConnection and retrieves

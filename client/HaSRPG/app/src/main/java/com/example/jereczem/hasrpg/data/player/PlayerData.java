@@ -41,6 +41,7 @@ public class PlayerData extends Observable implements Serializable{
         this.chaseID = chaseID;
         chases = new ArrayList<Chase>();
         hunters = new ArrayList<Hunter>();
+        set();
     }
 
     public Integer getUserID() {
@@ -57,12 +58,12 @@ public class PlayerData extends Observable implements Serializable{
 
     @Override
     public String toString() {
-        try{
+        /*try{*/
             return "PlayerData{" +
                 "userID=" + userID +
                 ", login='" + login + '\'' +
                 ", hunterID=" + hunterID +
-                    ", status=" + status.name() +
+                    ", status=" + getStatus() +
                 ", chaseID=" + chaseID +
                 ", characters=" + characters.toString() +
                 "\n, chases=" + chases.toString() +
@@ -70,9 +71,9 @@ public class PlayerData extends Observable implements Serializable{
                 "\n, selectedHunter=" + selectedHunter.toString() +
                 "\n, selectedChase=" + selectedChase.toString() +
                 '}';
-        }catch (NullPointerException e){
-            return "brak kompletnych danych postaci";
-        }
+       /* }catch (NullPointerException e){
+            return "brak kompletnych danych postaci" + e.getMessage().toString();
+        }*/
     }
 
     public ArrayList<Chase> getChases() {

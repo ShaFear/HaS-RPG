@@ -17,6 +17,7 @@ public class PlayerDataReceiver {
         Log.d("HASLOG", dataFromServer);
         try {
             JSONArray dataJSON = new JSONArray(dataFromServer);
+            Log.d("JSONHASLOG", dataJSON.toString(5));
             Integer userID = dataJSON.getJSONObject(0).getInt("UserID");
             String login = dataJSON.getJSONObject(0).getString("login");
             Integer hunterID = dataJSON.getJSONObject(0).getInt("HunterID");
@@ -40,6 +41,7 @@ public class PlayerDataReceiver {
                 playerData.getCharacters().add(character);
             }
         } catch (JSONException e) {
+            Log.d("JSONHASLOG", "LOLOLOL");
             e.printStackTrace();
         }
         playerData.set();

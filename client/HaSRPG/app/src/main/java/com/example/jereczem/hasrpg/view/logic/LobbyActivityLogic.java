@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.example.jereczem.hasrpg.networking.rest.LobbyDataDownloader;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLoginGetter;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLogoutGetter;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
+import com.example.jereczem.hasrpg.networking.rest.StatusPoster;
 import com.example.jereczem.hasrpg.view.adapters.LobbiesListAdapter;
 import com.example.jereczem.hasrpg.view.adapters.PlayersListAdapter;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
@@ -31,6 +33,7 @@ public class LobbyActivityLogic {
     Integer lobbyId;
     Lobby lobby;
     CountDownTimer countDownTimer;
+    Boolean ready = false;
 
     public LobbyActivityLogic(final AppCompatActivity a) {
 
@@ -159,6 +162,24 @@ public class LobbyActivityLogic {
         }
         catch (NullPointerException e){
 
+        }
+    }
+
+    public void clickReady() {
+        try {
+            if (!ready) {
+                ((Button) a.findViewById(R.id.readyButton)).setText(R.string.ready_button);
+                ready = !ready;
+                StatusPoster.getResponse(lobbyId, true);
+            } else {
+                ((Button) a.findViewById(R.id.readyButton)).setText(R.string.not_ready_button);
+                ready = !ready;
+                StatusPoster.getResponse(lobbyId, false);
+            }
+        }
+        catch (RestException e){
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
         }
     }
 }

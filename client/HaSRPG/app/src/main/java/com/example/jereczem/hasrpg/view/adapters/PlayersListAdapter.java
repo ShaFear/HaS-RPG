@@ -46,15 +46,15 @@ public class PlayersListAdapter extends ArrayAdapter<PlayerData> {
 
             playerStatus.setText(playerStatus.getText().toString().replace("[magic]",
                     playerData.getStatus().name()
-                    ));
+            ));
 
-            Log.d("HASLOG", playerData.toString());
+            Log.d("HASLOG", playerData.toString() +"\n\n\n\n");
 
             hunterLevel.setText(hunterLevel.getText().toString().replace("[]",
-                    playerData.getSelectedHunter().getLevel().toString()));
+                        playerData.getSelectedHunter().getLevel().toString()));
 
             chaseLevel.setText(chaseLevel.getText().toString().replace("[]",
-                    playerData.getSelectedChase().getLevel().toString()));
+                        playerData.getSelectedChase().getLevel().toString()));
         }
 
         return v;

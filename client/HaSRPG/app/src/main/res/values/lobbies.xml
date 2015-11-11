@@ -24,4 +24,6 @@
     <string name="hunter_level_lobby">hunter lvl: []</string>
     <string name="chase_level_lobby">chase lvl: []</string>
 
+    <string name="not_ready_button">I\'m ready!</string>
+    <string name="ready_button">I\'m not ready yet..</string>
 </resources>

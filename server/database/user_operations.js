@@ -39,8 +39,8 @@ addUser = function (login, passwd, res) {
 }
 
 getCharacters = function (user_id, res) {
-    query = "select * from characters c join users u on u.login=(select login from users where UserID=?)"
-    values = [user_id];
+    query = "select * from characters c join users u on u.login=(select login from users where UserID=?) where c.users_login=(select login from users where UserID=?)"
+    values = [user_id, user_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
             for (j = 0; j < rows.length; j++)

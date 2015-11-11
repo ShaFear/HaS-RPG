@@ -3,23 +3,12 @@ package com.example.jereczem.hasrpg.view.activities;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.jereczem.hasrpg.R;
-import com.example.jereczem.hasrpg.data.lobby.LobbyBaseData;
-import com.example.jereczem.hasrpg.data.lobby.LobbyBasePlayersData;
-import com.example.jereczem.hasrpg.data.lobby.LobbyDataReceiver;
-import com.example.jereczem.hasrpg.game.lobbies.Lobby;
-import com.example.jereczem.hasrpg.networking.HttpResponse;
-import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.view.dialogs.Alerts;
+import com.example.jereczem.hasrpg.networking.rest.StatusPoster;
 import com.example.jereczem.hasrpg.view.logic.LobbyActivityLogic;
-import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
-
-import org.json.JSONException;
-import org.w3c.dom.Text;
 
 public class LobbyActivity extends AppCompatActivity {
     LobbyActivityLogic lobbyActivityLogic;
@@ -47,5 +36,9 @@ public class LobbyActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         NavUtils.navigateUpFromSameTask(this);
+    }
+
+    public void clickReadyButton(View view) {
+        lobbyActivityLogic.clickReady();
     }
 }

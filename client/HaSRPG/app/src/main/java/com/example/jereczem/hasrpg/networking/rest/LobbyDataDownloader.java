@@ -72,8 +72,12 @@ public class LobbyDataDownloader {
 
     private PlayerData downloadPlayerData(final Integer userID) throws RestException {
         HttpResponse response = new HttpResponseReceiver("users/" + userID).receive();
+        Log.d("HASLOG2", response.getMessage().toString() + response.getCode().toString());
         if (response.getCode().equals(200)) {
-            return PlayerDataReceiver.fromString(response.getMessage());
+            PlayerData playerData = (PlayerDataReceiver.fromString(response.getMessage()));
+            playerData.set();
+            Log.d("HASLOG2", playerData.toString());
+            return  playerData;
         } else {
             throw new RestException(response);
         }
