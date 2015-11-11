@@ -100,7 +100,16 @@ createLobby = function (title, player_no, game_limit, run_time, res) {
 }
 
 lobbyLogin = function (user_id, lobby_id, res) {
-    query = 'INSERT INTO lobbies_users (users_login, lobbies_LobbyID) values((select login from users u where u.UserID=?) ,?)';
+    query = 'DELETE FROM lobbies_users WHERE users_login=(select login from users u where u.UserID=?)';
+    values = [user_id];
+    connection.query(query, values, function (err, rows, fields) {
+        if (err) {
+            res.status(260).send('Database error');
+            console.log(err);
+            return;
+        }
+    });
+    query = ' INSERT INTO lobbies_users (users_login, lobbies_LobbyID) values((select login from users u where u.UserID=?) ,?)';
     values = [user_id, lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {

@@ -21,12 +21,6 @@ public class LobbyActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        lobbyActivityLogic.logoutFromLobby();
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         lobbyActivityLogic.onPause();
