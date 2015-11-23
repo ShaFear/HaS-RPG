@@ -16,6 +16,27 @@ setLobbyStatus = function (lobby_id, status, res) {
     });
 }
 
+randLobbyHunter = function(lobby_id, res){
+    query = "update lobbies set \
+                lobbies.Hunter_login = (select * from (select users_login from lobbies l \
+                    join lobbies_users lu on lu.lobbies_LobbyID=l.LobbyID \
+                    where l.LobbyID=? \
+                    order by Rand() \
+                    LIMIT 1) wynik) \
+                where lobbies.LobbyID=? AND lobbies.Hunter_login is null";
+    values = [lobby_id, lobby_id];
+    connection.query(query, values, function (err, rows, fields) {
+        if (!err) {
+            return;
+        }
+        if (err) {
+            res.status(260).send('Database error');
+            console.log(err);
+            return;
+        }
+    });
+}
+
 getLobbyStatus = function (lobby_id, res) {
     query = 'select count(*) as READY from lobbies where \
     (select count(lobbies_users.Status) from lobbies \
@@ -24,8 +45,9 @@ getLobbyStatus = function (lobby_id, res) {
     values = [lobby_id, lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
-            if (rows[0]["READY"] == 1)
+            if (rows[0]["READY"] == 1) {
                 setLobbyStatus(lobby_id, "READY", res);
+            }
             else
                 setLobbyStatus(lobby_id, "WAIT", res);
             return;
@@ -60,6 +82,7 @@ getLobbyInformation = function (lobby_id, res) {
     values = [lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
+            randLobbyHunter(lobby_id, res);
             res.status(200).send(JSON.stringify(rows));
             return;
         }
