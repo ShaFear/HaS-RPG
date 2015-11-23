@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app.js" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/lobbies_operations.js" afterPath="$PROJECT_DIR$/database/lobbies_operations.js" />
-    </list>
+    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="" />
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -289,7 +287,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="27" width="1922" height="1054" extended-state="6" />
+    <frame x="-1" y="27" width="1922" height="1054" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1676331" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

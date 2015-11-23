@@ -1,5 +1,8 @@
 package com.example.jereczem.hasrpg.sockets;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
+
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
@@ -33,19 +36,14 @@ public class SocketServerConnector {
 
         socket.connect();
 
-        new Thread(new Runnable() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                while(true){
-                    try {
-                        socket.emit("joinRoom", jsonData.toString());
-                        Thread.sleep(ServerSettings.SOCKET_REJOINING_TIME);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+                socket.emit("joinRoom", jsonData.toString());
+                handler.postDelayed(this, ServerSettings.SOCKET_REJOINING_TIME);
             }
-        }).start();
+        }, ServerSettings.SOCKET_REJOINING_TIME);
     }
 
     public Socket getSocket() {

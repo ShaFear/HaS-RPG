@@ -12,14 +12,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.data.player.PlayerData;
+import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
+import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.networking.rest.LobbyDataDownloader;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLoginGetter;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLogoutGetter;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.networking.rest.StatusPoster;
 import com.example.jereczem.hasrpg.settings.LobbySettings;
+import com.example.jereczem.hasrpg.view.activities.ChaseGameActivity;
 import com.example.jereczem.hasrpg.view.activities.GameActivity;
+import com.example.jereczem.hasrpg.view.activities.HunterGameActivity;
 import com.example.jereczem.hasrpg.view.adapters.LobbiesListAdapter;
 import com.example.jereczem.hasrpg.view.adapters.PlayersListAdapter;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
@@ -144,7 +149,12 @@ public class LobbyActivityLogic {
     }
 
     private void openGameActivity(Lobby lobby){
-        Intent intent = new Intent(a, GameActivity.class);
+        Intent intent;
+        PlayerData playerData = PlayerDataReceiver.fromString(new HttpResponseReceiver("mycharacters").receive().getMessage());
+        if(lobby.getHunterID().equals(playerData.getUserID()))
+            intent = new Intent(a, HunterGameActivity.class);
+        else
+            intent = new Intent(a, ChaseGameActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable(LobbySettings.LOBBY_TO_GAME_INTENT_TAG, lobby);
         intent.putExtras(bundle);
