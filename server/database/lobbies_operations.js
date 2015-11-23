@@ -1,8 +1,8 @@
 require('./connection.js');
 
 setLobbyStatus = function (lobby_id, status, res) {
-    query = 'UPDATE lobbies SET Status=? WHERE LobbyID=?';
-    values = [status, lobby_id];
+    query = 'UPDATE lobbies SET Status=? WHERE LobbyID=? AND Status=?';
+    values = [status, lobby_id, "WAIT"];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
             //res.status(200).send("succesfuly updated lobby status");
@@ -24,12 +24,10 @@ getLobbyStatus = function (lobby_id, res) {
     values = [lobby_id, lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
-            status = "WAIT";
-            console.log(rows[0]);
-            if(rows[0]["READY"] == 1)
-                status = "READY";
-            setLobbyStatus(lobby_id, status, res);
-            res.status(200).send(status);
+            if (rows[0]["READY"] == 1)
+                setLobbyStatus(lobby_id, "READY", res);
+            else
+                setLobbyStatus(lobby_id, "WAIT", res);
             return;
         }
         if (err) {
@@ -57,6 +55,7 @@ setUserStatus = function (user_id, lobby_id, status, res) {
 }
 
 getLobbyInformation = function (lobby_id, res) {
+    getLobbyStatus(lobby_id, res);
     query = 'SELECT * FROM lobbies WHERE LobbyID=?'
     values = [lobby_id];
     connection.query(query, values, function (err, rows, fields) {

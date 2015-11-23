@@ -2,6 +2,8 @@ package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -16,6 +18,8 @@ import com.example.jereczem.hasrpg.networking.rest.LobbyLoginGetter;
 import com.example.jereczem.hasrpg.networking.rest.LobbyLogoutGetter;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.networking.rest.StatusPoster;
+import com.example.jereczem.hasrpg.settings.LobbySettings;
+import com.example.jereczem.hasrpg.view.activities.GameActivity;
 import com.example.jereczem.hasrpg.view.adapters.LobbiesListAdapter;
 import com.example.jereczem.hasrpg.view.adapters.PlayersListAdapter;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
@@ -41,7 +45,8 @@ public class LobbyActivityLogic {
         lobbyId = a.getIntent().getIntExtra("lobbyId", 0);
         new ToolbarSetter(a, R.drawable.previous);
         loginToLobby();
-        downloadDataAndSetViews();
+        if(!downloadDataAndSetViews())
+            return;
         try {
             ListView playerListView = (ListView) a.findViewById(R.id.playerListView);
             playerListView.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
@@ -58,7 +63,8 @@ public class LobbyActivityLogic {
 
         countDownTimer = new CountDownTimer(30000, 2000) {
             public void onTick(long millisUntilFinished) {
-                downloadDataAndSetViews();
+                if(!downloadDataAndSetViews())
+                    return;
                 try {
                     ListView playerListView = (ListView) a.findViewById(R.id.playerListView);
                     playerListView.setAdapter(new PlayersListAdapter(a, R.layout.item_player, lobby.getLobbyPlayers()));
@@ -112,10 +118,14 @@ public class LobbyActivityLogic {
         }
     }
 
-    private void downloadDataAndSetViews() {
+    private Boolean downloadDataAndSetViews() {
         try {
             LobbyDataDownloader dataDownloader = new LobbyDataDownloader(a, lobbyId);
             lobby = dataDownloader.getLobby();
+            if(lobby.getStatus().equals(LobbySettings.Status.READY)) {
+                openGameActivity(lobby);
+                return false;
+            }
             setViewFromLobbyData(lobby);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -130,6 +140,18 @@ public class LobbyActivityLogic {
             });
             alertDialog.show();
         }
+        return true;
+    }
+
+    private void openGameActivity(Lobby lobby){
+        Intent intent = new Intent(a, GameActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(LobbySettings.LOBBY_TO_GAME_INTENT_TAG, lobby);
+        intent.putExtras(bundle);
+        a.startActivity(intent);
+        if(countDownTimer != null)
+            countDownTimer.cancel();
+        a.finish();
     }
 
     private void setViewFromLobbyData(Lobby lobby) {
