@@ -35,7 +35,7 @@ public class SignInActivity extends AppCompatActivity {
         Toast.makeText(this, "Settings changed to server 1", Toast.LENGTH_SHORT).show();
     }
 
-    public voied clickServer2(View view) {
+    public void clickServer2(View view) {
         ServerSettings.SERVER_URL = "http://192.168.43.128:8080/";
         ServerSettings.SOCKET_SERVER_URL = "http://192.168.43.128:3000/";
         Toast.makeText(this, "Settings changed to server 2", Toast.LENGTH_SHORT).show();
