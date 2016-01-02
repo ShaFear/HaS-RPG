@@ -1,3 +1,5 @@
+use development;
+
 delete from characters where 1=1;
 delete from lobbies_users where 1=1;
 delete from lobbies where 1=1;

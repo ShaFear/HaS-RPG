@@ -17,14 +17,8 @@ setLobbyStatus = function (lobby_id, status, res) {
 }
 
 randLobbyHunter = function(lobby_id, res){
-    query = "update lobbies set \
-                lobbies.Hunter_login = (select * from (select users_login from lobbies l \
-                    join lobbies_users lu on lu.lobbies_LobbyID=l.LobbyID \
-                    where l.LobbyID=? \
-                    order by Rand() \
-                    LIMIT 1) wynik) \
-                where lobbies.LobbyID=? AND lobbies.Hunter_login is null";
-    values = [lobby_id, lobby_id];
+    query = "select random_hunter(?)";
+    values = [lobby_id];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
             return;
