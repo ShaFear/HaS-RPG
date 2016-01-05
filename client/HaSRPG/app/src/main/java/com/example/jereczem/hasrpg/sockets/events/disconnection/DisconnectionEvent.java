@@ -39,7 +39,7 @@ public class DisconnectionEvent extends HandShakeEvent<GameActivity> {
                 login = player.getLogin();
                 break;
             }
-        dialog = ProgressDialog.show(activity, "Waiting for user", "Waiting for user " + login + " to connect again", true);
+        dialog = ProgressDialog.show(activity, "Waiting for user", "Waiting for user " + login + " to connect again", false);
     }
 
     @Override

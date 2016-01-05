@@ -24,6 +24,7 @@ import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.connection.ConnectionEvent;
 import com.example.jereczem.hasrpg.sockets.events.disconnection.DisconnectionEvent;
 import com.example.jereczem.hasrpg.sockets.events.gpslocation.GpsLocationEvent;
+import com.example.jereczem.hasrpg.sockets.events.runtime.RunTimeEvent;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 import com.github.nkzawa.emitter.Emitter;
 
@@ -84,6 +85,10 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
                 }
                 case GPS_LOCATION: {
                     new GpsLocationEvent(eventInformation, sConnector, this).runEvent();
+                    break;
+                }
+                case RUN_TIME: {
+                    new RunTimeEvent(eventInformation, sConnector, this).runEvent();
                     break;
                 }
                 case NONE: {

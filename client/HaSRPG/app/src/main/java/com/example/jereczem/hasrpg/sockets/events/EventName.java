@@ -8,6 +8,7 @@ enum EventName{
     CONNECTION,
     DISCONNECTION,
     GPS_LOCATION,
+    RUN_TIME,
     NONE;
 
     public static EventName getEventName(String name){

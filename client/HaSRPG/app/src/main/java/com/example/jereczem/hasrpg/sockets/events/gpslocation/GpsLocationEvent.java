@@ -36,7 +36,7 @@ public class GpsLocationEvent extends NonHandShakeEvent<GameActivity> {
         Socket socket = sConnector.getSocket();
         JSONObject eventInformation = new JSONObject();
         try {
-            eventInformation.put("name", EventName.GPS_LOCATION.toString());
+            eventInformation.put("name", EventName.GPS_LOCATION.name());
             eventInformation.put("userID", gameActivity.playerData.getUserID());
             eventInformation.put("latitude", location.getLatitude());
             eventInformation.put("longitude", location.getLongitude());
