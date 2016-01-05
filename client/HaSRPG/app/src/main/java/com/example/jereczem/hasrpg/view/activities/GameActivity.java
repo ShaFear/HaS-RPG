@@ -16,18 +16,16 @@ import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
-import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
-import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.settings.LobbySettings;
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.connection.ConnectionEvent;
 import com.example.jereczem.hasrpg.sockets.events.disconnection.DisconnectionEvent;
+import com.example.jereczem.hasrpg.sockets.events.gpslocation.GpsLocationEvent;
 import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 import com.github.nkzawa.emitter.Emitter;
-import com.github.nkzawa.socketio.client.Socket;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,6 +82,10 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
                     new DisconnectionEvent(eventInformation, sConnector, this).runEvent();
                     break;
                 }
+                case GPS_LOCATION: {
+                    new GpsLocationEvent(eventInformation, sConnector, this).runEvent();
+                    break;
+                }
                 case NONE: {
                     Log.d("HASLOG", eventInformation.toString());
                     break;
@@ -124,6 +126,12 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 10, this);
+        Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if(lastKnownLocation != null) {
+            GpsLocationEvent.sentEvent(sConnector, this, lastKnownLocation);
+            Log.d("HASGPS", "last know: " + lastKnownLocation.toString());
+        }
+
 
         /********* After registration onLocationChanged method  ********/
         /********* called periodically after each 3 sec ***********/
@@ -132,8 +140,7 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(Location location) {
         Log.d("HASGPS", location.toString());
-        Socket socket = sConnector.getSocket();
-
+        GpsLocationEvent.sentEvent(sConnector, this, location);
     }
 
     @Override

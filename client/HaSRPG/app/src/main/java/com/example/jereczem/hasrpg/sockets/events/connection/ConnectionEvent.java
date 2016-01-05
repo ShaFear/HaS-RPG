@@ -19,7 +19,7 @@ public class ConnectionEvent extends NonHandShakeEvent<GameActivity> {
     @Override
     protected void afterHandShakeReaction(AppCompatActivity activity) throws JSONException {
         Integer userID = this.eventInformation.getInt("userID");
-        Toast.makeText(activity, "User connected: " + userID, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(activity, "User connected: " + userID, Toast.LENGTH_SHORT).show();
     }
 }
 

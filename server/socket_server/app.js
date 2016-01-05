@@ -34,6 +34,14 @@ io.on('connection', function (socket) {
         };
     });
 
+    socket.on('sentEvent', function (data) {
+       try{
+           socket.to(room).emit('event', data);
+       } catch (err) {
+           console.log(new Date().toUTCString() + ": " + err);
+       };
+    });
+
 
     socket.on('disconnect', function(){
         var event = {
