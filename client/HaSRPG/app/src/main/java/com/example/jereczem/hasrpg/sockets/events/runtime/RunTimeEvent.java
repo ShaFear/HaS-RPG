@@ -1,5 +1,6 @@
 package com.example.jereczem.hasrpg.sockets.events.runtime;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.CountDownTimer;
@@ -11,6 +12,7 @@ import com.example.jereczem.hasrpg.sockets.events.HandShakeEvent;
 import com.example.jereczem.hasrpg.view.activities.ChaseGameActivity;
 import com.example.jereczem.hasrpg.view.activities.GameActivity;
 import com.example.jereczem.hasrpg.view.activities.HunterGameActivity;
+import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 import com.github.nkzawa.socketio.client.Socket;
 
 import org.json.JSONException;
@@ -35,7 +37,8 @@ public class RunTimeEvent extends HandShakeEvent<GameActivity>{
         if (activity instanceof ChaseGameActivity) {
             ChaseGameActivity chaseActivity = (ChaseGameActivity) activity;
             Integer seconds = super.eventInformation.getInt("seconds");
-            chaseActivity.handleRunTimeEvent(seconds);
+            if(seconds > 0)
+                chaseActivity.handleRunTimeEvent(seconds);
         }
     }
 
@@ -70,14 +73,15 @@ public class RunTimeEvent extends HandShakeEvent<GameActivity>{
                 dialog.setCancelable(false);
                 if(!dialog.isShowing())
                     dialog.show();
-                sentEvent(sConnector, millisUntilFinished / 1000, "RUNNING");
+                if(millisUntilFinished/1000 > 0)
+                    sentEvent(sConnector, millisUntilFinished / 1000, "RUNNING");
             }
 
             @Override
             public void onFinish() {
                 dialog.dismiss();
                 sentEvent(sConnector, 0, "FINISHED");
-                Toast.makeText(activity, "The hunting begins!", Toast.LENGTH_SHORT).show();
+                Alerts.DialogGenerator.generateSimpleOKAlert(activity, "The hunting begins!", "You can hunt your chases now!").show();
             }
         };
         countDownTimer.start();

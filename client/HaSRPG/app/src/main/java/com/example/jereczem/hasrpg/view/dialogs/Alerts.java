@@ -36,7 +36,7 @@ public class Alerts {
                 not_logged_error_message);
     }
 
-    protected static class DialogGenerator {
+    public static class DialogGenerator {
         public static AlertDialog generateSimpleOKAlert(Activity activity,
                                                         String title, String message){
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
