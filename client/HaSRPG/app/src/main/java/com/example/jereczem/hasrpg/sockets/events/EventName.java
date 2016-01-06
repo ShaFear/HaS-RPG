@@ -10,6 +10,7 @@ enum EventName{
     GPS_LOCATION,
     RUN_TIME,
     GAME_TIME,
+    ATTACK_EVENT,
     NONE;
 
     public static EventName getEventName(String name){

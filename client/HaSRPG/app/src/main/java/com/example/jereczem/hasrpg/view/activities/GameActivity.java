@@ -21,6 +21,7 @@ import com.example.jereczem.hasrpg.settings.LobbySettings;
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
+import com.example.jereczem.hasrpg.sockets.events.attack.AttackEvent;
 import com.example.jereczem.hasrpg.sockets.events.connection.ConnectionEvent;
 import com.example.jereczem.hasrpg.sockets.events.disconnection.DisconnectionEvent;
 import com.example.jereczem.hasrpg.sockets.events.gametime.GameTimeEvent;
@@ -95,6 +96,10 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
                 }
                 case GAME_TIME: {
                     new GameTimeEvent(eventInformation, sConnector, this).runEvent();
+                    break;
+                }
+                case ATTACK_EVENT:{
+                    new AttackEvent(eventInformation, sConnector, this).runEvent();
                     break;
                 }
                 case NONE: {
