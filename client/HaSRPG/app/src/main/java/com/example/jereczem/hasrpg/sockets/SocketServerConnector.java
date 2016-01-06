@@ -35,6 +35,7 @@ public class SocketServerConnector {
         } catch (JSONException e) {}
 
         socket.connect();
+        socket.emit("joinRoom", jsonData.toString());
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

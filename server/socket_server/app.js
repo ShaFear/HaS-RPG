@@ -2,6 +2,7 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
 function getClient(roomId) {
     var res = [],
         room = io.sockets.adapter.rooms[roomId];

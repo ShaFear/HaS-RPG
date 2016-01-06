@@ -60,6 +60,7 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
             @Override
             public void call(Object... args) {
                 callGameEvent(args[0].toString());
+                Log.d("HASSOC", args[0].toString());
             }
         });
     }

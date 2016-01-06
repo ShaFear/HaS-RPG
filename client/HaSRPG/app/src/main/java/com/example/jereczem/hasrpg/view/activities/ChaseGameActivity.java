@@ -28,7 +28,6 @@ public class ChaseGameActivity extends GameActivity {
     }
 
     ProgressDialog runTimeProgressDialog;
-    Boolean wasRunTimeHandled = false;
 
     public void handleRunTimeEvent(Integer seconds){
         if(runTimeProgressDialog == null){
@@ -42,10 +41,9 @@ public class ChaseGameActivity extends GameActivity {
     }
 
     public void handleEndOfTimeEvent(){
-        if(runTimeProgressDialog != null && wasRunTimeHandled == false){
+        if(runTimeProgressDialog != null){
             if(runTimeProgressDialog.isShowing()) {
                 runTimeProgressDialog.dismiss();
-                wasRunTimeHandled = true;
                 Alerts.DialogGenerator.generateSimpleOKAlert(this, "Time ends", "Time ends, please stay in place.").show();
             }
         }
