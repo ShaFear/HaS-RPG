@@ -17,6 +17,7 @@ import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
+import com.example.jereczem.hasrpg.playgame.GameData;
 import com.example.jereczem.hasrpg.settings.LobbySettings;
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
@@ -41,6 +42,12 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
 
     private LocationManager locationManager;
 
+    private GameData gameData;
+
+    public GameData getGameData(){
+        return gameData;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +56,8 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
         setSocketConnection();
         setSocketListener();
         setLocationManager();
+        gameData = new GameData(lobby);
+        Log.d("HASGAME", gameData.toString());
     }
 
     @Override
