@@ -99,4 +99,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:onClick="clickServer2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UiTest"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="openUiTestActivity"/>
 </RelativeLayout>

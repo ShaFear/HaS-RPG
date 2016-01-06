@@ -82,6 +82,7 @@ public class RunTimeEvent extends HandShakeEvent<GameActivity>{
                 dialog.dismiss();
                 sentEvent(sConnector, 0, "FINISHED");
                 Alerts.DialogGenerator.generateSimpleOKAlert(activity, "The hunting begins!", "You can hunt your chases now!").show();
+                activity.gameTimeTimer.start();
             }
         };
         countDownTimer.start();

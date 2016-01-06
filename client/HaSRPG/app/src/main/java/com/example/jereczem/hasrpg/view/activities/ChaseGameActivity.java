@@ -5,9 +5,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.sockets.events.gametime.TimeParser;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 
 public class ChaseGameActivity extends GameActivity {
@@ -16,6 +18,7 @@ public class ChaseGameActivity extends GameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chase_game);
+        ((TextView)findViewById(R.id.gameTimeChase)).setText(TimeParser.fromLong(lobby.getGameTime()));
     }
 
     @Override
@@ -30,11 +33,6 @@ public class ChaseGameActivity extends GameActivity {
     public void handleRunTimeEvent(Integer seconds){
         if(runTimeProgressDialog == null){
             runTimeProgressDialog =  new ProgressDialog(this);
-            runTimeProgressDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                }
-            });
         }
         runTimeProgressDialog.setTitle("You're chase!");
         runTimeProgressDialog.setMessage("You have: " + seconds + " seconds to run away!");

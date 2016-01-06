@@ -2,17 +2,25 @@ package com.example.jereczem.hasrpg.view.activities;
 
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.sockets.events.gametime.GameTimeTimer;
+import com.example.jereczem.hasrpg.sockets.events.gametime.TimeParser;
 import com.example.jereczem.hasrpg.sockets.events.runtime.RunTimeEvent;
 
 public class HunterGameActivity extends GameActivity {
+
+    public GameTimeTimer gameTimeTimer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hunter_game);
+        ((TextView)findViewById(R.id.gameTimeHunter)).setText(TimeParser.fromLong(lobby.getGameTime()));
         RunTimeEvent.setRunTimer(sConnector, lobby.getRunTime(), this);
+        gameTimeTimer = new GameTimeTimer(this.lobby.getGameTime() * 1000, 1000, this, sConnector);
     }
 
     @Override

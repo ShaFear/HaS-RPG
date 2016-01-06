@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jereczem.hasrpg" >
+    package="com.example.jereczem.hasrpg">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,12 +11,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".view.activities.SignInActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,7 @@
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".view.activities.SignInActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.activities.SignInActivity" />
@@ -37,14 +37,13 @@
             android:name=".view.activities.MenuActivity"
             android:label="@string/title_activity_menu"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".view.activities.CreateLobbyActivity"
             android:label="@string/title_activity_create_lobby"
             android:parentActivityName=".view.activities.MenuActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
@@ -54,18 +53,15 @@
             android:label="@string/title_activity_lobby"
             android:parentActivityName=".view.activities.MenuActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.jereczem.hasrpg.view.activities.MenuActivity" />
         </activity>
-        <activity android:name=".view.activities.GameActivity" >
-        </activity>
-        <activity android:name=".view.activities.HunterGameActivity" >
-        </activity>
-        <activity android:name=".view.activities.ChaseGameActivity" >
-        </activity>
-
+        <activity android:name=".view.activities.GameActivity"></activity>
+        <activity android:name=".view.activities.HunterGameActivity"></activity>
+        <activity android:name=".view.activities.ChaseGameActivity"></activity>
+        <activity android:name=".view.activities.uitest.UiTestActivity"></activity>
     </application>
 
 </manifest>

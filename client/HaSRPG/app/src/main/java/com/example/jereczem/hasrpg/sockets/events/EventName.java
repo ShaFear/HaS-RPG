@@ -9,6 +9,7 @@ enum EventName{
     DISCONNECTION,
     GPS_LOCATION,
     RUN_TIME,
+    GAME_TIME,
     NONE;
 
     public static EventName getEventName(String name){
