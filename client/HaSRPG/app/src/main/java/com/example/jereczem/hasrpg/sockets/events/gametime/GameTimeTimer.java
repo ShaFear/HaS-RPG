@@ -4,6 +4,7 @@ import android.os.CountDownTimer;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.view.activities.HunterGameActivity;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
@@ -34,13 +35,13 @@ public class GameTimeTimer extends CountDownTimer {
     public void onTick(long millisUntilFinished) {
         long seconds = millisUntilFinished / 1000;
         GameTimeEvent.sentGameTimeEvent(sConnector, seconds);
-        gameTime.setText(TimeParser.fromLong(seconds));
+        activity.getGameData().setGameTime(seconds);
     }
 
     @Override
     public void onFinish() {
-        gameTime.setText("00:00:00");
         GameTimeEvent.sentGameTimeEvent(sConnector, 0);
-        Alerts.DialogGenerator.generateSimpleOKAlert(activity, "Game ends", "Time ends, goodbye :)").show();
+        activity.getGameData().setGameTime(0);
+        activity.getGameData().setStatus(GameStatus.CHASE_WINS);
     }
 }

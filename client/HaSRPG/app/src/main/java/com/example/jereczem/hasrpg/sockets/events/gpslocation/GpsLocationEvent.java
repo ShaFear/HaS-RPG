@@ -1,15 +1,12 @@
 package com.example.jereczem.hasrpg.sockets.events.gpslocation;
 
 import android.location.Location;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
+import com.example.jereczem.hasrpg.playgame.GameData;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.NonHandShakeEvent;
-import com.example.jereczem.hasrpg.view.activities.ChaseGameActivity;
 import com.example.jereczem.hasrpg.view.activities.GameActivity;
-import com.example.jereczem.hasrpg.view.activities.HunterGameActivity;
 import com.github.nkzawa.socketio.client.Socket;
 
 import org.json.JSONException;
@@ -29,7 +26,17 @@ public class GpsLocationEvent extends NonHandShakeEvent<GameActivity> {
         Integer userID = this.eventInformation.getInt("userID");
         Double latitude = this.eventInformation.getDouble("latitude");
         Double longitude = this.eventInformation.getDouble("longitude");
-        Toast.makeText(activity, "User: " + userID + "GPS: " + latitude + ", " + longitude, Toast.LENGTH_SHORT).show();
+        setLocation(activity.getGameData(), latitude, longitude, userID);
+    }
+
+    private static void setLocation(GameData gameData, Double latitude, Double longitude, Integer userID) {
+        if(gameData.getChases().containsKey(userID)){
+            gameData.getChases().get(userID).setLatitude(latitude);
+            gameData.getChases().get(userID).setLongitude(longitude);
+        } else{
+            gameData.getHunters().get(userID).setLatitude(latitude);
+            gameData.getHunters().get(userID).setLongitude(longitude);
+        }
     }
 
     public static void sentEvent(SocketServerConnector sConnector, GameActivity gameActivity, Location location) {
@@ -41,6 +48,7 @@ public class GpsLocationEvent extends NonHandShakeEvent<GameActivity> {
             eventInformation.put("latitude", location.getLatitude());
             eventInformation.put("longitude", location.getLongitude());
             socket.emit("sentEvent", eventInformation);
+            setLocation(gameActivity.getGameData(), location.getLatitude(), location.getLongitude(), gameActivity.playerData.getUserID());
         } catch (JSONException e) {
             e.printStackTrace();
         }

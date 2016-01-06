@@ -1,17 +1,15 @@
 package com.example.jereczem.hasrpg.playgame;
 
-import com.example.jereczem.hasrpg.data.player.CharacterData;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
-import com.example.jereczem.hasrpg.game.users.Chase;
-import com.example.jereczem.hasrpg.game.users.Hunter;
 
+import java.util.Observable;
 import java.util.TreeMap;
 
 /**
  * Created by Michał on 2016-01-06.
  */
-public class GameData {
+public class GameData extends Observable{
     /** time until end of the first run */
     private long runTime;
 
@@ -49,6 +47,8 @@ public class GameData {
 
     public void setRunTime(long runTime) {
         this.runTime = runTime;
+        setChanged();
+        notifyObservers(GameDataChanges.RUNTIME);
     }
 
     public long getGameTime() {
@@ -57,6 +57,8 @@ public class GameData {
 
     public void setGameTime(long gameTime) {
         this.gameTime = gameTime;
+        setChanged();
+        notifyObservers(GameDataChanges.GAME_TIME);
     }
 
     public TreeMap<Integer, ChaseData> getChases() {
@@ -73,6 +75,8 @@ public class GameData {
 
     public void setStatus(GameStatus status) {
         this.status = status;
+        setChanged();
+        notifyObservers(GameDataChanges.GAME_STATUS);
     }
 
     @Override

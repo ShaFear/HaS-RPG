@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.NonHandShakeEvent;
@@ -27,6 +28,8 @@ public class GameTimeEvent  extends NonHandShakeEvent<GameActivity>{
         if (activity instanceof ChaseGameActivity) {
             Integer seconds = super.eventInformation.getInt("seconds");
             activity.getGameData().setGameTime(seconds);
+            if(seconds <= 0)
+                activity.getGameData().setStatus(GameStatus.CHASE_WINS);
         }
     }
 

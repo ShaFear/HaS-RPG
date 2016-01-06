@@ -19,4 +19,32 @@ public class ProgressDialogs {
         progressDialog.setMessage(message);
         return progressDialog;
     }
+
+    //TODO: Magic strings
+    public static ProgressDialog runTimeHunter(Activity activity, long seconds){
+        ProgressDialog progressDialog = new ProgressDialog(activity);
+        progressDialog.setTitle("You're hunter!");
+        progressDialog.setMessage("Your hunt will begin in " + seconds + " seconds. Please still in place.");
+        progressDialog.setCancelable(false);
+        return progressDialog;
+    }
+
+    //TODO: Magic strings
+    public static void updateRunTimeHunter(ProgressDialog progressDialog, long seconds){
+        progressDialog.setMessage("Your hunt will begin in " + seconds + " seconds. Please still in place.");
+    }
+
+    //TODO: Magic strings
+    public static ProgressDialog runTimeChase(Activity activity, long seconds){
+        ProgressDialog progressDialog = new ProgressDialog(activity);
+        progressDialog.setTitle("You're chase!");
+        progressDialog.setMessage("You have to run for " + seconds + " seconds. ");
+        progressDialog.setCancelable(false);
+        return progressDialog;
+    }
+
+    //TODO: Magic strings
+    public static void updateRunTimeChase(ProgressDialog progressDialog, long seconds){
+        progressDialog.setMessage("You have to run for " + seconds + " seconds. ");
+    }
 }

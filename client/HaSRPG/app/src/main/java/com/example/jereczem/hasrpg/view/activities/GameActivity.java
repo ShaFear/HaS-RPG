@@ -55,8 +55,8 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
         new ToolbarSetter(this);
         setSocketConnection();
         setSocketListener();
-        setLocationManager();
         gameData = new GameData(lobby);
+        setLocationManager();
         Log.d("HASGAME", gameData.toString());
     }
 
