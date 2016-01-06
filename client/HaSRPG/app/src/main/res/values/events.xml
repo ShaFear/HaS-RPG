@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wait_for_user_title">Waiting for user</string>
+    <string name="wait_for_user_message">Waiting for user [magic] to connect again</string>
+</resources>

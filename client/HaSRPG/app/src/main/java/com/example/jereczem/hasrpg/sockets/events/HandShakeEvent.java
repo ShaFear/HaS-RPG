@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
+import com.example.jereczem.hasrpg.view.activities.GameActivity;
 import com.github.nkzawa.emitter.Emitter;
 
 import org.json.JSONException;
@@ -15,7 +16,7 @@ import java.util.Iterator;
 /**
  * Created by jereczem on 10.11.15.
  */
-public abstract class HandShakeEvent<T extends AppCompatActivity>{
+public abstract class HandShakeEvent<T extends GameActivity>{
     protected SocketServerConnector sConnector;
     protected String name;
     protected JSONObject eventInformation;

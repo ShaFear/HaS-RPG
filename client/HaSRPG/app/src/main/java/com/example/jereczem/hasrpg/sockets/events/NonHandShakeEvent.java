@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.sockets.events;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
+import com.example.jereczem.hasrpg.view.activities.GameActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +11,7 @@ import org.json.JSONObject;
 /**
  * Created by jereczem on 10.11.15.
  */
-public abstract class NonHandShakeEvent<T extends AppCompatActivity> extends HandShakeEvent{
+public abstract class NonHandShakeEvent<T extends GameActivity> extends HandShakeEvent{
 
     public NonHandShakeEvent(JSONObject eventInformation, SocketServerConnector sConnector, T activity) {
         super(eventInformation, sConnector, activity);
@@ -22,7 +23,7 @@ public abstract class NonHandShakeEvent<T extends AppCompatActivity> extends Han
     }
 
     @Override
-    protected void beforeHandShakeReaction(AppCompatActivity activity) throws JSONException {
+    protected void beforeHandShakeReaction(GameActivity activity) throws JSONException {
 
     }
 

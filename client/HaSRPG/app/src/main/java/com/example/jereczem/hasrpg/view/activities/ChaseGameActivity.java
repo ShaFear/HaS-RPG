@@ -48,12 +48,4 @@ public class ChaseGameActivity extends GameActivity {
             }
         }
     }
-
-    public void handleWhenImKilled() {
-        Alerts.DialogGenerator.generateSimpleOKAlert(this, "Killed", "I'm killed :(").show();
-    }
-
-    public void handleWhenOtherIsKilled(Integer attackedId) {
-        Alerts.DialogGenerator.generateSimpleOKAlert(this, "Killed", "Someone else is killed. Ufff.").show();
-    }
 }

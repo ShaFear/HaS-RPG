@@ -34,15 +34,4 @@ public class HunterGameActivity extends GameActivity {
         super.onLocationChanged(location);
         Toast.makeText(this, "Location changed to: " + location.toString(), Toast.LENGTH_SHORT).show();
     }
-
-    public void killSomeChase(View view) {
-        ArrayList<PlayerData> lobbyPlayers = lobby.getLobbyPlayers();
-        for(PlayerData data : lobbyPlayers){
-            if(!data.getUserID().equals(playerData.getUserID())){
-                Integer userID = data.getUserID();
-                AttackEvent.hunterSendsAttack(sConnector, this, userID);
-                Alerts.DialogGenerator.generateSimpleOKAlert(this, "Killed", "Killed user: " + data.getLogin()).show();
-            }
-        }
-    }
 }

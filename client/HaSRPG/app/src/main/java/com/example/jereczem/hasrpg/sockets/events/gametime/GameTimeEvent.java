@@ -23,12 +23,10 @@ public class GameTimeEvent  extends NonHandShakeEvent<GameActivity>{
     }
 
     @Override
-    protected void afterHandShakeReaction(AppCompatActivity activity) throws JSONException {
+    protected void afterHandShakeReaction(GameActivity activity) throws JSONException {
         if (activity instanceof ChaseGameActivity) {
-            ChaseGameActivity chaseActivity = (ChaseGameActivity) activity;
             Integer seconds = super.eventInformation.getInt("seconds");
-            TextView gameTime = (TextView) chaseActivity.findViewById(R.id.gameTimeChase);
-            gameTime.setText(TimeParser.fromLong(seconds));
+            activity.getGameData().setGameTime(seconds);
         }
     }
 

@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.sockets.events.attack;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.example.jereczem.hasrpg.playgame.ChaseStatus;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.HandShakeEvent;
@@ -32,21 +33,18 @@ public class AttackEvent extends NonHandShakeEvent<GameActivity> {
             eventInformation.put("name", EventName.ATTACK_EVENT.name());
             eventInformation.put("userID", userID);
             socket.emit("sentEvent", eventInformation);
+            activity.getGameData().getChases().get(userID).setStatus(ChaseStatus.DEAD);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    protected void afterHandShakeReaction(AppCompatActivity activity) throws JSONException {
+    protected void afterHandShakeReaction(GameActivity activity) throws JSONException {
         if (activity instanceof ChaseGameActivity){
             ChaseGameActivity gameActivity = (ChaseGameActivity) activity;
-            Integer attackedId = eventInformation.getInt("userID");
-            if(gameActivity.playerData.getUserID().equals(attackedId)){
-                gameActivity.handleWhenImKilled();
-            } else{
-                gameActivity.handleWhenOtherIsKilled(attackedId);
-            }
+            Integer userID = eventInformation.getInt("userID");
+            gameActivity.getGameData().getChases().get(userID).setStatus(ChaseStatus.DEAD);
         }
     }
 }

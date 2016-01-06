@@ -25,7 +25,7 @@ public class GpsLocationEvent extends NonHandShakeEvent<GameActivity> {
     }
 
     @Override
-    protected void afterHandShakeReaction(AppCompatActivity activity) throws JSONException {
+    protected void afterHandShakeReaction(GameActivity activity) throws JSONException {
         Integer userID = this.eventInformation.getInt("userID");
         Double latitude = this.eventInformation.getDouble("latitude");
         Double longitude = this.eventInformation.getDouble("longitude");
