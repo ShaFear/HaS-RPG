@@ -3,6 +3,9 @@ package com.example.jereczem.hasrpg.playgame;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Observable;
 import java.util.TreeMap;
 
@@ -29,10 +32,10 @@ public class GameData extends Observable{
     public GameData(Lobby lobby){
         for(PlayerData playerData : lobby.getLobbyPlayers()){
             if(playerData.getUserID().equals(lobby.getHunterID())){
-                HunterData hunterData = new HunterData(playerData.getSelectedHunter());
+                HunterData hunterData = new HunterData(playerData.getSelectedHunter(), playerData.getLogin());
                 hunters.put(playerData.getUserID(), hunterData);
             } else{
-                ChaseData chaseData = new ChaseData(playerData.getSelectedChase());
+                ChaseData chaseData = new ChaseData(playerData.getSelectedChase(), playerData.getLogin());
                 chases.put(playerData.getUserID(), chaseData);
             }
         }
@@ -88,5 +91,31 @@ public class GameData extends Observable{
                 "\n, hunters=" + hunters.toString() +
                 "\n, status=" + status +
                 '}';
+    }
+
+    public ArrayList<ArrayData<ChaseData>> getChaseArray(){
+        ArrayList<ArrayData<ChaseData>> list = new ArrayList<>();
+        Iterator iterator = chases.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry entry = (Map.Entry) iterator.next();
+            Integer userID = (Integer) entry.getKey();
+            ChaseData chaseData = (ChaseData) entry.getValue();
+            ArrayData<ChaseData> chaseDataArrayData = new ArrayData<>(userID, chaseData);
+            list.add(chaseDataArrayData);
+        }
+        return list;
+    }
+
+    public ArrayList<ArrayData<HunterData>> getHunterArray(){
+        ArrayList<ArrayData<HunterData>> list = new ArrayList<>();
+        Iterator iterator = hunters.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry entry = (Map.Entry) iterator.next();
+            Integer userID = (Integer) entry.getKey();
+            HunterData hunterData = (HunterData) entry.getValue();
+            ArrayData<HunterData> hunterDataArrayData = new ArrayData<>(userID, hunterData);
+            list.add(hunterDataArrayData);
+        }
+        return list;
     }
 }

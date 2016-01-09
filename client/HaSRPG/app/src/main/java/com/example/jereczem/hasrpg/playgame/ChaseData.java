@@ -11,9 +11,15 @@ public class ChaseData implements Comparable<Chase>{
     private ChaseStatus status = ChaseStatus.ALIVE;
     private Double latitude = 0.0;
     private Double longitude = 0.0;
+    private String name;
 
-    public ChaseData(Chase chase){
+    public String getName() {
+        return name;
+    }
+
+    public ChaseData(Chase chase, String name){
         this.chase = chase;
+        this.name = name;
     }
 
     @Override

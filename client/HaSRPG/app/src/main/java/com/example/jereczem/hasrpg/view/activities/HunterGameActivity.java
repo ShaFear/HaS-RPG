@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.view.activities;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
@@ -10,12 +11,17 @@ import com.example.jereczem.hasrpg.playgame.GameDataChanges;
 import com.example.jereczem.hasrpg.sockets.events.gametime.GameTimeTimer;
 import com.example.jereczem.hasrpg.sockets.events.gametime.TimeParser;
 import com.example.jereczem.hasrpg.sockets.events.runtime.RunTimeEvent;
+import com.example.jereczem.hasrpg.view.adapters.ChaseDataAdapter;
+import com.example.jereczem.hasrpg.view.adapters.HunterDataAdapter;
 import com.example.jereczem.hasrpg.view.events.ProgressDialogs;
 
 import java.util.Observable;
 import java.util.Observer;
 
 public class HunterGameActivity extends GameActivity implements Observer {
+
+    HunterDataAdapter hunterDataAdapter;
+    ChaseDataAdapter chaseDataAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +30,28 @@ public class HunterGameActivity extends GameActivity implements Observer {
         getGameData().addObserver(this);
         startGame();
         startedHandler();
+
     }
 
     private void startedHandler() {
         handleGameStatus();
         handleGameTime();
         handleRunTime();
+        handleListViews();
+    }
+
+    private void handleListViews() {
+        ListView hunterListView = (ListView)findViewById(R.id.hunterDataListView);
+        ListView chaseListView = (ListView)findViewById(R.id.chaseDataListView);
+        
+        hunterDataAdapter = new HunterDataAdapter(this, R.layout.item_hunter, getGameData().getHunterArray());
+        chaseDataAdapter = new ChaseDataAdapter(this, R.layout.item_hunter, getGameData().getChaseArray());
+
+        hunterDataAdapter.setMyLatitude(getGameData().getHunters().get(playerData.getUserID()).getLatitude());
+        hunterDataAdapter.setMyLongitude(getGameData().getHunters().get(playerData.getUserID()).getLongitude());
+
+        hunterListView.setAdapter(hunterDataAdapter);
+        chaseListView.setAdapter(chaseDataAdapter);
     }
 
     private void startGame(){

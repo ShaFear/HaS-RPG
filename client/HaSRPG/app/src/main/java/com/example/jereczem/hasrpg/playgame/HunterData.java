@@ -10,9 +10,14 @@ public class HunterData implements Comparable<Hunter>{
     private Hunter hunter;
     private Double latitude = 0.0;
     private Double longitude = 0.0;
+    private String name;
 
-    public HunterData(Hunter hunter) {
-        this.hunter = hunter;
+    public String getName() {
+        return name;
+    }
+
+    public HunterData(Hunter hunter, String name) {
+        this.hunter = hunter;this.name=name;
     }
 
     @Override
