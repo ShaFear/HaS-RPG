@@ -30,14 +30,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="STATUS"
-                android:id="@+id/chaseDataStatus"
+                android:id="@+id/chaseChaseDataStatus"
                 android:layout_gravity="top|bottom|center" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="213dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Userchase"
-                android:id="@+id/chaseDataName"
+                android:id="@+id/chaseChaseDataName"
                 android:layout_margin="10dp"
                 android:textSize="30dp"
                 android:layout_gravity="center_horizontal" />
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="1"
-                    android:id="@+id/chaseDataLevel"
+                    android:id="@+id/chaseChaseDataLevel"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/textView13"
                     android:layout_toEndOf="@+id/textView13" />
@@ -83,15 +83,15 @@
                     android:text="Distance: "
                     android:id="@+id/textView17"
                     android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/chaseDataDistance"
-                    android:layout_toLeftOf="@+id/chaseDataDistance" />
+                    android:layout_toStartOf="@+id/chaseChaseDataDistance"
+                    android:layout_toLeftOf="@+id/chaseChaseDataDistance" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="--"
-                    android:id="@+id/chaseDataDistance"
+                    android:id="@+id/chaseChaseDataDistance"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
@@ -102,11 +102,5 @@
 
         </LinearLayout>
 
-        <com.example.jereczem.hasrpg.view.adapters.AttackButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="FIGHT"
-            android:id="@+id/attackChaseDataButton"
-            android:onClick="attackChase"/>
     </LinearLayout>
 </RelativeLayout>

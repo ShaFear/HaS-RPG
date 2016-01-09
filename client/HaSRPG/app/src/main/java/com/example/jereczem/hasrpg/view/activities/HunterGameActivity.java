@@ -3,14 +3,20 @@ package com.example.jereczem.hasrpg.view.activities;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
+import com.example.jereczem.hasrpg.playgame.ArrayData;
+import com.example.jereczem.hasrpg.playgame.ChaseData;
+import com.example.jereczem.hasrpg.playgame.ChaseStatus;
 import com.example.jereczem.hasrpg.playgame.GameDataChanges;
+import com.example.jereczem.hasrpg.playgame.HunterData;
 import com.example.jereczem.hasrpg.sockets.events.gametime.GameTimeTimer;
 import com.example.jereczem.hasrpg.sockets.events.gametime.TimeParser;
 import com.example.jereczem.hasrpg.sockets.events.runtime.RunTimeEvent;
+import com.example.jereczem.hasrpg.view.adapters.AttackButton;
 import com.example.jereczem.hasrpg.view.adapters.ChaseDataAdapter;
 import com.example.jereczem.hasrpg.view.adapters.HunterDataAdapter;
 import com.example.jereczem.hasrpg.view.events.ProgressDialogs;
@@ -28,6 +34,14 @@ public class HunterGameActivity extends GameActivity implements Observer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hunter_game);
         getGameData().addObserver(this);
+        for(ArrayData<ChaseData> chaseData : getGameData().getChaseArray()){
+            ChaseData chase = chaseData.getData();
+            chase.addObserver(this);
+        }
+        for(ArrayData<HunterData> hunterData : getGameData().getHunterArray()){
+            HunterData hunter = hunterData.getData();
+            hunter.addObserver(this);
+        }
         startGame();
         startedHandler();
 
@@ -43,12 +57,15 @@ public class HunterGameActivity extends GameActivity implements Observer {
     private void handleListViews() {
         ListView hunterListView = (ListView)findViewById(R.id.hunterDataListView);
         ListView chaseListView = (ListView)findViewById(R.id.chaseDataListView);
-        
+
         hunterDataAdapter = new HunterDataAdapter(this, R.layout.item_hunter, getGameData().getHunterArray());
         chaseDataAdapter = new ChaseDataAdapter(this, R.layout.item_hunter, getGameData().getChaseArray());
 
         hunterDataAdapter.setMyLatitude(getGameData().getHunters().get(playerData.getUserID()).getLatitude());
         hunterDataAdapter.setMyLongitude(getGameData().getHunters().get(playerData.getUserID()).getLongitude());
+
+        chaseDataAdapter.setMyLatitude(getGameData().getHunters().get(playerData.getUserID()).getLatitude());
+        chaseDataAdapter.setMyLongitude(getGameData().getHunters().get(playerData.getUserID()).getLongitude());
 
         hunterListView.setAdapter(hunterDataAdapter);
         chaseListView.setAdapter(chaseDataAdapter);
@@ -79,6 +96,14 @@ public class HunterGameActivity extends GameActivity implements Observer {
                 }
                 case GAME_STATUS:{
                     handleGameStatus();
+                    break;
+                }
+                case CHASE:{
+                    handleListViews();
+                    break;
+                }
+                case HUNTER:{
+                    handleListViews();
                     break;
                 }
             }
@@ -124,5 +149,11 @@ public class HunterGameActivity extends GameActivity implements Observer {
                 break;
             }
         }
+    }
+
+    public void attackChase(View view) {
+        AttackButton attackButton = (AttackButton) view;
+        Integer attack  = attackButton.getAttackedId();
+        getGameData().getChases().get(attack).setStatus(ChaseStatus.DEAD);
     }
 }

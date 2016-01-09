@@ -71,6 +71,6 @@ public class HunterDataAdapter extends ArrayAdapter<ArrayData<HunterData>> {
         hunterLocation.setLongitude(hunter.getLongitude());
 
         Float distance = myLocation.distanceTo(hunterLocation);
-        hunterDistance.setText(distance.toString());
+        hunterDistance.setText(String.valueOf(distance.intValue()));
     }
 }

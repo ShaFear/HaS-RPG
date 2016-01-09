@@ -6,5 +6,5 @@ package com.example.jereczem.hasrpg.playgame;
 public enum GameDataChanges {
     RUNTIME,
     GAME_STATUS,
-    GAME_TIME
+    CHASE, HUNTER, GAME_TIME
 }

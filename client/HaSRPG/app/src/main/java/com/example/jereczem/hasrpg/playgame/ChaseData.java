@@ -1,11 +1,11 @@
 package com.example.jereczem.hasrpg.playgame;
 
-import android.location.Location;
-
 import com.example.jereczem.hasrpg.game.users.Chase;
 
+import java.util.Observable;
+
 /** Chase in playgame data */
-public class ChaseData implements Comparable<Chase>{
+public class ChaseData extends Observable implements Comparable<Chase> {
 
     private Chase chase;
     private ChaseStatus status = ChaseStatus.ALIVE;
@@ -41,6 +41,8 @@ public class ChaseData implements Comparable<Chase>{
 
     public void setStatus(ChaseStatus status) {
         this.status = status;
+        setChanged();
+        notifyObservers(GameDataChanges.CHASE);
     }
 
     public Double getLatitude() {
@@ -49,6 +51,8 @@ public class ChaseData implements Comparable<Chase>{
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+        setChanged();
+        notifyObservers(GameDataChanges.CHASE);
     }
 
     public Double getLongitude() {
@@ -57,6 +61,8 @@ public class ChaseData implements Comparable<Chase>{
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+        setChanged();
+        notifyObservers(GameDataChanges.CHASE);
     }
 
     @Override
