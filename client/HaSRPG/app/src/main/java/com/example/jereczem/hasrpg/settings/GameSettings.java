@@ -14,7 +14,7 @@ public class GameSettings {
     public static final Integer FEEL_RANGE_PER_LEVEL = 10;
 
     //hunter
-    public static final Integer ATTACK_RANGE_START = 20;
-    public static final Integer ATTACK_RANGE_PER_LEVEL = 2;
+    public static final Integer ATTACK_RANGE_START = 50;
+    public static final Integer ATTACK_RANGE_PER_LEVEL = 10;
     public static final Integer FINAL_ATTACK_RANGE_MODIFIER = 2;
 }

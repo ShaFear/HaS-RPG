@@ -13,6 +13,7 @@ import com.example.jereczem.hasrpg.playgame.ChaseData;
 import com.example.jereczem.hasrpg.playgame.ChaseStatus;
 import com.example.jereczem.hasrpg.playgame.GameDataChanges;
 import com.example.jereczem.hasrpg.playgame.HunterData;
+import com.example.jereczem.hasrpg.sockets.events.attack.AttackEvent;
 import com.example.jereczem.hasrpg.sockets.events.gametime.GameTimeTimer;
 import com.example.jereczem.hasrpg.sockets.events.gametime.TimeParser;
 import com.example.jereczem.hasrpg.sockets.events.runtime.RunTimeEvent;
@@ -26,7 +27,6 @@ import java.util.Observer;
 
 public class HunterGameActivity extends GameActivity implements Observer {
 
-    HunterDataAdapter hunterDataAdapter;
     ChaseDataAdapter chaseDataAdapter;
 
     @Override
@@ -55,19 +55,13 @@ public class HunterGameActivity extends GameActivity implements Observer {
     }
 
     private void handleListViews() {
-        ListView hunterListView = (ListView)findViewById(R.id.hunterDataListView);
         ListView chaseListView = (ListView)findViewById(R.id.chaseDataListView);
 
-        hunterDataAdapter = new HunterDataAdapter(this, R.layout.item_hunter, getGameData().getHunterArray());
-        chaseDataAdapter = new ChaseDataAdapter(this, R.layout.item_hunter, getGameData().getChaseArray());
-
-        hunterDataAdapter.setMyLatitude(getGameData().getHunters().get(playerData.getUserID()).getLatitude());
-        hunterDataAdapter.setMyLongitude(getGameData().getHunters().get(playerData.getUserID()).getLongitude());
+        chaseDataAdapter = new ChaseDataAdapter(this, R.layout.item_hunter, getGameData().getChaseArray(), getGameData().getHunters().get(playerData.getUserID()));
 
         chaseDataAdapter.setMyLatitude(getGameData().getHunters().get(playerData.getUserID()).getLatitude());
         chaseDataAdapter.setMyLongitude(getGameData().getHunters().get(playerData.getUserID()).getLongitude());
 
-        hunterListView.setAdapter(hunterDataAdapter);
         chaseListView.setAdapter(chaseDataAdapter);
     }
 
@@ -154,6 +148,6 @@ public class HunterGameActivity extends GameActivity implements Observer {
     public void attackChase(View view) {
         AttackButton attackButton = (AttackButton) view;
         Integer attack  = attackButton.getAttackedId();
-        getGameData().getChases().get(attack).setStatus(ChaseStatus.DEAD);
+        AttackEvent.hunterSendsAttack(sConnector, this, attack);
     }
 }

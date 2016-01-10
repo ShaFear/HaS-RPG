@@ -105,7 +105,7 @@
         <com.example.jereczem.hasrpg.view.adapters.AttackButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="FIGHT"
+            android:text="KILL"
             android:id="@+id/attackChaseDataButton"
             android:onClick="attackChase"/>
     </LinearLayout>

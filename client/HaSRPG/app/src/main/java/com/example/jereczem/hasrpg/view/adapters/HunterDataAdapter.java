@@ -19,8 +19,8 @@ import java.util.ArrayList;
  * Created by Michał on 2016-01-07.
  */
 public class HunterDataAdapter extends ArrayAdapter<ArrayData<HunterData>> {
-    private Double myLatitude = 0.0;
-    private Double myLongitude = 0.0;
+    private Double myLatitude = null;
+    private Double myLongitude = null;
 
     public void setMyLatitude(Double myLatitude) {
         this.myLatitude = myLatitude;
@@ -62,15 +62,19 @@ public class HunterDataAdapter extends ArrayAdapter<ArrayData<HunterData>> {
         hunterName.setText(hunter.getName());
         hunterLvl.setText(String.valueOf(hunter.getHunter().getLevel()));
 
-        Location myLocation = new Location(LocationManager.GPS_PROVIDER);
-        myLocation.setLatitude(myLatitude);
-        myLocation.setLongitude(myLongitude);
+        if((myLatitude != null && myLongitude != null) && (hunter.getLatitude() != 0.0 && hunter.getLongitude() != 0.0)) {
+            Location myLocation = new Location(LocationManager.GPS_PROVIDER);
+            myLocation.setLatitude(myLatitude);
+            myLocation.setLongitude(myLongitude);
 
-        Location hunterLocation = new Location(LocationManager.GPS_PROVIDER);
-        hunterLocation.setLatitude(hunter.getLatitude());
-        hunterLocation.setLongitude(hunter.getLongitude());
+            Location hunterLocation = new Location(LocationManager.GPS_PROVIDER);
+            hunterLocation.setLatitude(hunter.getLatitude());
+            hunterLocation.setLongitude(hunter.getLongitude());
 
-        Float distance = myLocation.distanceTo(hunterLocation);
-        hunterDistance.setText(String.valueOf(distance.intValue()));
+            Float distance = myLocation.distanceTo(hunterLocation);
+            hunterDistance.setText(String.valueOf(distance.intValue()));
+
+        }
+
     }
 }

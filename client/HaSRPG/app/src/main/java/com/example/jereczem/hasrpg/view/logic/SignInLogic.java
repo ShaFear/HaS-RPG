@@ -57,5 +57,56 @@ public class SignInLogic{
         a.startActivity(intent);
     }
 
+    public void shafear(){
+        String login = "Shafear";
+        String password = "czapiczapi1";
+
+        HttpResponse response = null;
+        try {
+            response = SignInPoster.getResponse(login, password);
+            if(response.getCode().equals(200)){
+                Intent intent = new Intent(a, MenuActivity.class);
+                a.startActivity(intent);
+            }
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
+        }
+    }
+
+    public void user1(){
+        String login = "User1";
+        String password = "czapiczapi1";
+
+        HttpResponse response = null;
+        try {
+            response = SignInPoster.getResponse(login, password);
+            if(response.getCode().equals(200)){
+                Intent intent = new Intent(a, MenuActivity.class);
+                a.startActivity(intent);
+            }
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
+        }
+    }
+
+    public void threexe(){
+        String login = "threexe";
+        String password = "czapiczapi1";
+
+        HttpResponse response = null;
+        try {
+            response = SignInPoster.getResponse(login, password);
+            if(response.getCode().equals(200)){
+                Intent intent = new Intent(a, MenuActivity.class);
+                a.startActivity(intent);
+            }
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(a).show();
+        }
+    }
+
 
 }

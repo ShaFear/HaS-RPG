@@ -26,8 +26,10 @@ import java.util.ArrayList;
  * Created by Michał on 2016-01-07.
  */
 public class ChaseDataAdapter extends ArrayAdapter<ArrayData<ChaseData>> {
-    private Double myLatitude = 0.0;
-    private Double myLongitude = 0.0;
+    private Double myLatitude = null;
+    private Double myLongitude = null;
+
+    HunterData hunterData = null;
 
     public void setMyLatitude(Double myLatitude) {
         this.myLatitude = myLatitude;
@@ -37,8 +39,9 @@ public class ChaseDataAdapter extends ArrayAdapter<ArrayData<ChaseData>> {
         this.myLongitude = myLongitude;
     }
 
-    public ChaseDataAdapter(Context context, int resource, ArrayList<ArrayData<ChaseData>> chaseData) {
+    public ChaseDataAdapter(Context context, int resource, ArrayList<ArrayData<ChaseData>> chaseData, HunterData hunterData) {
         super(context, resource, chaseData);
+        this.hunterData = hunterData;
     }
 
     @Override
@@ -70,26 +73,31 @@ public class ChaseDataAdapter extends ArrayAdapter<ArrayData<ChaseData>> {
         chaseName.setText(chase.getName());
         chaseLvl.setText(String.valueOf(chase.getChase().getLevel()));
 
-        Location myLocation = new Location(LocationManager.GPS_PROVIDER);
-        myLocation.setLatitude(myLatitude);
-        myLocation.setLongitude(myLongitude);
-
-        Location chaseLocation = new Location(LocationManager.GPS_PROVIDER);
-        chaseLocation.setLatitude(chase.getLatitude());
-        chaseLocation.setLongitude(chase.getLongitude());
-
-        final Float distance = myLocation.distanceTo(chaseLocation);
-        chaseDistance.setText(String.valueOf(distance.intValue()));
 
         chaseStatus.setText(chase.getStatus().name());
 
         AttackButton attackButton = (AttackButton) v.findViewById(R.id.attackChaseDataButton);
         attackButton.setAttackedId(chaseData.getUserID());
+        attackButton.setClickable(false);
+        attackButton.setText("can't");
 
-        if(distance > 20){
-            attackButton.setClickable(false);
-        } else {
-            attackButton.setClickable(true);
+        if((myLatitude != null && myLongitude != null) && (chase.getLatitude() != 0.0 && chase.getLongitude() != 0.0)) {
+            Location myLocation = new Location(LocationManager.GPS_PROVIDER);
+            myLocation.setLatitude(myLatitude);
+            myLocation.setLongitude(myLongitude);
+
+            Location chaseLocation = new Location(LocationManager.GPS_PROVIDER);
+            chaseLocation.setLatitude(chase.getLatitude());
+            chaseLocation.setLongitude(chase.getLongitude());
+
+            Float distance = myLocation.distanceTo(chaseLocation);
+            chaseDistance.setText(String.valueOf(distance.intValue()));
+
+            if(distance <= hunterData.getHunter().getAttackRange()){
+                attackButton.setClickable(true);
+                attackButton.setText("KILL!");
+            }
         }
+
     }
 }

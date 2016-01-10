@@ -31,20 +31,15 @@ public class SignInActivity extends AppCompatActivity {
         signInLogic.signUpClick();
     }
 
-    public void clickServer1(View view) {
-        ServerSettings.SERVER_URL = "http://192.168.1.128:8080/";
-        ServerSettings.SOCKET_SERVER_URL = "http://192.168.1.128:3000/";
-        Toast.makeText(this, "Settings changed to server 1", Toast.LENGTH_SHORT).show();
+    public void user1(View view) {
+        signInLogic.user1();
     }
 
-    public void clickServer2(View view) {
-        ServerSettings.SERVER_URL = "http://192.168.43.128:8080/";
-        ServerSettings.SOCKET_SERVER_URL = "http://192.168.43.128:3000/";
-        Toast.makeText(this, "Settings changed to server 2", Toast.LENGTH_SHORT).show();
+    public void shafear(View view) {
+        signInLogic.shafear();
     }
 
-    public void openUiTestActivity(View view) {
-        Intent intent = new Intent(this, UiTestActivity.class);
-        this.startActivity(intent);
+    public void threexe(View view) {
+        signInLogic.threexe();
     }
 }

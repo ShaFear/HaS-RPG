@@ -18,6 +18,7 @@ import com.example.jereczem.hasrpg.view.adapters.ChaseDataAdapter;
 import com.example.jereczem.hasrpg.view.adapters.HunterDataAdapter;
 import com.example.jereczem.hasrpg.view.events.ProgressDialogs;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -52,8 +53,14 @@ public class ChaseGameActivity extends GameActivity implements Observer{
         ListView hunterListView = (ListView)findViewById(R.id.hunterDataListView);
         ListView chaseListView = (ListView)findViewById(R.id.chaseDataListView);
 
+        ArrayList<ArrayData<ChaseData>> chases = getGameData().getChaseArray();
+        for(int j=0; j<chases.size(); j++){
+            if(chases.get(j).getUserID().equals(playerData.getUserID()))
+                chases.remove(j);
+        }
+
         hunterDataAdapter = new HunterDataAdapter(this, R.layout.item_hunter, getGameData().getHunterArray());
-        chaseDataAdapter = new ChaseChaseDataAdapter(this, R.layout.item_chase_chase, getGameData().getChaseArray());
+        chaseDataAdapter = new ChaseChaseDataAdapter(this, R.layout.item_chase_chase, chases);
 
         hunterDataAdapter.setMyLatitude(getGameData().getChases().get(playerData.getUserID()).getLatitude());
         hunterDataAdapter.setMyLongitude(getGameData().getChases().get(playerData.getUserID()).getLongitude());

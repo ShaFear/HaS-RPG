@@ -19,8 +19,8 @@ import java.util.ArrayList;
  * Created by Michał on 2016-01-07.
  */
 public class ChaseChaseDataAdapter extends ArrayAdapter<ArrayData<ChaseData>> {
-    private Double myLatitude = 0.0;
-    private Double myLongitude = 0.0;
+    private Double myLatitude = null;
+    private Double myLongitude = null;
 
     public void setMyLatitude(Double myLatitude) {
         this.myLatitude = myLatitude;
@@ -63,16 +63,21 @@ public class ChaseChaseDataAdapter extends ArrayAdapter<ArrayData<ChaseData>> {
         chaseName.setText(chase.getName());
         chaseLvl.setText(String.valueOf(chase.getChase().getLevel()));
 
-        Location myLocation = new Location(LocationManager.GPS_PROVIDER);
-        myLocation.setLatitude(myLatitude);
-        myLocation.setLongitude(myLongitude);
+        if((myLatitude != null && myLongitude != null) && (chase.getLatitude() != 0.0 && chase.getLongitude() != 0.0)) {
+            Location myLocation = new Location(LocationManager.GPS_PROVIDER);
+            myLocation.setLatitude(myLatitude);
+            myLocation.setLongitude(myLongitude);
 
-        Location chaseLocation = new Location(LocationManager.GPS_PROVIDER);
-        chaseLocation.setLatitude(chase.getLatitude());
-        chaseLocation.setLongitude(chase.getLongitude());
+            Location chaseLocation = new Location(LocationManager.GPS_PROVIDER);
+            chaseLocation.setLatitude(chase.getLatitude());
+            chaseLocation.setLongitude(chase.getLongitude());
 
-        Float distance = myLocation.distanceTo(chaseLocation);
-        chaseDistance.setText(String.valueOf(distance.intValue()));
+            Float distance = myLocation.distanceTo(chaseLocation);
+            chaseDistance.setText(String.valueOf(distance.intValue()));
+        }
+
+
+
 
         chaseStatus.setText(chase.getStatus().name());
     }
