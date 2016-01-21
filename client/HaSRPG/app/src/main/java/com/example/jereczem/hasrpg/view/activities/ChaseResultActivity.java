@@ -8,7 +8,9 @@ import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.playgame.GameData;
+import com.example.jereczem.hasrpg.playgame.Results;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
 public class ChaseResultActivity extends AppCompatActivity {
@@ -22,6 +24,12 @@ public class ChaseResultActivity extends AppCompatActivity {
         setContentView(R.layout.chase_activity_result);
         playerData = (PlayerData) this.getIntent().getExtras().getSerializable(GameSettings.CHASE_GAME_PLAYER_TO_RESULT_TAG);
         gameData = (GameData) this.getIntent().getExtras().getSerializable(GameSettings.CHASE_GAME_TO_RESULT_TAG);
+        try {
+            Results.setForChase(gameData, playerData);
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(this).show();
+        }
     }
 
     public static void openChaseResultActivity(ChaseGameActivity a){

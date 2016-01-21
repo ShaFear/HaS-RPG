@@ -80,3 +80,17 @@ setHunterID = function (user_id, hunter_id, res) {
         }
     });
 }
+
+setExperience = function (character_id, experience, level, res){
+    query = "UPDATE characters SET lvl=?, experience=? WHERE CharacterId=?;"
+    values = [level, experience, character_id];
+    connection.query(query, values, function (err, rows, fields) {
+        if (!err) {
+            res.status(200).send('Updated character data');
+        }
+        else {
+            res.status(260).send('Database error');
+            console.log(err);
+        }
+    });
+}

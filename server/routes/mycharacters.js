@@ -27,3 +27,14 @@ app.post('/mycharacters/HunterID', function (req, res) {
     } else
         res.status(256).send('not logged');
 });
+
+app.post('/character/:character_id', function (req, res){
+    if (req.signedCookies.UserID) {
+        var character_id = req.params['character_id'];
+        var experience = req.body.experience;
+        var level = req.body.level;
+        setExperience(character_id, experience, level, res)
+        return;
+    } else
+        res.status(256).send('not logged');
+});

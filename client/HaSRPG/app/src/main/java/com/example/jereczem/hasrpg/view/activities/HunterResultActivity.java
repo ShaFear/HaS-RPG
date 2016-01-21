@@ -8,7 +8,9 @@ import android.view.View;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
+import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.playgame.GameData;
+import com.example.jereczem.hasrpg.playgame.Results;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 import com.example.jereczem.hasrpg.view.logic.SignInLogic;
 
@@ -23,6 +25,12 @@ public class HunterResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hunter_result);
         playerData = (PlayerData) this.getIntent().getExtras().getSerializable(GameSettings.HUNTER_GAME_PLAYER_TO_RESULT_TAG);
         gameData = (GameData) this.getIntent().getExtras().getSerializable(GameSettings.HUNTER_GAME_TO_RESULT_TAG);
+        try {
+            Results.setForHunter(gameData, playerData);
+        } catch (RestException e) {
+            e.printStackTrace();
+            e.getErrorAlert(this).show();
+        }
     }
 
     public static void openHunterResultActivity(HunterGameActivity a){
