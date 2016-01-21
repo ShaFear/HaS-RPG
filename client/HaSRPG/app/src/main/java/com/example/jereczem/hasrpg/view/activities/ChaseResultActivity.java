@@ -9,7 +9,9 @@ import android.widget.TextView;
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
+import com.example.jereczem.hasrpg.playgame.ChaseStatus;
 import com.example.jereczem.hasrpg.playgame.GameData;
+import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.playgame.Results;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 
@@ -29,6 +31,12 @@ public class ChaseResultActivity extends AppCompatActivity {
         } catch (RestException e) {
             e.printStackTrace();
             e.getErrorAlert(this).show();
+        }
+        TextView result = (TextView) findViewById(R.id.resultsTextView);
+        if(gameData.getChases().get(playerData.getUserID()).getStatus().equals(ChaseStatus.DEAD)){
+            result.setText("You LOSE!\n You're character is dead");
+        } else{
+            result.setText("You WIN!\n Hunter didn't catch you!");
         }
     }
 

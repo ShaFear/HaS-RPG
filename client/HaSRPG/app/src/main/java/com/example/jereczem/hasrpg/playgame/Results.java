@@ -24,16 +24,22 @@ public class Results {
         Integer currentExperience = hunter.getExperiencePoints();
         Boolean newLevel = false;
 
+
         Integer newExperience = currentExperience;
 
         if(gameData.getStatus().equals(GameStatus.CHASE_WINS)){
-            newExperience += ((Double)(0.1 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
+            newExperience += ((Double)(0.25 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
         } else {
-            newExperience += ((Double)(0.4 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
+            newExperience += ((Double)(0.75 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
         }
 
         if(newExperience >= hunter.getExperienceLimit()){
             currentLevel++;
+            if(currentLevel == 20){
+                CharacterPoster.getResponse(hunter.getCharacterID(), hunter.getExperienceLimit() + GameSettings.EXPERIENCE_PER_LEVEL, currentLevel);
+                return newLevel;
+            }
+
             newExperience -= GameSettings.EXPERIENCE_PER_LEVEL;
             newLevel = true;
         }
@@ -49,16 +55,21 @@ public class Results {
         Integer currentExperience = chase.getExperiencePoints();
         Boolean newLevel = false;
 
+
         Integer newExperience = currentExperience;
 
-        if(gameData.getStatus().equals(GameStatus.HUNTER_WINS)){
-            newExperience += ((Double)(0.1 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
+        if(gameData.getChases().get(playerData.getUserID()).getStatus().equals(ChaseStatus.DEAD)){
+            newExperience += ((Double)(0.25 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
         } else {
-            newExperience += ((Double)(0.4 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
+            newExperience += ((Double)(0.75 * GameSettings.EXPERIENCE_PER_LEVEL)).intValue();
         }
 
         if(newExperience >= chase.getExperienceLimit()){
             currentLevel++;
+            if(currentLevel == 20){
+                CharacterPoster.getResponse(chase.getCharacterID(), chase.getExperienceLimit() + GameSettings.EXPERIENCE_PER_LEVEL, currentLevel);
+                return newLevel;
+            }
             newExperience -= GameSettings.EXPERIENCE_PER_LEVEL;
             newLevel = true;
         }

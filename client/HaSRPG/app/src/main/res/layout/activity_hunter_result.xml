@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="RESULTS2HUN"
+        android:text="RESULTS"
         android:id="@+id/results2TextView"
         android:layout_below="@+id/tool_bar"
         android:layout_centerHorizontal="true"
@@ -23,11 +23,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Goto Lobbies"
+        android:text="back to menu"
         android:id="@+id/button5"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="gotoLobbiesFromHunter"/>
+        android:onClick="gotoLobbiesFromHunter"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

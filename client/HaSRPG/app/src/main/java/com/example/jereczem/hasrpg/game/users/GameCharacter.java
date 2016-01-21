@@ -28,7 +28,7 @@ public abstract class GameCharacter implements Serializable {
     }
 
     protected void buildExperienceLimit(){
-        experienceLimit = level * GameSettings.EXPERIENCE_PER_LEVEL;
+        experienceLimit = GameSettings.EXPERIENCE_PER_LEVEL * level;
     }
 
     abstract void buildCharacter();

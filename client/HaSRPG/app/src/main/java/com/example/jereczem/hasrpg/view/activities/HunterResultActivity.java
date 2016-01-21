@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.playgame.GameData;
+import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.playgame.Results;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 import com.example.jereczem.hasrpg.view.logic.SignInLogic;
@@ -30,6 +32,12 @@ public class HunterResultActivity extends AppCompatActivity {
         } catch (RestException e) {
             e.printStackTrace();
             e.getErrorAlert(this).show();
+        }
+        TextView result = (TextView) findViewById(R.id.results2TextView);
+        if(gameData.getStatus().equals(GameStatus.CHASE_WINS)){
+            result.setText("You LOSE!\n There were some chases still alive..");
+        } else{
+            result.setText("You WIN!\n All chases are dead!");
         }
     }
 
