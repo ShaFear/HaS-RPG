@@ -9,7 +9,9 @@ import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.NonHandShakeEvent;
 import com.example.jereczem.hasrpg.view.activities.ChaseGameActivity;
+import com.example.jereczem.hasrpg.view.activities.ChaseResultActivity;
 import com.example.jereczem.hasrpg.view.activities.GameActivity;
+import com.example.jereczem.hasrpg.view.activities.HunterResultActivity;
 import com.github.nkzawa.socketio.client.Socket;
 
 import org.json.JSONException;
@@ -28,8 +30,10 @@ public class GameTimeEvent  extends NonHandShakeEvent<GameActivity>{
         if (activity instanceof ChaseGameActivity) {
             Integer seconds = super.eventInformation.getInt("seconds");
             activity.getGameData().setGameTime(seconds);
-            if(seconds <= 0)
+            if(seconds <= 0) {
                 activity.getGameData().setStatus(GameStatus.CHASE_WINS);
+                ChaseResultActivity.openChaseResultActivity((ChaseGameActivity)activity);
+            }
         }
     }
 

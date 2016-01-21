@@ -2,10 +2,11 @@ package com.example.jereczem.hasrpg.playgame;
 
 import com.example.jereczem.hasrpg.game.users.Chase;
 
+import java.io.Serializable;
 import java.util.Observable;
 
 /** Chase in playgame data */
-public class ChaseData extends Observable implements Comparable<Chase> {
+public class ChaseData extends Observable implements Comparable<Chase>, Serializable {
 
     private Chase chase;
     private ChaseStatus status = ChaseStatus.ALIVE;

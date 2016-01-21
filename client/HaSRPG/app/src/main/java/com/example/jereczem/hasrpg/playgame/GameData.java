@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.playgame;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.TreeMap;
 /**
  * Created by Michał on 2016-01-06.
  */
-public class GameData extends Observable{
+public class GameData extends Observable implements Serializable{
     /** time until end of the first run */
     private long runTime;
 

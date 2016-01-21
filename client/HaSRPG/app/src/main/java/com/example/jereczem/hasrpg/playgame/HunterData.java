@@ -4,10 +4,11 @@ import android.location.Location;
 
 import com.example.jereczem.hasrpg.game.users.Hunter;
 
+import java.io.Serializable;
 import java.util.Observable;
 
 /** Hunter in playgame data */
-public class HunterData extends Observable implements Comparable<Hunter>{
+public class HunterData extends Observable implements Comparable<Hunter>, Serializable{
 
     private Hunter hunter;
     private Double latitude = 0.0;

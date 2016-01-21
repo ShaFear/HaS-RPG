@@ -7,6 +7,7 @@ import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.view.activities.HunterGameActivity;
+import com.example.jereczem.hasrpg.view.activities.HunterResultActivity;
 import com.example.jereczem.hasrpg.view.dialogs.Alerts;
 
 /**
@@ -43,5 +44,6 @@ public class GameTimeTimer extends CountDownTimer {
         GameTimeEvent.sentGameTimeEvent(sConnector, 0);
         activity.getGameData().setGameTime(0);
         activity.getGameData().setStatus(GameStatus.CHASE_WINS);
+        HunterResultActivity.openHunterResultActivity(activity);
     }
 }

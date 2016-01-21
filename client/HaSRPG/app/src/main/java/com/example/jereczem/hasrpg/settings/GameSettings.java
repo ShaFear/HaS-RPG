@@ -17,4 +17,13 @@ public class GameSettings {
     public static final Integer ATTACK_RANGE_START = 50;
     public static final Integer ATTACK_RANGE_PER_LEVEL = 10;
     public static final Integer FINAL_ATTACK_RANGE_MODIFIER = 2;
+
+    public static final String CHASE_GAME_TO_RESULT_TAG = "CHASE_GAME_TO_RESULT_TAG";
+
+    public static final String HUNTER_GAME_TO_RESULT_TAG = "HUNTER_GAME_TO_RESULT_TAG";
+
+    public static final String CHASE_GAME_PLAYER_TO_RESULT_TAG = "CHASE_GAME_PLAYER_TO_RESULT_TAG";
+
+    public static final String HUNTER_GAME_PLAYER_TO_RESULT_TAG = "HUNTER_GAME_PLAYER_TO_RESULT_TAG";
+
 }

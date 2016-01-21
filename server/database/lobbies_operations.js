@@ -176,7 +176,7 @@ lobbyDelete = function (lobby_id) {
 }
 
 getLobbies = function (res) {
-    query = 'SELECT * FROM lobbies';
+    query = 'SELECT * FROM lobbies WHERE status="WAIT"';
     values = [];
     connection.query(query, values, function (err, rows, fields) {
         if (!err) {
