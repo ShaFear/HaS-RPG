@@ -44,6 +44,5 @@ public class GameTimeTimer extends CountDownTimer {
         GameTimeEvent.sentGameTimeEvent(sConnector, 0);
         activity.getGameData().setGameTime(0);
         activity.getGameData().setStatus(GameStatus.CHASE_WINS);
-        HunterResultActivity.openHunterResultActivity(activity);
     }
 }

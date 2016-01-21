@@ -9,6 +9,7 @@ import com.example.jereczem.hasrpg.networking.HttpResponse;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.networking.rest.RestException;
 import com.example.jereczem.hasrpg.networking.rest.SignInPoster;
+import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.view.activities.MenuActivity;
 import com.example.jereczem.hasrpg.view.activities.SignUpActivity;
 import com.example.jereczem.hasrpg.view.dialogs.SignInAlerts;
@@ -25,7 +26,7 @@ public class SignInLogic{
     AppCompatActivity a;
 
     public SignInLogic(AppCompatActivity activity) {
-        CookieManager cookieManager = new CookieManager();
+        CookieManager cookieManager = ServerSettings.cookieManager;
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
         CookieHandler.setDefault(cookieManager);
         this.a = activity;

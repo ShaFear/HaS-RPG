@@ -3,6 +3,7 @@ package com.example.jereczem.hasrpg.view.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.jereczem.hasrpg.R;
@@ -37,5 +38,11 @@ public class ChaseResultActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+
+    public void gotoLobbiesFromChase(View view) {
+        Intent i = new Intent(this, MenuActivity.class);
+        startActivity(i);
+        this.finish();
     }
 }

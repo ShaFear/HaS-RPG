@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Observable;
 
 /** Chase in playgame data */
-public class ChaseData extends Observable implements Comparable<Chase>, Serializable {
+public class ChaseData extends Observable implements Comparable<ChaseData>, Serializable {
 
     private Chase chase;
     private ChaseStatus status = ChaseStatus.ALIVE;
@@ -24,7 +24,10 @@ public class ChaseData extends Observable implements Comparable<Chase>, Serializ
     }
 
     @Override
-    public int compareTo(Chase another) {
+    public int compareTo(ChaseData another) {
+        if((getStatus().equals(ChaseStatus.DEAD)) && (another.getStatus().equals(ChaseStatus.ALIVE))){
+            return 1;
+        }
         return 0;
     }
 

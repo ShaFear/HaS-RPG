@@ -32,7 +32,6 @@ public class GameTimeEvent  extends NonHandShakeEvent<GameActivity>{
             activity.getGameData().setGameTime(seconds);
             if(seconds <= 0) {
                 activity.getGameData().setStatus(GameStatus.CHASE_WINS);
-                ChaseResultActivity.openChaseResultActivity((ChaseGameActivity)activity);
             }
         }
     }

@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/app.iml" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/ChaseData.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/ChaseData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/GameData.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/GameData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/GameStatus.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/GameStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/HunterData.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/playgame/HunterData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/settings/GameSettings.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/settings/GameSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/sockets/events/attack/AttackEvent.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/sockets/events/attack/AttackEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/sockets/events/gametime/GameTimeEvent.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/sockets/events/gametime/GameTimeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/sockets/events/gametime/GameTimeTimer.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/sockets/events/gametime/GameTimeTimer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/lobbies_operations.js" afterPath="$PROJECT_DIR$/database/lobbies_operations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/view/activities/ChaseResultActivity.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/view/activities/ChaseResultActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/view/activities/HunterResultActivity.java" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/java/com/example/jereczem/hasrpg/view/activities/HunterResultActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/res/layout/activity_hunter_result.xml" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/res/layout/activity_hunter_result.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/res/layout/chase_activity_result.xml" afterPath="$PROJECT_DIR$/../client/HaSRPG/app/src/main/res/layout/chase_activity_result.xml" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +42,8 @@
       <file leaf-file-name="lobbies_operations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/lobbies_operations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6336207">
-              <caret line="178" column="55" selection-start-line="178" selection-start-column="55" selection-end-line="178" selection-end-column="55" />
+            <state vertical-scroll-proportion="-0.94181037">
+              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -71,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/routes/lobbies.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+              <caret line="81" column="23" selection-start-line="81" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -675,6 +667,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/lobbies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="23" selection-start-line="81" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/socket_server/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -683,18 +683,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/lobbies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/lobbies_operations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6336207">
-          <caret line="178" column="55" selection-start-line="178" selection-start-column="55" selection-end-line="178" selection-end-column="55" />
+        <state vertical-scroll-proportion="-0.94181037">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
           <folding />
         </state>
       </provider>

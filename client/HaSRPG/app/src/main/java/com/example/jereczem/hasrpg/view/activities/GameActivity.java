@@ -18,6 +18,7 @@ import com.example.jereczem.hasrpg.data.player.PlayerDataReceiver;
 import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.networking.HttpResponseReceiver;
 import com.example.jereczem.hasrpg.playgame.GameData;
+import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.settings.LobbySettings;
 import com.example.jereczem.hasrpg.settings.ServerSettings;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
@@ -69,7 +70,8 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
         sConnector.getSocket().on(ServerSettings.SOCKET_EVENT, new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                callGameEvent(args[0].toString());
+                if(getGameData().getStatus().equals(GameStatus.RUNNING))
+                    callGameEvent(args[0].toString());
                 Log.d("HASSOC", args[0].toString());
             }
         });
@@ -92,6 +94,7 @@ public class GameActivity extends AppCompatActivity implements LocationListener 
                     break;
                 }
                 case DISCONNECTION: {
+                    if(getGameData().getStatus().equals(GameStatus.RUNNING))
                     new DisconnectionEvent(eventInformation, sConnector, this).runEvent();
                     break;
                 }

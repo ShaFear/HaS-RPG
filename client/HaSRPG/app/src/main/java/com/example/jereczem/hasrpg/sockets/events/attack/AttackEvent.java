@@ -52,7 +52,7 @@ public class AttackEvent extends NonHandShakeEvent<GameActivity> {
                     return;
             }
             activity.getGameData().setStatus(GameStatus.HUNTER_WINS);
-            HunterResultActivity.openHunterResultActivity(activity);
+            activity.stopGameTimeTimer();
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class AttackEvent extends NonHandShakeEvent<GameActivity> {
             Integer userID = eventInformation.getInt("userID");
             ChaseData attackedChase = gameActivity.getGameData().getChases().get(userID);
             attackedChase.setStatus(ChaseStatus.DEAD);
-            Toast.makeText(gameActivity, attackedChase.getName() + " was killed!", Toast.LENGTH_LONG);
+            Toast.makeText(gameActivity, attackedChase.getName() + " was killed!", Toast.LENGTH_LONG).show();
 
             /**
              * Check if all chases are DEAD, if so, than goto Result
@@ -76,7 +76,6 @@ public class AttackEvent extends NonHandShakeEvent<GameActivity> {
                     return;
             }
             gameActivity.getGameData().setStatus(GameStatus.HUNTER_WINS);
-            ChaseResultActivity.openChaseResultActivity(gameActivity);
         }
     }
 }

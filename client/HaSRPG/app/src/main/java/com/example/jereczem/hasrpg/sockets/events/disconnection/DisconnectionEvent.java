@@ -41,12 +41,22 @@ public class DisconnectionEvent extends HandShakeEvent<GameActivity> {
                 break;
             }
         dialog = ProgressDialogs.waitingForUser(activity, login);
-        dialog.show();
+        try{
+            dialog.show();
+        }
+        catch (Exception e){
+
+        }
     }
 
     @Override
     protected void afterHandShakeReaction(GameActivity activity) throws JSONException {
-        dialog.dismiss();
+        try{
+                dialog.dismiss();
+        }
+        catch (Exception e){
+
+        }
     }
 }
 

@@ -3,11 +3,14 @@ package com.example.jereczem.hasrpg.view.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
+import com.example.jereczem.hasrpg.game.lobbies.Lobby;
 import com.example.jereczem.hasrpg.playgame.GameData;
 import com.example.jereczem.hasrpg.settings.GameSettings;
+import com.example.jereczem.hasrpg.view.logic.SignInLogic;
 
 public class HunterResultActivity extends AppCompatActivity {
 
@@ -23,7 +26,7 @@ public class HunterResultActivity extends AppCompatActivity {
     }
 
     public static void openHunterResultActivity(HunterGameActivity a){
-        Intent intent = new Intent(a, ChaseResultActivity.class);
+        Intent intent = new Intent(a, HunterResultActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable(GameSettings.HUNTER_GAME_TO_RESULT_TAG, a.getGameData());
         bundle.putSerializable(GameSettings.HUNTER_GAME_PLAYER_TO_RESULT_TAG, a.playerData);
@@ -36,5 +39,11 @@ public class HunterResultActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+
+    public void gotoLobbiesFromHunter(View view) {
+        Intent i = new Intent(this, MenuActivity.class);
+        startActivity(i);
+        this.finish();
     }
 }

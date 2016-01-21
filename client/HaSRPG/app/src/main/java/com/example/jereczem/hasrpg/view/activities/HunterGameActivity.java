@@ -69,10 +69,17 @@ public class HunterGameActivity extends GameActivity implements Observer {
         RunTimeEvent.setRunTimer(sConnector, lobby.getRunTime(), this);
     }
 
+    GameTimeTimer gameTimeTimer;
+
     public void startGameStartTimer(){
-        GameTimeTimer gameTimeTimer;
         gameTimeTimer = new GameTimeTimer(this.lobby.getGameTime() * 1000, 1000, this, sConnector);
         gameTimeTimer.start();
+    }
+
+    public void stopGameTimeTimer(){
+        if(gameTimeTimer != null)
+            gameTimeTimer.cancel();
+        gameTimeTimer = null;
     }
 
     @Override
@@ -131,10 +138,12 @@ public class HunterGameActivity extends GameActivity implements Observer {
             }
             case HUNTER_WINS:{
                 Log.d("HASHANDLE", "Handle HUNTER_WINS game status");
+                HunterResultActivity.openHunterResultActivity(this);
                 break;
             }
             case CHASE_WINS:{
                 Log.d("HASHANDLE", "Handle CHASE_WINS game status");
+                HunterResultActivity.openHunterResultActivity(this);
                 break;
 
             }
@@ -148,6 +157,7 @@ public class HunterGameActivity extends GameActivity implements Observer {
     public void attackChase(View view) {
         AttackButton attackButton = (AttackButton) view;
         Integer attack  = attackButton.getAttackedId();
-        AttackEvent.hunterSendsAttack(sConnector, this, attack);
+        if(!getGameData().getChases().get(attack).getStatus().equals(ChaseStatus.DEAD))
+            AttackEvent.hunterSendsAttack(sConnector, this, attack);
     }
 }

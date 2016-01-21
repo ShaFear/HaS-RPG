@@ -108,7 +108,8 @@ public class ChaseGameActivity extends GameActivity implements Observer{
             if(runTimeProgressDialog == null)
                 runTimeProgressDialog= ProgressDialogs.runTimeChase(this, getGameData().getRunTime());
             ProgressDialogs.updateRunTimeChase(runTimeProgressDialog, getGameData().getRunTime());
-            runTimeProgressDialog.show();
+            if(!this.isFinishing())
+                runTimeProgressDialog.show();
         } else{
             runTimeProgressDialog.dismiss();
         }
@@ -127,10 +128,12 @@ public class ChaseGameActivity extends GameActivity implements Observer{
             }
             case HUNTER_WINS:{
                 Log.d("HASHANDLE", "Handle HUNTER_WINS game status");
+                ChaseResultActivity.openChaseResultActivity(this);
                 break;
             }
             case CHASE_WINS:{
                 Log.d("HASHANDLE", "Handle CHASE_WINS game status");
+                ChaseResultActivity.openChaseResultActivity(this);
                 break;
 
             }
