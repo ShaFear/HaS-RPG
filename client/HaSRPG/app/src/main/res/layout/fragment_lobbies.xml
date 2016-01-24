@@ -6,30 +6,11 @@
     android:id="@+id/lobbies_fragment"
     android:background="@color/ColorDrawerBG">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="261dp"
-        android:id="@+id/scrollView"
-        android:layout_above="@+id/createLobbyButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" >
-
-    </ScrollView>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_new_lobby_button"
-        android:id="@+id/createLobbyButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/refresh_list_fragment"
+        >
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +21,19 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/scrollView" />
+        android:layout_alignParentBottom="true" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createLobbyButton"
+        android:src="@drawable/menu_add"
+        android:background="@drawable/circledbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp" />
 
 </RelativeLayout>

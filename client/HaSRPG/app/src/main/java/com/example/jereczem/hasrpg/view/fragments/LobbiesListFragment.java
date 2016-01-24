@@ -7,7 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
@@ -39,7 +41,6 @@ public class LobbiesListFragment extends ListFragment {
     private OnFragmentInteractionListener mListener;
     private AppCompatActivity activity;
     ArrayList<Lobby> lobbies;
-    private CountDownTimer countDownTimer;
 
 
     /**
@@ -54,26 +55,29 @@ public class LobbiesListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activity = (AppCompatActivity) getActivity();
+    }
 
-        countDownTimer = new CountDownTimer(30000, 2000) {
-            public void onTick(long millisUntilFinished) {
-                lobbies = new ArrayList<>();
-                downloadLobbies();
+    public void setLobbies(){
+        lobbies = new ArrayList<>();
+        downloadLobbies();
 
-                if(lobbies != null) {
-                    setListAdapter(new LobbiesListAdapter(activity, R.layout.item_lobby, lobbies));
-                }
-            }
-            public void onFinish() {
-                this.start();
-            }
-        }.start();
+        if(lobbies != null) {
+            setListAdapter(new LobbiesListAdapter(activity, R.layout.item_lobby, lobbies));
+        }
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        downloadLobbies();
+    public void onResume() {
+        super.onResume();
+        setLobbies();
+        final SwipeRefreshLayout r = (SwipeRefreshLayout) activity.findViewById(R.id.refresh_list_fragment);
+        r.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setLobbies();
+                r.setRefreshing(false);
+            }
+        });
     }
 
     private void downloadLobbies() {
@@ -103,19 +107,6 @@ public class LobbiesListFragment extends ListFragment {
         } catch (NullPointerException e){
             e.printStackTrace();
         }
-    }
-
-
-    @Override
-    public void onPause() {
-        try {
-            countDownTimer.cancel();
-            countDownTimer = null;
-        }
-        catch (NullPointerException e){
-
-        }
-        super.onPause();
     }
 
     @Override

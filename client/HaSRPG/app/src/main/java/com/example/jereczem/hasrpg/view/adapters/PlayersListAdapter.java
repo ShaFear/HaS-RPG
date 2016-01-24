@@ -1,6 +1,7 @@
 package com.example.jereczem.hasrpg.view.adapters;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by jereczem on 05.09.15.
  */
-public class PlayersListAdapter extends ArrayAdapter<PlayerData> {
+public class PlayersListAdapter extends ArrayAdapter<PlayerData>{
     public PlayersListAdapter(Context context, int resource, ArrayList<PlayerData> playerDatas) {
         super(context, resource, playerDatas);
     }
@@ -47,8 +48,6 @@ public class PlayersListAdapter extends ArrayAdapter<PlayerData> {
             playerStatus.setText(playerStatus.getText().toString().replace("[magic]",
                     playerData.getStatus().name()
             ));
-
-            Log.d("HASLOG", playerData.toString() +"\n\n\n\n");
 
             hunterLevel.setText(hunterLevel.getText().toString().replace("[]",
                         playerData.getSelectedHunter().getLevel().toString()));
