@@ -66,7 +66,7 @@ public class LobbyActivityLogic {
             alertDialog.show();
         }
 
-        countDownTimer = new CountDownTimer(30000, 2000) {
+        countDownTimer = new CountDownTimer(30000, 4000) {
             public void onTick(long millisUntilFinished) {
                 if(!downloadDataAndSetViews())
                     return;
@@ -167,24 +167,16 @@ public class LobbyActivityLogic {
     private void setViewFromLobbyData(Lobby lobby) {
         TextView lobbyTitle = (TextView) a.findViewById(R.id.lobbyTitle);
         TextView playersTitle = (TextView) a.findViewById(R.id.lobbyPlayersNumber);
-        TextView gameTime = (TextView) a.findViewById(R.id.lobbyGameTime);
-        TextView runTime = (TextView) a.findViewById(R.id.lobbyRunTime);
 
         playersTitle.setText(R.string.lobby_players_number);
-        gameTime.setText(R.string.lobby_game_time);
-        runTime.setText(R.string.lobby_runtime);
+
 
         lobbyTitle.setText(lobby.getTitle());
         playersTitle.setText(
                 playersTitle.getText().toString()
                         .replace("[magic]", lobby.getPlayersNO() + " / " + lobby.getPlayersMax())
         );
-        gameTime.setText(
-                gameTime.getText().toString().replace("[magic]", lobby.getGameTime().toString())
-        );
-        runTime.setText(
-                runTime.getText().toString().replace("[magic]", lobby.getRunTime().toString())
-        );
+
     }
 
     public void onPause() {

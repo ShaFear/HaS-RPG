@@ -14,6 +14,7 @@ import com.example.jereczem.hasrpg.playgame.GameData;
 import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.playgame.Results;
 import com.example.jereczem.hasrpg.settings.GameSettings;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 public class ChaseResultActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class ChaseResultActivity extends AppCompatActivity {
         setContentView(R.layout.chase_activity_result);
         playerData = (PlayerData) this.getIntent().getExtras().getSerializable(GameSettings.CHASE_GAME_PLAYER_TO_RESULT_TAG);
         gameData = (GameData) this.getIntent().getExtras().getSerializable(GameSettings.CHASE_GAME_TO_RESULT_TAG);
+        new ToolbarSetter(this);
         try {
             Results.setForChase(gameData, playerData);
         } catch (RestException e) {

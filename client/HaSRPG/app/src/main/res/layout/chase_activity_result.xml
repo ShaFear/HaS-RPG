@@ -23,13 +23,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get to  MENU"
+        android:text="back to menu"
         android:id="@+id/button5"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="gotoLobbiesFromChase"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/roundedbutton"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

@@ -5,13 +5,13 @@
     >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/user_group_2_50"
+        android:src="@drawable/logo_icon"
         android:layout_margin="@dimen/activity_horizontal_margin" />
 
     <TableLayout

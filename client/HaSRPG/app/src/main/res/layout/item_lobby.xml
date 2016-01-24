@@ -15,7 +15,7 @@
         android:background="@color/ColorPrimaryLight"
         android:id="@+id/linearLayout2"
         android:layout_gravity="center_horizontal"
-        >
+        android:layout_margin="10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -49,26 +49,5 @@
             android:layout_alignParentStart="true"
             android:textColor="#caffffff" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/lobby_game_time"
-            android:id="@+id/lobbyGameTimeI"
-            android:layout_below="@+id/lobbyPlayersNumberI"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#caffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/lobby_runtime"
-            android:id="@+id/lobbyRunTimeI"
-            android:layout_below="@+id/lobbyGameTimeI"
-            android:layout_alignRight="@+id/lobbyGameTimeI"
-            android:layout_alignEnd="@+id/lobbyGameTimeI"
-            android:textColor="#caffffff" />
     </LinearLayout>
 </RelativeLayout>

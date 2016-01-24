@@ -2,6 +2,7 @@ package com.example.jereczem.hasrpg.view.activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.example.jereczem.hasrpg.view.adapters.ChaseChaseDataAdapter;
 import com.example.jereczem.hasrpg.view.adapters.ChaseDataAdapter;
 import com.example.jereczem.hasrpg.view.adapters.HunterDataAdapter;
 import com.example.jereczem.hasrpg.view.events.ProgressDialogs;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -31,6 +33,8 @@ public class ChaseGameActivity extends GameActivity implements Observer{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chase_game);
+        ((Toolbar) findViewById(R.id.tool_bar)).setTitle(playerData.getLogin());
+        new ToolbarSetter(this);
         getGameData().addObserver(this);
         for(ArrayData<ChaseData> chaseData : getGameData().getChaseArray()){
             ChaseData chase = chaseData.getData();

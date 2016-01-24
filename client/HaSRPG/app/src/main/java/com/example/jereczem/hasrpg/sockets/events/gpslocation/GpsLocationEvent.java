@@ -6,6 +6,7 @@ import com.example.jereczem.hasrpg.playgame.GameData;
 import com.example.jereczem.hasrpg.sockets.SocketServerConnector;
 import com.example.jereczem.hasrpg.sockets.events.EventName;
 import com.example.jereczem.hasrpg.sockets.events.NonHandShakeEvent;
+import com.example.jereczem.hasrpg.view.activities.ChaseGameActivity;
 import com.example.jereczem.hasrpg.view.activities.GameActivity;
 import com.github.nkzawa.socketio.client.Socket;
 
@@ -40,6 +41,10 @@ public class GpsLocationEvent extends NonHandShakeEvent<GameActivity> {
     }
 
     public static void sentEvent(SocketServerConnector sConnector, GameActivity gameActivity, Location location) {
+        if(gameActivity instanceof ChaseGameActivity){
+            if(gameActivity.getGameData().getRunTime() < 0.1)
+                return;
+        }
         Socket socket = sConnector.getSocket();
         JSONObject eventInformation = new JSONObject();
         try {

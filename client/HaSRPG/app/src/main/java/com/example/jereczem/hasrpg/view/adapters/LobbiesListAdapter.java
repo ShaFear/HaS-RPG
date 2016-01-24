@@ -43,23 +43,14 @@ public class LobbiesListAdapter extends ArrayAdapter<Lobby> {
     private void setViewFromLobbyData(Lobby lobby, View a){
         TextView lobbyTitle = (TextView) a.findViewById(R.id.lobbyTitleI);
         TextView playersTitle = (TextView) a.findViewById(R.id.lobbyPlayersNumberI);
-        TextView gameTime = (TextView) a.findViewById(R.id.lobbyGameTimeI);
-        TextView runTime = (TextView) a.findViewById(R.id.lobbyRunTimeI);
 
         playersTitle.setText(R.string.lobby_players_number);
-        gameTime.setText(R.string.lobby_game_time);
-        runTime.setText(R.string.lobby_runtime);
 
         lobbyTitle.setText(lobby.getTitle());
         playersTitle.setText(
                 playersTitle.getText().toString()
                         .replace("[magic]", lobby.getPlayersNO() + " / " + lobby.getPlayersMax())
         );
-        gameTime.setText(
-                gameTime.getText().toString().replace("[magic]", lobby.getGameTime().toString())
-        );
-        runTime.setText(
-                runTime.getText().toString().replace("[magic]", lobby.getRunTime().toString())
-        );
+
     }
 }

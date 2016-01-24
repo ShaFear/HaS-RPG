@@ -18,7 +18,15 @@ public class CreateLobbyActivity extends AppCompatActivity {
         createLobbyLogic = new CreateLobbyLogic(this);
     }
 
-    public void createNewLobbyClick(View view) {
-        createLobbyLogic.createNewLobbyClicked();
+    public void fastGame(View view) {
+        createLobbyLogic.createFastGame();
+    }
+
+    public void mediumGame(View view) {
+        createLobbyLogic.createFastGame();
+    }
+
+    public void longGame(View view) {
+        createLobbyLogic.createFastGame();
     }
 }

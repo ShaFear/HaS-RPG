@@ -5,13 +5,13 @@
     <string name="title_activity_create_lobby">Create new lobby</string>
     <string name="create_lobby_title">Lobby title</string>
     <string name="create_lobby_title_edit_text">Come here and play!</string>
-    <string name="create_lobbyPlayersNumberTitle">Maximum number of players</string>
+    <string name="create_lobbyPlayersNumberTitle">Number of players</string>
     <string name="create_lobby_game_time_title">Game time (in minutes)</string>
     <string name="create_lobby_runtime_title">Run time (in minutes)</string>
     <string name="created_new_lobby_button">Create!</string>
 
-    <string name="wrong_data_title">wrong_data_title</string>
-    <string name="wrong_data_message">wrong_data_message</string>
+    <string name="wrong_data_title">Wrong input</string>
+    <string name="wrong_data_message">Wrong input data.</string>
 
     <string name="lobby_title">Lobby title</string>
     <string name="lobby_game_time">Game time: [magic] minutes</string>
@@ -26,4 +26,15 @@
 
     <string name="not_ready_button">I\'m ready!</string>
     <string name="ready_button">I\'m not ready yet..</string>
+
+    <string-array name="values">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 </resources>

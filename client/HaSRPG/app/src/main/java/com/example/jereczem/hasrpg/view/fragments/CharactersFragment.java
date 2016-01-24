@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.jereczem.hasrpg.R;
 import com.example.jereczem.hasrpg.data.player.PlayerData;
@@ -36,28 +37,28 @@ public class CharactersFragment extends Fragment {
     }
 
     private void setButtonListeners(){
-        Button leftChaseButton = (Button) activityView.findViewById(R.id.chaseLeftButton);
+        ImageButton leftChaseButton = (ImageButton) activityView.findViewById(R.id.chaseLeftButton);
         leftChaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 characterSelectLogic.leftChaseClick();
             }
         });
-        Button rightChaseButton = (Button) activityView.findViewById(R.id.chaseRightButton);
+        ImageButton rightChaseButton = (ImageButton) activityView.findViewById(R.id.chaseRightButton);
         rightChaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 characterSelectLogic.rightChaseClick();
             }
         });
-        Button leftHunterButton = (Button) activityView.findViewById(R.id.hunterLeftButton);
+        ImageButton leftHunterButton = (ImageButton) activityView.findViewById(R.id.hunterLeftButton);
         leftHunterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 characterSelectLogic.leftHunterClick();
             }
         });
-        Button rightHunterButton = (Button) activityView.findViewById(R.id.hunterRightButton);
+        ImageButton rightHunterButton = (ImageButton) activityView.findViewById(R.id.hunterRightButton);
         rightHunterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

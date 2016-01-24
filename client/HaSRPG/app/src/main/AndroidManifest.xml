@@ -64,18 +64,23 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activities.HunterGameActivity"
+            android:label="Hunter"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activities.ChaseGameActivity"
+            android:label="Chase"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activities.uitest.UiTestActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".view.activities.ChaseResultActivity" />
-        <activity android:name=".view.activities.HunterResultActivity"></activity>
+        <activity android:name=".view.activities.ChaseResultActivity"
+            android:label="Results"/>
+        <activity android:name=".view.activities.HunterResultActivity"
+            android:label="Results">
+        </activity>
     </application>
 
 </manifest>

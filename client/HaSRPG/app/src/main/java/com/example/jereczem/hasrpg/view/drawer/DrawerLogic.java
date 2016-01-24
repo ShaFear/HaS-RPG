@@ -25,8 +25,8 @@ public class DrawerLogic {
         recyclerView.setLayoutManager(layoutManager);
 
         ItemData itemsData[] = {
-                new ItemData(a.getString(R.string.title_activity_menu), R.drawable.user_group_2_50 ),
-                new ItemData(a.getString(R.string.title_activity_character_select), R.drawable.user_group_2_50 )};
+                new ItemData(a.getString(R.string.title_activity_menu), R.drawable.logo_icon_small ),
+                new ItemData(a.getString(R.string.title_activity_character_select), R.drawable.logo_icon_small )};
 
         recyclerView.setAdapter(new CustomAdapter(a, itemsData, drawerLayout));
         recyclerView.setItemAnimator(new DefaultItemAnimator());

@@ -37,14 +37,17 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5">
+                android:layout_weight="5"
+                android:layout_margin="5dp"
+                android:background="@color/ColorDrawerBG">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/chaseImageView"
                     android:layout_weight="8"
-                    android:src="@drawable/chase_1" />
+                    android:src="@drawable/chase_1"
+                    android:layout_gravity="top" />
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -181,32 +184,25 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp" >
 
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
+                        <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="&lt;"
                             android:id="@+id/chaseLeftButton"
+                            android:src="@drawable/left_2"
+                            android:background="@drawable/circledbutton"
                             android:layout_weight="1"
-                            android:visibility="visible"/>
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginRight="25dp" />
 
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
+                        <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/skills_title"
-                            android:id="@+id/chaseSkillsButton"
-                            android:layout_weight="4"
-                            android:visibility="visible"/>
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=">"
                             android:id="@+id/chaseRightButton"
+                            android:src="@drawable/right_2"
+                            android:background="@drawable/circledbutton"
                             android:layout_weight="1"
-                            android:visibility="visible"/>
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginRight="25dp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -240,7 +236,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/hunterImageView"
                     android:layout_weight="8"
-                    android:src="@drawable/hunter_1" />
+                    android:src="@drawable/hunter_1"
+                    android:layout_gravity="top" />
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -400,32 +397,25 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp" >
 
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
+                        <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="&lt;"
                             android:id="@+id/hunterLeftButton"
+                            android:src="@drawable/left_2"
+                            android:background="@drawable/circledbutton"
                             android:layout_weight="1"
-                            android:visibility="visible"/>
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginRight="25dp" />
 
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
+                        <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/skills_title"
-                            android:id="@+id/hunterSkillsButton"
-                            android:layout_weight="4"
-                            android:visibility="visible"/>
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=">"
                             android:id="@+id/hunterRightButton"
+                            android:src="@drawable/right_2"
+                            android:background="@drawable/circledbutton"
                             android:layout_weight="1"
-                            android:visibility="visible"/>
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginRight="25dp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -442,7 +432,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|bottom"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        android:textColor="#ffffff"
+        android:background="@drawable/roundedbutton"
+        android:layout_margin="10dp"
+        android:textSize="19dp" />
 
 
 </RelativeLayout>

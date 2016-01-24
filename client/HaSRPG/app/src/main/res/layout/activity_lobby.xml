@@ -52,28 +52,6 @@
             android:layout_alignParentStart="true"
             android:textColor="#caffffff" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/lobby_game_time"
-            android:id="@+id/lobbyGameTime"
-            android:layout_below="@+id/lobbyPlayersNumber"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#caffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/lobby_runtime"
-            android:id="@+id/lobbyRunTime"
-            android:layout_below="@+id/lobbyGameTime"
-            android:layout_alignRight="@+id/lobbyGameTime"
-            android:layout_alignEnd="@+id/lobbyGameTime"
-            android:textColor="#caffffff" />
-
     </LinearLayout>
 
     <ListView
@@ -95,6 +73,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="clickReadyButton"/>
+        android:onClick="clickReadyButton"
+        android:background="@drawable/roundedbutton"
+        android:textColor="#ffffff"
+        android:layout_margin="10dp"
+        android:textSize="18dp" />
 
 </RelativeLayout>

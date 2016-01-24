@@ -15,6 +15,7 @@ import com.example.jereczem.hasrpg.playgame.GameStatus;
 import com.example.jereczem.hasrpg.playgame.Results;
 import com.example.jereczem.hasrpg.settings.GameSettings;
 import com.example.jereczem.hasrpg.view.logic.SignInLogic;
+import com.example.jereczem.hasrpg.view.toolbar.ToolbarSetter;
 
 public class HunterResultActivity extends AppCompatActivity {
 
@@ -25,6 +26,7 @@ public class HunterResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hunter_result);
+        new ToolbarSetter(this);
         playerData = (PlayerData) this.getIntent().getExtras().getSerializable(GameSettings.HUNTER_GAME_PLAYER_TO_RESULT_TAG);
         gameData = (GameData) this.getIntent().getExtras().getSerializable(GameSettings.HUNTER_GAME_TO_RESULT_TAG);
         try {
