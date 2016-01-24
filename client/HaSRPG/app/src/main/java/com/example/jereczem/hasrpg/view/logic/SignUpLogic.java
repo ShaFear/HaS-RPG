@@ -1,8 +1,12 @@
 package com.example.jereczem.hasrpg.view.logic;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
@@ -23,6 +27,25 @@ public class SignUpLogic {
     public SignUpLogic(AppCompatActivity activity){
         this.a = activity;
         new ToolbarSetter(a, R.drawable.previous);
+
+        final ProgressDialog progressDialog = new ProgressDialog(a);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
+
+        Button signInButton = (Button) a.findViewById(R.id.signup_button);
+        signInButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    progressDialog.show();
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    signUpClick();
+                    progressDialog.dismiss();
+                }
+                return false;
+            }
+        });
     }
 
     public void signUpClick(){

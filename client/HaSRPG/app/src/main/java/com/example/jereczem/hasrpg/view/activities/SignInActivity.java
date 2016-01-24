@@ -1,6 +1,9 @@
 package com.example.jereczem.hasrpg.view.activities;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,23 +26,17 @@ public class SignInActivity extends AppCompatActivity {
         signInLogic = new SignInLogic(this);
     }
 
-    public void signIn(View view){
-        signInLogic.signInClick();
-    }
+
 
     public void signUp(View view) {
         signInLogic.signUpClick();
     }
 
-    public void user1(View view) {
-        signInLogic.user1();
-    }
-
-    public void shafear(View view) {
-        signInLogic.shafear();
-    }
-
-    public void threexe(View view) {
-        signInLogic.threexe();
+    private class OnClickTask extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected Void doInBackground(Void... params) {
+            signInLogic.signInClick();
+            return null;
+        }
     }
 }

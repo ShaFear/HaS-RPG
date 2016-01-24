@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="db_error_title">db_error_title</string>
-    <string name="db_error_message">db_error_message</string>
-    <string name="error_alert_title">ERROR</string>
-    <string name="error_alert_message">error_alert_message</string>
-    <string name="not_logged_error_title">not_logged_error_title</string>
-    <string name="not_logged_error_message">not_logged_error_message</string>
+    <string name="db_error_title">Server error</string>
+    <string name="db_error_message">Please try again</string>
+    <string name="error_alert_title">Error</string>
+    <string name="error_alert_message">Some error, please try again</string>
+    <string name="not_logged_error_title">Not logged</string>
+    <string name="not_logged_error_message">You\'re not logged. Please login again.</string>
 </resources>

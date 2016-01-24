@@ -43,8 +43,8 @@
     <string name="hunter_final_attack_range_title">Final attack</string>
     <string name="hunter_skill_points_title">Skill points</string>
     <string name="skills_title">SKILLS</string>
-    <string name="characters_saved_title">characters_saved_title</string>
-    <string name="characters_saved_message">characters_saved_message</string>
+    <string name="characters_saved_title">Characters saved</string>
+    <string name="characters_saved_message">Your characters are saved</string>
 
 
 </resources>

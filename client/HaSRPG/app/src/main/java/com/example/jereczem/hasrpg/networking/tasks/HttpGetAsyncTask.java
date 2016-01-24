@@ -13,6 +13,7 @@ import java.io.IOException;
 public class HttpGetAsyncTask extends HttpConnectionAsyncTask<Object, Void, HttpConnection> {
     @Override
     protected HttpResponse doInBackground(Object... params) {
+
         String url = (String) params[0];
         try {
             return HttpConnection.get(url);

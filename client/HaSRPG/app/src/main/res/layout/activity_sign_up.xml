@@ -74,12 +74,13 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/signup_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/sign_un_button"
-                android:onClick="signUp"/>
+                android:background="@drawable/roundedbutton"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
     </ScrollView>

@@ -1,7 +1,15 @@
 package com.example.jereczem.hasrpg.view.logic;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.jereczem.hasrpg.R;
@@ -31,9 +39,30 @@ public class SignInLogic{
         CookieHandler.setDefault(cookieManager);
         this.a = activity;
         new ToolbarSetter(a);
+
+        final ProgressDialog progressDialog = new ProgressDialog(a);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
+
+        Button signInButton = (Button) a.findViewById(R.id.login_button);
+        signInButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    progressDialog.show();
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    signInClick();
+                    progressDialog.dismiss();
+                }
+                return false;
+            }
+        });
     }
 
     public void signInClick(){
+
+
         EditText loginEditText = (EditText) a.findViewById(R.id.login_input);
         EditText passwordEditText = (EditText) a.findViewById(R.id.password_input);
         String login = loginEditText.getText().toString();
@@ -57,57 +86,5 @@ public class SignInLogic{
         Intent intent = new Intent(a, SignUpActivity.class);
         a.startActivity(intent);
     }
-
-    public void shafear(){
-        String login = "Shafear";
-        String password = "czapiczapi1";
-
-        HttpResponse response = null;
-        try {
-            response = SignInPoster.getResponse(login, password);
-            if(response.getCode().equals(200)){
-                Intent intent = new Intent(a, MenuActivity.class);
-                a.startActivity(intent);
-            }
-        } catch (RestException e) {
-            e.printStackTrace();
-            e.getErrorAlert(a).show();
-        }
-    }
-
-    public void user1(){
-        String login = "User1";
-        String password = "czapiczapi1";
-
-        HttpResponse response = null;
-        try {
-            response = SignInPoster.getResponse(login, password);
-            if(response.getCode().equals(200)){
-                Intent intent = new Intent(a, MenuActivity.class);
-                a.startActivity(intent);
-            }
-        } catch (RestException e) {
-            e.printStackTrace();
-            e.getErrorAlert(a).show();
-        }
-    }
-
-    public void threexe(){
-        String login = "threexe";
-        String password = "czapiczapi1";
-
-        HttpResponse response = null;
-        try {
-            response = SignInPoster.getResponse(login, password);
-            if(response.getCode().equals(200)){
-                Intent intent = new Intent(a, MenuActivity.class);
-                a.startActivity(intent);
-            }
-        } catch (RestException e) {
-            e.printStackTrace();
-            e.getErrorAlert(a).show();
-        }
-    }
-
 
 }

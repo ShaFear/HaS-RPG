@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app.js" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/user_operations.js" afterPath="$PROJECT_DIR$/database/user_operations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/mycharacters.js" afterPath="$PROJECT_DIR$/routes/mycharacters.js" />
-    </list>
+    <list default="true" id="49dd5270-63c7-487a-aa07-5d532a33edde" name="Default" comment="" />
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +47,7 @@
       <file leaf-file-name="mycharacters.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/mycharacters.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54956895">
+            <state vertical-scroll-proportion="0.8279221">
               <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="21" />
               <folding />
             </state>
@@ -125,8 +122,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="22" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -311,10 +308,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="22" width="1382" height="754" extended-state="7" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24670571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -705,7 +702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/mycharacters.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54956895">
+        <state vertical-scroll-proportion="0.8279221">
           <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="21" />
           <folding />
         </state>
