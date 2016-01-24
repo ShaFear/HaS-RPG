@@ -11,5 +11,5 @@ klienta(Android) jest już ukończona.
 • Tematy: REST, zadania asynchroniczne, material design.
 
 <h3>Link do .apk </h3>
-<a href="https://onedrive.live.com/redir?resid=4E4659BC89F6BE5C!629&authkey=!AEZ-wiAsmvaRlow&ithint=file%2capk">HaSRPG - download</a>
+<a href="https://onedrive.live.com/redir?resid=4E4659BC89F6BE5C!644&authkey=!AKFHLK447QFaS2g&ithint=file%2capk">HaSRPG - download</a>
 
