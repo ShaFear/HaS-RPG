@@ -55,8 +55,7 @@
                     android:id="@+id/login_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Shafear" />
+                    android:layout_gravity="center_horizontal" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -72,8 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:ems="10"
-                    android:inputType="textPassword"
-                    android:text="czapiczapi1" />
+                    android:inputType="textPassword" />
 
                 <Button
                     android:id="@+id/login_button"
